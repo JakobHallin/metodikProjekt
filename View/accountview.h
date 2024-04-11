@@ -6,7 +6,7 @@
 #include <QMainWindow>
 #include <QVBoxLayout>
 #include "stockview.h"
-
+#include "../ViewModel/accountviewmodel.h"
 //#include "ui_accountview.h"
 namespace Ui {
 class accountview;
@@ -17,7 +17,7 @@ class accountview : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit accountview(int accountId, int balance, QWidget *parent = nullptr);
+    explicit accountview(AccountViewModel* viewModel, QWidget *parent = nullptr);
     ~accountview();
     stockview* addStock(int id, int amount);
 

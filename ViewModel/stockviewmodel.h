@@ -16,7 +16,7 @@ signals:
 private:
     Stock* stock;
 private slots:
-    void stockUpdate();
+    void stockUpdate(); //not yet implemented
 
 
 };

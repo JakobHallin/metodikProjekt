@@ -12,6 +12,7 @@ Account::Account(int id, float balance, QObject *parent) : QObject(parent), id(i
         int amount = stmt.value("Amount").toInt();
         this->addStock(new Stock(stockId, amount));
     }
+    //unsure if I need to emit signal here?
 }
 
 int Account::getSize() {
@@ -46,6 +47,7 @@ std::vector<Stock*> Account::getHolding() {
 
 void Account::addStock(Stock* stock) {
     holding.push_back(stock);
+    emit stocksChanged();
 }
 
 void Account::addBalance(float totalprice) {
@@ -54,6 +56,7 @@ void Account::addBalance(float totalprice) {
     QString sql = QString("UPDATE Accounts SET Balance = Balance + %1 WHERE AccountID = %2").arg(totalprice).arg(accountID);
     Sql classSql;
     classSql.execute(sql);
+    emit balanceChanged(balance);
 }
 
 void Account::removeFromBalance(float totalprice) {
@@ -62,6 +65,8 @@ void Account::removeFromBalance(float totalprice) {
     QString sql = QString("UPDATE Accounts SET Balance = (SELECT Balance FROM Accounts WHERE AccountID = %1) - %2 WHERE AccountID = %1").arg(accountID).arg(totalprice);
     Sql classSql;
     classSql.execute(sql);
+
+    emit balanceChanged(balance);
 }
 
 float Account::getPrice(int StockID) {
@@ -93,7 +98,10 @@ void Account::buyStock(int StockId, int amount) {
             prep *= amount;
             if (getBalance() > prep) {
                 changeHolding(i, amount);
+                //emit stocksChanged();
+
                 removeFromBalance(prep);
+                //emit balanceChanged(balance);
             }
         }
     }
@@ -105,7 +113,10 @@ void Account::buyStock(int StockId, int amount) {
             Stock* stock = new Stock(StockId, amount);
             addStock(stock);
             insertNewStock(StockId, amount);
+            //emit stocksChanged();
+
             removeFromBalance(prep);
+            //emit balanceChanged(balance);
         }
     }
 }
@@ -115,6 +126,8 @@ void Account::changeHolding(int index, int amount) {
     int stockAmount = getStockAmount(index);//holding[index]->getAmount();
     int stockID = getStockID(index);//holding[index]->getID();
     updateStockHolding(stockID, stockAmount);
+    //dont need to emit here
+
 }
 
 void Account::updateStockHolding(int stockID, int stockAmount) {
@@ -125,6 +138,7 @@ void Account::updateStockHolding(int stockID, int stockAmount) {
     Sql classSql;
     classSql.prepareStatement(sql);
     classSql.execute(sql);
+    updateStockHolding(stockID, stockAmount);
 }
 
 void Account::insertNewStock(int StockId, int amount) {
@@ -158,6 +172,6 @@ void Account::sellStock(int StockID, int amount) {
     }            
 }
 //signals
-void Account::balanceChanged(double newBalance){}
-void Account::stocksChanged(){}
+//void Account::balanceChanged(double newBalance){}
+//void Account::stocksChanged(){}
 

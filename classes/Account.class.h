@@ -29,12 +29,15 @@ public:
     int getID();
     float getBalance();
     std::vector<Stock*> getHolding();
+
     void addStock(Stock* stock);
     void addBalance(float totalprice);
     void removeFromBalance(float totalprice);
     float getPrice(int stockID);
+
     void buyStock(int StockId, int amount);
     void sellStock(int StockID, int amount);
+
 signals:
     void balanceChanged(double newBalance);
     void stocksChanged();
