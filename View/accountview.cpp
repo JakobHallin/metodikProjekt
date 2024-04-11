@@ -24,8 +24,8 @@ accountview::~accountview()
 
 
       QVector<StockViewModel*> myVector = viewModel->getstockViewModels();
-      for (StockViewModel* stockview : myVector) {
-          if (stockview){
+      for (StockViewModel* stockviewItem : myVector) {
+          if (stockviewItem){
               QWidget *scrollWidget = ui->scrollArea->widget();
               QVBoxLayout *scrollLayout;
               if (scrollWidget == nullptr) {
@@ -53,7 +53,7 @@ accountview::~accountview()
                 }
             }
             if (scrollLayout) {
-                scrollLayout->addWidget(stockView);
+                scrollLayout->addWidget(stockview);
                 scrollLayout->setContentsMargins(10, 0, 0, 20);
         //scrollLayout->setAlignment(Qt::AlignTop);
         //stocks.append(stockView);
