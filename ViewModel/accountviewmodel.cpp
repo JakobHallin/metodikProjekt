@@ -5,7 +5,7 @@ AccountViewModel::AccountViewModel(QObject* parent): QObject(parent) {}
 
 
 void AccountViewModel::setAccount(Account* account){
-    account = account;
+    this->account = account;
     connect(account, &Account::balanceChanged, this, &AccountViewModel::accountUpdate);
     connect(account, &Account::stocksChanged, this, &AccountViewModel::accountUpdate);
 }
