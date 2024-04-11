@@ -2,10 +2,11 @@
 #define USER_H
 
 #include <vector>
+#include <QObject>
 #include "Sql.class.h"
 #include "Account.class.h"
 
-class User {
+class User: public QObject {
 private:
     std::vector<Account*> Accounts;
 

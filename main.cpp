@@ -2,6 +2,7 @@
 #include "classes/User.class.h"
 #include "classes/Stock.class.h"
 #include "classes/Account.class.h"
+#include "View/stockview.h"
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlError>
@@ -54,6 +55,8 @@ int main(int argc, char *argv[])
 
     User test("Jakob");
     //account och Stocks funkar
+    stockview s(2,3);
+    s.show();
 
     MainWindow w;
     w.show();

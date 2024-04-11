@@ -1,17 +1,22 @@
 #ifndef STOCK_H
 #define STOCK_H
-
-class Stock {
+#include <QObject>
+class Stock: public QObject  {
+    Q_OBJECT
 private:
-    int amount;
-    int id;
+    int amount; //ska aldrig ändras
+    const int id;
 
 public:
-    Stock(int id, int amount);
-    void setID(int id);
+    explicit Stock(int id, int amount, QObject *parent = nullptr);
+    //void setID(int id);
     void setAmount(int n);
-    int getAmount();
-    int getID();
+    int getID() const { return id; }
+//    getAmount();
+    int getAmount() { return amount; }
     void addAmount(int number);
+signals:
+    void amountChanged(int newAmount);
+
 };
 #endif

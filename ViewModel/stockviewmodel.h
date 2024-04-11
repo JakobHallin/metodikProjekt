@@ -1,10 +1,24 @@
 #ifndef STOCKVIEWMODEL_H
 #define STOCKVIEWMODEL_H
-
-class StockViewModel
+#include <QObject>
+#include "../classes/Stock.class.h"
+class StockViewModel: public QObject
 {
+    Q_OBJECT
 public:
-    StockViewModel();
+    explicit StockViewModel(QObject *parent = nullptr);
+    void setStock(Stock* stock); // Associate a Stock model with this ViewModel
+
+    int id() const;
+    int amount() const;
+
+private:
+    Stock* stock;
+private slots:
+    void stockUpdate();
+signals:
+    void amountChanged();
+
 };
 
 #endif // STOCKVIEWMODEL_H

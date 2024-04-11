@@ -3,3 +3,5 @@
 #include "WB4RFHLAU6/moc_mainwindow.cpp"
 #include "WB4RFHLAU6/moc_stockview.cpp"
 #include "WB4RFHLAU6/moc_userview.cpp"
+#include "PZVFIPK5HQ/moc_stockviewmodel.cpp"
+#include "QESDO5J2AP/moc_Stock.class.cpp"
