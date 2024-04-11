@@ -14,6 +14,7 @@ public:
 signals:
     void amountChanged();
 private:
+    int testdata = 2;
     Stock* stock;
 private slots:
     void stockUpdate(); //not yet implemented

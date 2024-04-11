@@ -14,7 +14,7 @@ class Account: public QObject {
 private:
     int id;
     float balance;
-    std::vector<Stock*> holding;
+    QVector<Stock*> holding;
     
     void updateStockHolding(int stockID, int stockAmount);
     void insertNewStock(int stockId, int amount);
@@ -28,7 +28,7 @@ public:
     void setBalance(float n);
     int getID();
     float getBalance();
-    std::vector<Stock*> getHolding();
+    QVector<Stock*> getHolding();
 
     void addStock(Stock* stock);
     void addBalance(float totalprice);

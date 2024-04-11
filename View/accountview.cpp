@@ -15,27 +15,33 @@ accountview::~accountview()
 {
     delete ui;
 }
+/*stockview* accountview::addStock(AccountViewModel* viewModel){
+   // Stock* stockpointer = viewModel->getAccount()->getHolding().at(0);
+   // Stock
 
-/*
- * stockview* accountview::addStock(int id, int amount){
-    stockview *stockView = new stockview(id, amount, this);
-    QWidget *scrollWidget = ui->scrollArea->widget();
-    QVBoxLayout *scrollLayout;
+}*/
+  void accountview::addStock(AccountViewModel* viewModel){
 
-    if (scrollWidget == nullptr) {
-        // If the scroll area does not have a widget, set one with a vertical layout
-        scrollWidget = new QWidget();
-        ui->scrollArea->setWidget(scrollWidget); // Assign the new widget to the scroll area
-        scrollLayout = new QVBoxLayout(scrollWidget); // Create the layout and assign it to the content widget
-        scrollWidget->setLayout(scrollLayout);
-    }
+
+      QVector<StockViewModel*> myVector = viewModel->getstockViewModels();
+      for (StockViewModel* stockview : myVector) {
+          if (stockview){
+              QWidget *scrollWidget = ui->scrollArea->widget();
+              QVBoxLayout *scrollLayout;
+              if (scrollWidget == nullptr) {
+                  // If the scroll area does not have a widget, set one with a vertical layout
+                scrollWidget = new QWidget();
+                ui->scrollArea->setWidget(scrollWidget); // Assign the new widget to the scroll area
+                scrollLayout = new QVBoxLayout(scrollWidget); // Create the layout and assign it to the content widget
+                scrollWidget->setLayout(scrollLayout);
+            }
     //QVBoxLayout
-    else {
-        scrollLayout = qobject_cast<QVBoxLayout*>(scrollWidget->layout());
+            else {
+                scrollLayout = qobject_cast<QVBoxLayout*>(scrollWidget->layout());
 
-        if (!scrollLayout) { // If the layout is not a QVBoxLayout or does not exist
+                if (!scrollLayout) { // If the layout is not a QVBoxLayout or does not exist
             // If the cast failed, create a new QVBoxLayout
-            scrollLayout = new QVBoxLayout(scrollWidget);
+                    scrollLayout = new QVBoxLayout(scrollWidget);
             // Create a new QVBoxLayout if the cast failed
             //scrollLayout = new QVBoxLayout();
             //crollLayout->addWidget(accountView);
@@ -44,17 +50,17 @@ accountview::~accountview()
             //  scrollWidget->setLayout(scrollLayout);
             //accounts.append(accountView);
 
-        }
-    }
-    if (scrollLayout) {
-        scrollLayout->addWidget(stockView);
-        scrollLayout->setContentsMargins(10, 0, 0, 20);
+                }
+            }
+            if (scrollLayout) {
+                scrollLayout->addWidget(stockView);
+                scrollLayout->setContentsMargins(10, 0, 0, 20);
         //scrollLayout->setAlignment(Qt::AlignTop);
         //stocks.append(stockView);
-        stocks.append(stockView);
-    }
-    scrollLayout->setAlignment(Qt::AlignTop);
-    scrollWidget->layout()->activate();
+            stocks.append(stockView);
+            }
+        scrollLayout->setAlignment(Qt::AlignTop);
+        scrollWidget->layout()->activate();
 
     //scrollWidget->updateGeometry();
     //ui->scrollArea->updateGeometry();
@@ -63,7 +69,7 @@ accountview::~accountview()
     // scrollWidget->adjustSize();
     // scrollLayout->setContentsMargins(10, 0, 0, 20);
     //scrollLayout->update();
-
-    return stockView;
+      }
+    }
 }
-*/
+

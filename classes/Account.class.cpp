@@ -41,7 +41,7 @@ float Account::getBalance() {
     return balance;
 }
 
-std::vector<Stock*> Account::getHolding() {
+QVector<Stock*> Account::getHolding() {
     return holding;
 }
 

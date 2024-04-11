@@ -6,6 +6,7 @@ class Stock: public QObject  {
 private:
     int amount; //ska aldrig ändras
     const int id;
+    int testdata = 0;
 
 public:
     explicit Stock(int id, int amount, QObject *parent = nullptr);
