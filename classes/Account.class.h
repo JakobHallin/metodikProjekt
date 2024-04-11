@@ -1,0 +1,38 @@
+#ifndef ACCOUNT_H
+#define ACCOUNT_H
+
+#include <vector>
+#include "Sql.class.h"
+#include "Api.class.h"
+#include <QSqlRecord>
+#include "Stock.class.h"
+//#include "api.h"
+
+class Account {
+private:
+    int id;
+    float balance;
+    std::vector<Stock*> holding;
+    
+    void updateStockHolding(int stockID, int stockAmount);
+    void insertNewStock(int stockId, int amount);
+    void changeHolding(int index, int amount);
+
+public:
+    Account(int id, float balance);
+    int getSize();
+    int getStockID(int index);
+    int getStockAmount(int index);
+    void setBalance(float n);
+    int getID();
+    float getBalance();
+    std::vector<Stock*> getHolding();
+    void addStock(Stock* stock);
+    void addBalance(float totalprice);
+    void removeFromBalance(float totalprice);
+    float getPrice(int stockID);
+    void buyStock(int StockId, int amount);
+    void sellStock(int StockID, int amount);
+};
+
+#endif

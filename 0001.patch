@@ -1,0 +1,1332 @@
+
+
+diff --git a/View/AccountViewModel.h b/View/AccountViewModel.h
+new file mode 100644
+index 0000000..e5177cb
+--- /dev/null
++++ b/View/AccountViewModel.h
+@@ -0,0 +1,17 @@
++#ifndef ACCOUNTGROUPBOX_H
++#define ACCOUNTGROUPBOX_H
++#include "qlistwidget.h"
++#include <QGroupBox>
++class AccountGroupBox : public QGroupBox {
++    Q_OBJECT
++
++public:
++    explicit AccountGroupBox(const QString &title, QWidget *parent = nullptr);
++    //AccountGroupBox(int id, double balance);
++    void addStock(int stockId, int amount);
++
++private:
++    QListWidget *stocksList;
++};
++#endif
++
+diff --git a/View/accountview.cpp b/View/accountview.cpp
+new file mode 100644
+index 0000000..1d4d274
+--- /dev/null
++++ b/View/accountview.cpp
+@@ -0,0 +1,65 @@
++#include "accountview.h"
++#include "ui_accountview.h"
++
++accountview::accountview(int accountId, int balance, QWidget *parent)
++    : QMainWindow(parent), ui(new Ui::accountview) {
++    ui->setupUi(this);
++    setMinimumSize(QSize(400, 200));
++    addStock(2,3);
++    addStock(3,5);
++    addStock(5,3);
++}
++
++accountview::~accountview()
++{
++    delete ui;
++}
++stockview* accountview::addStock(int id, int amount){
++    stockview *stockView = new stockview(id, amount, this);
++    QWidget *scrollWidget = ui->scrollArea->widget();
++    QVBoxLayout *scrollLayout;
++
++    if (scrollWidget == nullptr) {
++        // If the scroll area does not have a widget, set one with a vertical layout
++        scrollWidget = new QWidget();
++        ui->scrollArea->setWidget(scrollWidget); // Assign the new widget to the scroll area
++        scrollLayout = new QVBoxLayout(scrollWidget); // Create the layout and assign it to the content widget
++        scrollWidget->setLayout(scrollLayout);
++    }
++    //QVBoxLayout
++    else {
++        scrollLayout = qobject_cast<QVBoxLayout*>(scrollWidget->layout());
++
++        if (!scrollLayout) { // If the layout is not a QVBoxLayout or does not exist
++            // If the cast failed, create a new QVBoxLayout
++            scrollLayout = new QVBoxLayout(scrollWidget);
++            // Create a new QVBoxLayout if the cast failed
++            //scrollLayout = new QVBoxLayout();
++            //crollLayout->addWidget(accountView);
++            //  scrollLayout->setContentsMargins(10, 0, 0, 20);
++            //scrollLayout->setAlignment(Qt::AlignTop);
++            //  scrollWidget->setLayout(scrollLayout);
++            //accounts.append(accountView);
++
++        }
++    }
++    if (scrollLayout) {
++        scrollLayout->addWidget(stockView);
++        scrollLayout->setContentsMargins(10, 0, 0, 20);
++        //scrollLayout->setAlignment(Qt::AlignTop);
++        //stocks.append(stockView);
++        stocks.append(stockView);
++    }
++    scrollLayout->setAlignment(Qt::AlignTop);
++    scrollWidget->layout()->activate();
++
++    //scrollWidget->updateGeometry();
++    //ui->scrollArea->updateGeometry();
++    // scrollLayout->addWidget(accountView);
++
++    // scrollWidget->adjustSize();
++    // scrollLayout->setContentsMargins(10, 0, 0, 20);
++    //scrollLayout->update();
++    return stockView;
++}
++
+diff --git a/View/accountview.h b/View/accountview.h
+new file mode 100644
+index 0000000..a81be26
+--- /dev/null
++++ b/View/accountview.h
+@@ -0,0 +1,31 @@
++#ifndef ACCOUNTVIEW_H
++#define ACCOUNTVIEW_H
++
++#include <QMainWindow>
++#include <QWidget>
++#include <QMainWindow>
++#include <QVBoxLayout>
++#include "stockview.h"
++
++//#include "ui_accountview.h"
++namespace Ui {
++class accountview;
++}
++
++class accountview : public QMainWindow
++{
++    Q_OBJECT
++
++public:
++    explicit accountview(int accountId, int balance, QWidget *parent = nullptr);
++    ~accountview();
++    stockview* addStock(int id, int amount);
++
++
++private:
++    Ui::accountview *ui;
++    QVector<stockview*> stocks;
++};
++
++#endif // ACCOUNTVIEW_H
++
+diff --git a/View/accountview.ui b/View/accountview.ui
+new file mode 100644
+index 0000000..bc4cddd
+--- /dev/null
++++ b/View/accountview.ui
+@@ -0,0 +1,82 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<ui version="4.0">
++ <class>accountview</class>
++ <widget class="QMainWindow" name="accountview">
++  <property name="geometry">
++   <rect>
++    <x>0</x>
++    <y>0</y>
++    <width>376</width>
++    <height>320</height>
++   </rect>
++  </property>
++  <property name="windowTitle">
++   <string>MainWindow</string>
++  </property>
++  <widget class="QWidget" name="centralwidget">
++   <widget class="QLabel" name="label">
++    <property name="geometry">
++     <rect>
++      <x>10</x>
++      <y>20</y>
++      <width>111</width>
++      <height>31</height>
++     </rect>
++    </property>
++    <property name="text">
++     <string>AcccountID</string>
++    </property>
++   </widget>
++   <widget class="QLabel" name="label_2">
++    <property name="geometry">
++     <rect>
++      <x>210</x>
++      <y>30</y>
++      <width>67</width>
++      <height>17</height>
++     </rect>
++    </property>
++    <property name="text">
++     <string>Balance:</string>
++    </property>
++   </widget>
++   <widget class="QScrollArea" name="scrollArea">
++    <property name="geometry">
++     <rect>
++      <x>10</x>
++      <y>70</y>
++      <width>341</width>
++      <height>171</height>
++     </rect>
++    </property>
++    <property name="widgetResizable">
++     <bool>true</bool>
++    </property>
++    <widget class="QWidget" name="scrollAreaWidgetContents">
++     <property name="geometry">
++      <rect>
++       <x>0</x>
++       <y>0</y>
++       <width>339</width>
++       <height>169</height>
++      </rect>
++     </property>
++    </widget>
++   </widget>
++  </widget>
++  <widget class="QMenuBar" name="menubar">
++   <property name="geometry">
++    <rect>
++     <x>0</x>
++     <y>0</y>
++     <width>376</width>
++     <height>22</height>
++    </rect>
++   </property>
++  </widget>
++  <widget class="QStatusBar" name="statusbar"/>
++ </widget>
++ <resources/>
++ <connections/>
++</ui>
++
+diff --git a/View/mainwindow.cpp b/View/mainwindow.cpp
+new file mode 100644
+index 0000000..cdc29d6
+--- /dev/null
++++ b/View/mainwindow.cpp
+@@ -0,0 +1,23 @@
++#include "mainwindow.h"
++#include "./ui_mainwindow.h"
++
++MainWindow::MainWindow(QWidget *parent)
++    : QMainWindow(parent)
++    , ui(new Ui::MainWindow)
++{
++    ui->setupUi(this);
++    connect(ui->pushbutton, &QPushButton::clicked, this, &MainWindow::pushLoginButton);
++
++}
++
++MainWindow::~MainWindow()
++{
++    delete ui;
++}
++void MainWindow::pushLoginButton(){
++    userview *otherView = new userview();
++    otherView->setAttribute(Qt::WA_DeleteOnClose); // Ensure the view is deleted when closed
++    otherView->show();
++
++}
++
+diff --git a/View/mainwindow.h b/View/mainwindow.h
+new file mode 100644
+index 0000000..2e3eea4
+--- /dev/null
++++ b/View/mainwindow.h
+@@ -0,0 +1,27 @@
++#ifndef MAINWINDOW_H
++#define MAINWINDOW_H
++
++#include <QMainWindow>
++#include "userview.h"
++
++QT_BEGIN_NAMESPACE
++namespace Ui {
++class MainWindow;
++}
++QT_END_NAMESPACE
++
++class MainWindow : public QMainWindow
++{
++    Q_OBJECT
++
++public:
++    explicit MainWindow(QWidget *parent = nullptr);
++    ~MainWindow();
++private slots:
++    void pushLoginButton();
++
++private:
++    Ui::MainWindow *ui;
++};
++#endif // MAINWINDOW_H
++
+diff --git a/View/mainwindow.ui b/View/mainwindow.ui
+new file mode 100644
+index 0000000..f48fd90
+--- /dev/null
++++ b/View/mainwindow.ui
+@@ -0,0 +1,66 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<ui version="4.0">
++ <class>MainWindow</class>
++ <widget class="QMainWindow" name="MainWindow">
++  <property name="geometry">
++   <rect>
++    <x>0</x>
++    <y>0</y>
++    <width>800</width>
++    <height>600</height>
++   </rect>
++  </property>
++  <property name="windowTitle">
++   <string>MainWindow</string>
++  </property>
++  <widget class="QWidget" name="centralwidget">
++   <widget class="QLineEdit" name="lineEdit">
++    <property name="geometry">
++     <rect>
++      <x>160</x>
++      <y>100</y>
++      <width>113</width>
++      <height>25</height>
++     </rect>
++    </property>
++   </widget>
++   <widget class="QLineEdit" name="lineEdit_2">
++    <property name="geometry">
++     <rect>
++      <x>160</x>
++      <y>170</y>
++      <width>113</width>
++      <height>25</height>
++     </rect>
++    </property>
++   </widget>
++   <widget class="QPushButton" name="pushbutton">
++    <property name="geometry">
++     <rect>
++      <x>330</x>
++      <y>170</y>
++      <width>89</width>
++      <height>25</height>
++     </rect>
++    </property>
++    <property name="text">
++     <string>Login</string>
++    </property>
++   </widget>
++  </widget>
++  <widget class="QMenuBar" name="menubar">
++   <property name="geometry">
++    <rect>
++     <x>0</x>
++     <y>0</y>
++     <width>800</width>
++     <height>22</height>
++    </rect>
++   </property>
++  </widget>
++  <widget class="QStatusBar" name="statusbar"/>
++ </widget>
++ <resources/>
++ <connections/>
++</ui>
++
+diff --git a/View/stockview.cpp b/View/stockview.cpp
+new file mode 100644
+index 0000000..aa5b54b
+--- /dev/null
++++ b/View/stockview.cpp
+@@ -0,0 +1,21 @@
++#include "stockview.h"
++#include "ui_stockview.h"
++
++stockview::stockview(int id, int amount, QWidget *parent)
++    : QMainWindow(parent)
++    , ui(new Ui::stockview)
++{
++    ui->setupUi(this);
++    QString stringId = QString::number(id);
++    QString stringAmount = QString::number(amount);
++    ui->label->setText(stringId);
++    ui->label_2->setText(stringAmount);
++    setMinimumSize(QSize(40, 90));
++
++}
++
++stockview::~stockview()
++{
++    delete ui;
++}
++
+diff --git a/View/stockview.h b/View/stockview.h
+new file mode 100644
+index 0000000..7854053
+--- /dev/null
++++ b/View/stockview.h
+@@ -0,0 +1,23 @@
++#ifndef STOCKVIEW_H
++#define STOCKVIEW_H
++
++#include <QMainWindow>
++#include <qlabel.h>
++namespace Ui {
++class stockview;
++}
++
++class stockview : public QMainWindow
++{
++    Q_OBJECT
++
++public:
++    explicit stockview(int id, int amount, QWidget *parent = nullptr);
++    ~stockview();
++
++private:
++    Ui::stockview *ui;
++};
++
++#endif // STOCKVIEW_H
++
+diff --git a/View/stockview.ui b/View/stockview.ui
+new file mode 100644
+index 0000000..0098e9c
+--- /dev/null
++++ b/View/stockview.ui
+@@ -0,0 +1,85 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<ui version="4.0">
++ <class>stockview</class>
++ <widget class="QMainWindow" name="stockview">
++  <property name="geometry">
++   <rect>
++    <x>0</x>
++    <y>0</y>
++    <width>365</width>
++    <height>116</height>
++   </rect>
++  </property>
++  <property name="windowTitle">
++   <string>MainWindow</string>
++  </property>
++  <widget class="QWidget" name="centralwidget">
++   <widget class="QLabel" name="label">
++    <property name="geometry">
++     <rect>
++      <x>80</x>
++      <y>30</y>
++      <width>67</width>
++      <height>17</height>
++     </rect>
++    </property>
++    <property name="text">
++     <string>TextLabel</string>
++    </property>
++   </widget>
++   <widget class="QLabel" name="label_2">
++    <property name="geometry">
++     <rect>
++      <x>250</x>
++      <y>30</y>
++      <width>67</width>
++      <height>17</height>
++     </rect>
++    </property>
++    <property name="text">
++     <string>TextLabel</string>
++    </property>
++   </widget>
++   <widget class="QLabel" name="label_3">
++    <property name="geometry">
++     <rect>
++      <x>20</x>
++      <y>30</y>
++      <width>67</width>
++      <height>17</height>
++     </rect>
++    </property>
++    <property name="text">
++     <string>StockID:</string>
++    </property>
++   </widget>
++   <widget class="QLabel" name="label_4">
++    <property name="geometry">
++     <rect>
++      <x>180</x>
++      <y>30</y>
++      <width>67</width>
++      <height>17</height>
++     </rect>
++    </property>
++    <property name="text">
++     <string>Amount:</string>
++    </property>
++   </widget>
++  </widget>
++  <widget class="QMenuBar" name="menubar">
++   <property name="geometry">
++    <rect>
++     <x>0</x>
++     <y>0</y>
++     <width>365</width>
++     <height>22</height>
++    </rect>
++   </property>
++  </widget>
++  <widget class="QStatusBar" name="statusbar"/>
++ </widget>
++ <resources/>
++ <connections/>
++</ui>
++
+diff --git a/View/userview.cpp b/View/userview.cpp
+new file mode 100644
+index 0000000..434837e
+--- /dev/null
++++ b/View/userview.cpp
+@@ -0,0 +1,77 @@
++#include "userview.h"
++#include "ui_userview.h"
++
++userview::userview(QWidget *parent)
++    : QMainWindow(parent)
++    , ui(new Ui::userview)
++{
++    ui->setupUi(this);
++    ui->scrollArea->setWidgetResizable(true);
++   accountview* test = addAccountView(1, 10008);
++    test->addStock(100,200);
++   /*  accountview* test2 = addAccountView(2, 10008);
++   accountview* test3 = addAccountView(3, 10008);
++    accountview* test4 = addAccountView(4, 10008);
++   accountview* test5 = addAccountView(5, 10008);
++   accountview* test6 = addAccountView(6, 10008); */
++
++   //accountview* test7 = addAccountView(6, 10008);
++   //accountview* test8 = addAccountView(8, 10008);
++
++
++    //ui->scrollArea->update();
++}
++
++userview::~userview()
++{
++    delete ui;
++}
++accountview* userview::addAccountView(int accountId, int balance) {
++    // Assumes the layout is already created in the constructor
++    accountview *accountView = new accountview(accountId, balance, this);
++    QWidget *scrollWidget = ui->scrollArea->widget();
++    QVBoxLayout *scrollLayout;
++
++    if (scrollWidget == nullptr) {
++        // If the scroll area does not have a widget, set one with a vertical layout
++        scrollWidget = new QWidget();
++        ui->scrollArea->setWidget(scrollWidget); // Assign the new widget to the scroll area
++        scrollLayout = new QVBoxLayout(scrollWidget); // Create the layout and assign it to the content widget
++        scrollWidget->setLayout(scrollLayout);
++    }
++    //QVBoxLayout
++    else {
++        scrollLayout = qobject_cast<QVBoxLayout*>(scrollWidget->layout());
++
++        if (!scrollLayout) { // If the layout is not a QVBoxLayout or does not exist
++             // If the cast failed, create a new QVBoxLayout
++                scrollLayout = new QVBoxLayout(scrollWidget);
++            // Create a new QVBoxLayout if the cast failed
++            //scrollLayout = new QVBoxLayout();
++            //crollLayout->addWidget(accountView);
++            //  scrollLayout->setContentsMargins(10, 0, 0, 20);
++            //scrollLayout->setAlignment(Qt::AlignTop);
++            //  scrollWidget->setLayout(scrollLayout);
++            //accounts.append(accountView);
++
++        }
++    }
++    if (scrollLayout) {
++            scrollLayout->addWidget(accountView);
++            scrollLayout->setContentsMargins(10, 0, 0, 20);
++           //scrollLayout->setAlignment(Qt::AlignTop);
++            accounts.append(accountView);
++    }
++    scrollLayout->setAlignment(Qt::AlignTop);
++    scrollWidget->layout()->activate();
++
++    //scrollWidget->updateGeometry();
++    //ui->scrollArea->updateGeometry();
++   // scrollLayout->addWidget(accountView);
++
++   // scrollWidget->adjustSize();
++   // scrollLayout->setContentsMargins(10, 0, 0, 20);
++   //scrollLayout->update();
++    return accountView;
++}
++
+diff --git a/View/userview.h b/View/userview.h
+new file mode 100644
+index 0000000..21c5de3
+--- /dev/null
++++ b/View/userview.h
+@@ -0,0 +1,30 @@
++#ifndef USERVIEW_H
++#define USERVIEW_H
++
++#include <QMainWindow>
++#include <QVBoxLayout>
++#include "accountview.h"
++
++namespace Ui {
++class userview;
++}
++
++class userview : public QMainWindow
++{
++    Q_OBJECT
++
++public:
++    explicit userview(QWidget *parent = nullptr); //should get userID
++    ~userview();
++    //void addAccountView(accountview *accountView);
++    accountview* addAccountView(int accountId, int balance);
++    //AccountGroupBox* addAccountGroup(int accountId, int balance);
++
++private:
++    Ui::userview *ui;
++    QVector<accountview*> accounts;
++
++};
++
++#endif // USERVIEW_H
++
+diff --git a/View/userview.ui b/View/userview.ui
+new file mode 100644
+index 0000000..dd074b7
+--- /dev/null
++++ b/View/userview.ui
+@@ -0,0 +1,69 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<ui version="4.0">
++ <class>userview</class>
++ <widget class="QMainWindow" name="userview">
++  <property name="geometry">
++   <rect>
++    <x>0</x>
++    <y>0</y>
++    <width>800</width>
++    <height>600</height>
++   </rect>
++  </property>
++  <property name="windowTitle">
++   <string>MainWindow</string>
++  </property>
++  <widget class="QWidget" name="centralwidget">
++   <widget class="QLabel" name="label">
++    <property name="geometry">
++     <rect>
++      <x>60</x>
++      <y>30</y>
++      <width>67</width>
++      <height>17</height>
++     </rect>
++    </property>
++    <property name="text">
++     <string>User:</string>
++    </property>
++   </widget>
++   <widget class="QScrollArea" name="scrollArea">
++    <property name="geometry">
++     <rect>
++      <x>90</x>
++      <y>60</y>
++      <width>521</width>
++      <height>381</height>
++     </rect>
++    </property>
++    <property name="widgetResizable">
++     <bool>true</bool>
++    </property>
++    <widget class="QWidget" name="scrollAreaWidgetContents">
++     <property name="geometry">
++      <rect>
++       <x>0</x>
++       <y>0</y>
++       <width>519</width>
++       <height>379</height>
++      </rect>
++     </property>
++    </widget>
++   </widget>
++  </widget>
++  <widget class="QMenuBar" name="menubar">
++   <property name="geometry">
++    <rect>
++     <x>0</x>
++     <y>0</y>
++     <width>800</width>
++     <height>22</height>
++    </rect>
++   </property>
++  </widget>
++  <widget class="QStatusBar" name="statusbar"/>
++ </widget>
++ <resources/>
++ <connections/>
++</ui>
++
+diff --git a/ViewModel/AccountViewModel.h b/ViewModel/AccountViewModel.h
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/ViewModel/accountview.cpp b/ViewModel/accountview.cpp
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/ViewModel/accountview.h b/ViewModel/accountview.h
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/ViewModel/accountview.ui b/ViewModel/accountview.ui
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/ViewModel/mainwindow.cpp b/ViewModel/mainwindow.cpp
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/ViewModel/mainwindow.h b/ViewModel/mainwindow.h
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/ViewModel/mainwindow.ui b/ViewModel/mainwindow.ui
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/ViewModel/stockview.cpp b/ViewModel/stockview.cpp
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/ViewModel/stockview.h b/ViewModel/stockview.h
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/ViewModel/stockview.ui b/ViewModel/stockview.ui
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/ViewModel/userview.cpp b/ViewModel/userview.cpp
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/ViewModel/userview.h b/ViewModel/userview.h
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/ViewModel/userview.ui b/ViewModel/userview.ui
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/classes/Account.class.cpp b/classes/Account.class.cpp
+new file mode 100644
+index 0000000..0b61f83
+--- /dev/null
++++ b/classes/Account.class.cpp
+@@ -0,0 +1,156 @@
++#include "Account.class.h"
++
++Account::Account(int id, float balance) : id(id), balance(balance) {
++    // Get all the stocks from the database that are related to this account
++    QString sql = QString("SELECT * FROM Stock WHERE AccountID= %1").arg(id);
++    Sql classSql;
++    QSqlQuery stmt = classSql.execute(sql); //Becuse user should not set the arguments should be recived from databas
++
++    
++    while (stmt.next()) { // Assuming QSqlQuery is used directly or wrapped by Sql::ResultStmt
++        int stockId = stmt.value("StocksID").toInt();
++        int amount = stmt.value("Amount").toInt();
++        this->addStock(new Stock(stockId, amount));
++    }
++}
++
++int Account::getSize() {
++    return holding.size();
++}
++
++int Account::getStockID(int index) {
++    return holding[index]->getID();
++}
++
++int Account::getStockAmount(int index) {
++    return holding[index]->getAmount();
++}
++
++void Account::setBalance(float n) {
++    balance = n;
++}
++
++int Account::getID() {
++    return id;
++}
++
++float Account::getBalance() {
++    return balance;
++}
++
++std::vector<Stock*> Account::getHolding() {
++    return holding;
++}
++
++void Account::addStock(Stock* stock) {
++    holding.push_back(stock);
++}
++
++void Account::addBalance(float totalprice) {
++    balance += totalprice;
++    int accountID = getID();
++    QString sql = QString("UPDATE Accounts SET Balance = Balance + %1 WHERE AccountID = %2").arg(totalprice).arg(accountID);
++    Sql classSql;
++    classSql.execute(sql);
++}
++
++void Account::removeFromBalance(float totalprice) {
++    balance -= totalprice;
++    int accountID = getID();
++    QString sql = QString("UPDATE Accounts SET Balance = (SELECT Balance FROM Accounts WHERE AccountID = %1) - %2 WHERE AccountID = %1").arg(accountID).arg(totalprice);
++    Sql classSql;
++    classSql.execute(sql);
++}
++
++float Account::getPrice(int StockID) {
++    QString shortName = "";
++    QString sql = QString("SELECT * FROM AllStocks WHERE StocksID= %1").arg(StockID);
++    Sql classSql;
++    QSqlQuery stmt = classSql.execute(sql);
++    stmt.bindValue(":stockID", StockID);
++    //QSqlRecord rec = stmt.record();
++    while(stmt.next()) {
++        shortName = stmt.value(stmt.record().indexOf("Short")).toString();
++    //row["Short"];
++    }
++    Api api;
++    //return
++    int price = api.getPrice(shortName);
++    return price;
++
++}
++
++void Account::buyStock(int StockId, int amount) {
++    bool flag = false;
++    for (size_t i = 0; i < holding.size(); i++) {
++        if (StockId == holding[i]->getID()) {
++            flag = true;
++            float prep = getPrice(StockId);
++            prep *= amount;
++            if (getBalance() > prep) {
++                changeHolding(i, amount);
++                removeFromBalance(prep);
++            }
++        }
++    }
++    if (!flag) {
++        float prep = getPrice(StockId);
++        prep *= amount;
++        if (getBalance() > prep) {
++            balance -= prep;
++            Stock* stock = new Stock(StockId, amount);
++            addStock(stock);
++            insertNewStock(StockId, amount);
++            removeFromBalance(prep);
++        }
++    }
++}
++
++void Account::changeHolding(int index, int amount) {
++    holding[index]->addAmount(amount);
++    int stockAmount = holding[index]->getAmount();
++    int stockID = holding[index]->getID();
++    updateStockHolding(stockID, stockAmount);
++}
++
++void Account::updateStockHolding(int stockID, int stockAmount) {
++    //std::string sql = "UPDATE Stock SET Amount = " + std::to_string(stockAmount) + " WHERE StocksID = " + std::to_string(stockID) + " AND AccountID = " + std::to_string(id);
++    QString sql = QString("UPDATE Stock SET Amount = %1 WHERE StocksID = %2 AND AccountID = %3").arg(stockAmount).arg(stockID).arg(id);
++
++
++    Sql classSql;
++    classSql.prepareStatement(sql);
++    classSql.execute(sql);
++}
++
++void Account::insertNewStock(int StockId, int amount) {
++    QString sql = "INSERT INTO `Stock`(`StocksID`, `AccountID`, `Amount`) VALUES (?,?,?)";
++    int id = getID();
++    Sql classSql;
++    classSql.insert(sql, StockId, id, amount);
++}
++
++void Account::sellStock(int StockID, int amount) {
++    int currentAmount = 0;
++    int id = getID();
++    //QString sql = "SELECT Amount FROM Stock WHERE StocksID= '" + std::to_string(StockID) + "' AND AccountID = '" + std::to_string(id) + "'";
++    QString sql = QString("SELECT Amount FROM Stock WHERE StocksID= %1 AND AccountID = %2").arg(StockID).arg(id);
++    Sql classSql;
++    QSqlQuery stmt = classSql.execute(sql);
++    while(stmt.next()) {
++        currentAmount = stmt.value(stmt.record().indexOf("Short")).toInt();
++    }
++    if (currentAmount >= amount) {
++        float price = getPrice(StockID);     
++        float totalPrice = price * amount; 
++        addBalance(totalPrice);
++        int newAmount  = currentAmount - amount;
++        updateStockHolding(StockID, newAmount);
++        for (size_t i = 0; i < holding.size(); i++) {
++            if (StockID == holding[i]->getID()) {
++                holding[i]->setAmount(newAmount);
++            }              
++        }
++    }            
++}
++
+diff --git a/classes/Account.class.h b/classes/Account.class.h
+new file mode 100644
+index 0000000..019876c
+--- /dev/null
++++ b/classes/Account.class.h
+@@ -0,0 +1,39 @@
++#ifndef ACCOUNT_H
++#define ACCOUNT_H
++
++#include <vector>
++#include "Sql.class.h"
++#include "Api.class.h"
++#include <QSqlRecord>
++#include "Stock.class.h"
++//#include "api.h"
++
++class Account {
++private:
++    int id;
++    float balance;
++    std::vector<Stock*> holding;
++    
++    void updateStockHolding(int stockID, int stockAmount);
++    void insertNewStock(int stockId, int amount);
++    void changeHolding(int index, int amount);
++
++public:
++    Account(int id, float balance);
++    int getSize();
++    int getStockID(int index);
++    int getStockAmount(int index);
++    void setBalance(float n);
++    int getID();
++    float getBalance();
++    std::vector<Stock*> getHolding();
++    void addStock(Stock* stock);
++    void addBalance(float totalprice);
++    void removeFromBalance(float totalprice);
++    float getPrice(int stockID);
++    void buyStock(int StockId, int amount);
++    void sellStock(int StockID, int amount);
++};
++
++#endif
++
+diff --git a/classes/Api.class.cpp b/classes/Api.class.cpp
+new file mode 100644
+index 0000000..5660a0f
+--- /dev/null
++++ b/classes/Api.class.cpp
+@@ -0,0 +1,23 @@
++#include "Api.class.h"
++
++
++/*
++ * double getPrice(QString shortName){ */
++        /*financialmodelingprep */
++        /*$data =file_get_contents("https://financialmodelingprep.com/api/v3/quote-short/$shortName?apikey=$this->apikey");
++
++
++        $array = json_decode($data);
++
++        $obj = $array[0];
++
++        $price = $obj->price;
++
++        return $price;*/
++        //return 32.22;
++//}
++
++int Api::getPrice(QString shortName){
++    return 32;
++}
++
+diff --git a/classes/Api.class.h b/classes/Api.class.h
+new file mode 100644
+index 0000000..a481790
+--- /dev/null
++++ b/classes/Api.class.h
+@@ -0,0 +1,14 @@
++#ifndef API_H
++#define API_H
++#include <QString>
++class Api{
++private:
++    QString key = ("87dc9fae84c01694a27ab719891dce48");
++    //private $price;
++
++public:
++    //double getPrice(QString shortName);
++    int  getPrice(QString shortName);
++};
++#endif // API_H
++
+diff --git a/classes/Db.class.cpp b/classes/Db.class.cpp
+new file mode 100644
+index 0000000..15c3456
+--- /dev/null
++++ b/classes/Db.class.cpp
+@@ -0,0 +1,29 @@
++#include "Db.class.h"
++
++bool Db::isInitialized = false;
++
++QSqlDatabase Db::getConnection()
++{
++    if (!isInitialized) {
++        initialize();
++    }
++
++    return QSqlDatabase::database(); // Returns the default connection
++}
++
++void Db::initialize()
++{
++    QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
++    db.setHostName("localhost"); // Or your specific database host
++    db.setDatabaseName("metodik"); // Your database name
++    db.setUserName("root"); // Your database username
++    db.setPassword("hallin"); // Your database password
++    db.setPort(3306); // Default MySQL/MariaDB port, change if necessary
++    if (!db.open()) {
++        qDebug() << "Error: connection with database failed:" << db.lastError().text();
++    } else {
++        qDebug() << "Database: connection ok";
++        isInitialized = true;
++    }
++}
++
+diff --git a/classes/Db.class.h b/classes/Db.class.h
+new file mode 100644
+index 0000000..82c0b8b
+--- /dev/null
++++ b/classes/Db.class.h
+@@ -0,0 +1,17 @@
++#ifndef DB_H
++#define DB_H
++#include <QtSql/QSqlDatabase>
++#include <QtSql/QSqlError>
++#include <QDebug>
++
++class Db {
++public:
++    static QSqlDatabase getConnection();
++
++private:
++    static void initialize();
++    static bool isInitialized;
++};
++
++#endif // DB_H
++
+diff --git a/classes/Sql.class.cpp b/classes/Sql.class.cpp
+new file mode 100644
+index 0000000..3165ad5
+--- /dev/null
++++ b/classes/Sql.class.cpp
+@@ -0,0 +1,58 @@
++#include "Sql.class.h"
++//Sql::Sql(Db* db) : db(db) {}
++//Sql::Sql(){this->db = *db->getConnection();}
++//dont need db
++QSqlQuery Sql::execute(const QString& sql) {
++    QSqlQuery query(Db::getConnection());
++    //call prepare first
++    //query.prepare(sql);
++
++    if (!query.exec(sql)) {
++        qDebug() << "Execute failed:" << query.lastError().text();
++    }
++    return query;
++}
++
++// Definitions for prepareStatement, execute, and bind methods (same as before)
++QSqlQuery Sql::prepareStatement(const QString& sql) {
++
++    QSqlQuery query(Db::getConnection());
++    if (!query.prepare(sql)) {
++        qDebug() << "Prepare failed:" << query.lastError().text();
++    }
++    return query;
++}
++// Templated insert method implementation
++/*template<typename T>
++void Sql::bind(QSqlQuery& stmt, const QString& index, const T& value) {
++    stmt.bindValue(index, value);
++}*/
++/*
++void Sql::bind(QSqlQuery& stmt, QString index , const T& value) {
++    stmt.bindValue(index, value);
++}
++*/
++/*
++template<typename T>
++void Sql::insert(const QString& sql, T t1, T t2, T t3) {
++    QSqlQuery stmt = prepareStatement(sql);
++    bind(stmt, ":param1", t1);
++    bind(stmt, ":param2", t2);
++    bind(stmt, ":param3", t3);
++    if (!stmt.exec()) {
++        qDebug() << "Insert failed:" << stmt.lastError().text();
++    }
++}
++*/
++// Explicit template instantiations for bind, if not defined within the header
++/*
++template void Sql::bind<int>(sqlite3_stmt*, int, const int&);
++template void Sql::bind<double>(sqlite3_stmt*, int, const double&);
++template void Sql::bind<std::string>(sqlite3_stmt*, int, const std::string&);
++
++// Explicit template instantiations for insert
++template void Sql::insert<int>(const std::string&, int, int, int);
++template void Sql::insert<double>(const std::string&, double, double, double);
++template void Sql::insert<std::string>(const std::string&, std::string, std::string, std::string);
++*/
++
+diff --git a/classes/Sql.class.h b/classes/Sql.class.h
+new file mode 100644
+index 0000000..6d62244
+--- /dev/null
++++ b/classes/Sql.class.h
+@@ -0,0 +1,45 @@
++#ifndef SQL_H
++#define SQL_H
++
++#include "Db.class.h"
++#include <QtSql/QSqlQuery>
++#include <QtSql/QSqlError>
++#include <QtSql/QSqlQueryModel>
++#include <QDebug>
++
++
++class Sql {
++private:
++    //Db* db; //makes so I can have several Sql classes but just one connection.
++    //can make Db global so i can allways reachit
++public:
++    //explicit Sql(Db* db  = nullptr);
++    //Sql();
++    QSqlQuery execute(const QString& sql);
++    QSqlQuery prepareStatement(const QString& sql);
++
++    //template<typename T>
++    //void bind(QSqlQuery& stmt, const QString& index, const T& value);
++    template<typename T>
++    void bind(QSqlQuery& stmt, const QString& index, const T& value) {
++        stmt.bindValue(index, value);
++    }
++
++    // Templated insert method for three parameters of the same type
++    template<typename T>
++    void insert(const QString& sql, T t1, T t2, T t3) {
++        QSqlQuery stmt = prepareStatement(sql);
++        bind(stmt, ":param1", t1);
++        bind(stmt, ":param2", t2);
++        bind(stmt, ":param3", t3);
++        if (!stmt.exec()) {
++            qDebug() << "Insert failed:" << stmt.lastError().text();
++        }
++    }
++
++
++    // template<typename T>
++   // void insert(const QString& sql, T t1, T t2, T t3);
++};
++#endif
++
+diff --git a/classes/Stock.class.cpp b/classes/Stock.class.cpp
+new file mode 100644
+index 0000000..defbf4d
+--- /dev/null
++++ b/classes/Stock.class.cpp
+@@ -0,0 +1,23 @@
++#include "Stock.class.h"
++
++Stock::Stock(int id, int amount) : id(id), amount(amount) {}
++
++void Stock::setID(int id) {
++    this->id = id;
++}
++
++void Stock::setAmount(int n) {
++    amount = n;
++}
++
++int Stock::getAmount() {
++    return amount;
++}
++
++int Stock::getID() {
++    return id;
++}
++
++void Stock::addAmount(int number) {
++    amount += number;
++}
+\ No newline at end of file
+diff --git a/classes/Stock.class.h b/classes/Stock.class.h
+new file mode 100644
+index 0000000..f2e6b31
+--- /dev/null
++++ b/classes/Stock.class.h
+@@ -0,0 +1,17 @@
++#ifndef STOCK_H
++#define STOCK_H
++
++class Stock {
++private:
++    int amount;
++    int id;
++
++public:
++    Stock(int id, int amount);
++    void setID(int id);
++    void setAmount(int n);
++    int getAmount();
++    int getID();
++    void addAmount(int number);
++};
++#endif
+\ No newline at end of file
+diff --git a/classes/User.class.cpp b/classes/User.class.cpp
+new file mode 100644
+index 0000000..f0850a2
+--- /dev/null
++++ b/classes/User.class.cpp
+@@ -0,0 +1,73 @@
++#include "User.class.h"
++
++
++User::User(QString userID) {
++    //std::string sql = "SELECT * FROM Accounts WHERE UserID = '" + std::to_string(userID) + "'";
++    QString sql = QString("SELECT * FROM Accounts WHERE UserID = :userID");
++
++    Sql classSql;
++    QSqlQuery stmt = classSql.execute(sql);
++    while (stmt.next()) {
++        int accountID = stmt.value(stmt.record().indexOf("Short")).toInt();
++        int balance = stmt.value(stmt.record().indexOf("Balance")).toInt();
++
++        addAccount(new Account(accountID, balance));
++    }
++}
++
++int User::getSize() {
++    return Accounts.size();
++}
++
++int User::getAmountStocks(int AccountIndex) {
++    return Accounts[AccountIndex]->getSize();
++}
++
++int User::getAccountsStockID(int AccountIndex, int stockIndex) {
++    return Accounts[AccountIndex]->getStockID(stockIndex);
++}
++
++int User::getAccountsStockAmount(int AccountIndex, int stockIndex) {
++    return Accounts[AccountIndex]->getStockAmount(stockIndex);
++}
++
++int User::getAccountID(int index) {
++    return Accounts[index]->getID();
++}
++
++float User::getBalance(int index) {
++    return Accounts[index]->getBalance();
++}
++
++void User::buyFromAccountStockAmount(int AccountIndex, int StockID, int amount) {
++    Accounts[AccountIndex]->buyStock(StockID, amount);
++}
++
++void User::sellFromAccountStockAmount(int AccountIndex, int StockID, int amount) {
++    Accounts[AccountIndex]->sellStock(StockID, amount);
++}
++
++void User::addAccount(Account* Add) {
++    Accounts.push_back(Add);
++}
++
++std::vector<Account*> User::getAccounts() {
++    return Accounts;
++}
++
++void User::changeBalance(int index, float amount) {
++    Accounts[index]->addBalance(amount);
++}
++
++bool User::stockExist(int id) {
++    QString sql = QString("Select * FROM AllStocks WHERE StocksID= %1").arg(id);
++    Sql classSql;
++    QSqlQuery stmt = classSql.execute(sql);
++    int count = 0;
++    while (stmt.next()) {
++        count++;
++    }
++    return (count == 1);
++}
++
++
+diff --git a/classes/User.class.h b/classes/User.class.h
+new file mode 100644
+index 0000000..26d6e6e
+--- /dev/null
++++ b/classes/User.class.h
+@@ -0,0 +1,29 @@
++#ifndef USER_H
++#define USER_H
++
++#include <vector>
++#include "Sql.class.h"
++#include "Account.class.h"
++
++class User {
++private:
++    std::vector<Account*> Accounts;
++
++public:
++    User(QString userID);
++    int getSize();
++    int getAmountStocks(int AccountIndex);
++    int getAccountsStockID(int AccountIndex, int stockIndex);
++    int getAccountsStockAmount(int AccountIndex, int stockIndex);
++    int getAccountID(int index);
++    float getBalance(int index);
++    void buyFromAccountStockAmount(int AccountIndex, int StockID, int amount);
++    void sellFromAccountStockAmount(int AccountIndex, int StockID, int amount);
++    void addAccount(Account* Add);
++    std::vector<Account*> getAccounts();
++    void changeBalance(int index, float amount);
++    bool stockExist(int id);
++};
++
++#endif
++
