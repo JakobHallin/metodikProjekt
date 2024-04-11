@@ -5,16 +5,19 @@ accountview::accountview(int accountId, int balance, QWidget *parent)
     : QMainWindow(parent), ui(new Ui::accountview) {
     ui->setupUi(this);
     setMinimumSize(QSize(400, 200));
-    addStock(2,3);
+    /*addStock(2,3);
     addStock(3,5);
     addStock(5,3);
+*/
 }
 
 accountview::~accountview()
 {
     delete ui;
 }
-stockview* accountview::addStock(int id, int amount){
+
+/*
+ * stockview* accountview::addStock(int id, int amount){
     stockview *stockView = new stockview(id, amount, this);
     QWidget *scrollWidget = ui->scrollArea->widget();
     QVBoxLayout *scrollLayout;
@@ -60,5 +63,7 @@ stockview* accountview::addStock(int id, int amount){
     // scrollWidget->adjustSize();
     // scrollLayout->setContentsMargins(10, 0, 0, 20);
     //scrollLayout->update();
+
     return stockView;
 }
+*/

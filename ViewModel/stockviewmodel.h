@@ -11,13 +11,13 @@ public:
 
     int id() const;
     int amount() const;
-
+signals:
+    void amountChanged();
 private:
     Stock* stock;
 private slots:
     void stockUpdate();
-signals:
-    void amountChanged();
+
 
 };
 

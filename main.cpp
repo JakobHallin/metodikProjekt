@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
     //finished test for stocks
 
 
-    //testing account
+    /*testing account
     Account account1(1, 24.4); //får account stocks
 
     account1.getBalance();
@@ -52,13 +52,14 @@ int main(int argc, char *argv[])
     QString str2 = QString::number(account1.getStockID(1)); //funkar men om den är utanför size så blir det fel
 
     qDebug() << str2;
+*/
 
-    User test("Jakob");
+  //  User test("Jakob");
     //account och Stocks funkar
-    stockview s(2,3);
-    s.show();
+    //stockview s(2,3);
+    //s.show();
 
-    MainWindow w;
-    w.show();
+   // MainWindow w;
+   // w.show();
     return a.exec();
 }

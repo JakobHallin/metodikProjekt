@@ -1,6 +1,6 @@
 #include "stockviewmodel.h"
 
-StockViewModel::StockViewModel(QObject *parent): QObject(parent), stock(nullptr){
+StockViewModel::StockViewModel(QObject *parent): QObject(parent){
 
 
 }
