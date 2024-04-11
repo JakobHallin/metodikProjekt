@@ -1,7 +1,7 @@
 #include "accountview.h"
 #include "ui_accountview.h"
-
-accountview::accountview(int accountId, int balance, QWidget *parent)
+//AccountViewModel* viewModel
+accountview::accountview(AccountViewModel* viewModel, QWidget *parent)
     : QMainWindow(parent), ui(new Ui::accountview) {
     ui->setupUi(this);
     setMinimumSize(QSize(400, 200));

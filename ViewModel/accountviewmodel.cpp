@@ -28,3 +28,7 @@ void AccountViewModel::sell(int stockID, int amount){
         account->sellStock(stockID, amount);
     }
 }
+
+void AccountViewModel::accountUpdate(){
+    emit holdingsChanged();
+}

@@ -15,13 +15,13 @@ public:
     void buy(int stockID, int amount);
     void sell(int stockID, int amount);
 
-signals:
+signals: //from model
     void balanceChanged();
     void holdingsChanged();
 private:
     Account* account;
 
-private slots:
+private slots: //from view
     void accountUpdate(); //not yet implemented
 };
 

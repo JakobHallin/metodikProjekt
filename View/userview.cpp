@@ -26,7 +26,7 @@ userview::~userview()
 {
     delete ui;
 }
-accountview* userview::addAccountView(int accountId, int balance) {
+/*accountview* userview::addAccountView(int accountId, int balance) {
     // Assumes the layout is already created in the constructor
     accountview *accountView = new accountview(accountId, balance, this);
     QWidget *scrollWidget = ui->scrollArea->widget();
@@ -74,3 +74,4 @@ accountview* userview::addAccountView(int accountId, int balance) {
    //scrollLayout->update();
     return accountView;
 }
+*/

@@ -1,7 +1,10 @@
 #include "View/mainwindow.h"
-#include "classes/User.class.h"
+//#include "classes/User.class.h"
+
 #include "classes/Stock.class.h"
 #include "classes/Account.class.h"
+#include "ViewModel/accountviewmodel.h"
+#include "View/accountview.h"
 #include "View/stockview.h"
 #include "View/stockview.h"
 #include <QSqlDatabase>
@@ -44,12 +47,16 @@ int main(int argc, char *argv[])
     qDebug() << testStock;
     //finished test for stocks
     */
+
+
+    /*
     Stock* stockpointer = new Stock(2,3);
     StockViewModel* viewModel = new StockViewModel();
     viewModel->setStock(stockpointer);
 
     stockview view (viewModel);
     view.show();
+    */
 
 
     /*testing account
@@ -63,6 +70,17 @@ int main(int argc, char *argv[])
 
     qDebug() << str2;
 */
+
+
+    //testin accountview mvvm
+    Account test (1, 24.4);
+    Account* account= &test;
+    AccountViewModel * accountViewmodel = new AccountViewModel();
+    accountViewmodel->setAccount(account);
+    accountview view (accountViewmodel);
+    view.show();
+
+
 
   //  User test("Jakob");
     //account och Stocks funkar

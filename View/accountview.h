@@ -25,6 +25,8 @@ public:
 private:
     Ui::accountview *ui;
     QVector<stockview*> stocks;
+    AccountViewModel* viewModel;
+
 };
 
 #endif // ACCOUNTVIEW_H

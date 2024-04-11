@@ -39,7 +39,7 @@ public:
     void sellStock(int StockID, int amount);
 
 signals:
-    void balanceChanged(double newBalance);
+    void balanceChanged(float value);
     void stocksChanged();
 };
 

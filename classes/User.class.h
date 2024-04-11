@@ -11,7 +11,7 @@ private:
     std::vector<Account*> Accounts;
 
 public:
-    User(QString userID);
+   /* User(QString userID);
     int getSize();
     int getAmountStocks(int AccountIndex);
     int getAccountsStockID(int AccountIndex, int stockIndex);
@@ -24,6 +24,7 @@ public:
     std::vector<Account*> getAccounts();
     void changeBalance(int index, float amount);
     bool stockExist(int id);
+*/
 };
 
 #endif
