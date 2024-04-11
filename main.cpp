@@ -3,6 +3,7 @@
 #include "classes/Stock.class.h"
 #include "classes/Account.class.h"
 #include "View/stockview.h"
+#include "View/stockview.h"
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlError>
@@ -27,6 +28,8 @@ int main(int argc, char *argv[])
         qDebug() << "Database: connection ok";
     }*/
 
+
+    /*
     //test for stock
     Stock stock1(2,3);
     //get amount works
@@ -40,6 +43,13 @@ int main(int argc, char *argv[])
     testStock = QString::number(stock1.getAmount());
     qDebug() << testStock;
     //finished test for stocks
+    */
+    Stock* stockpointer = new Stock(2,3);
+    StockViewModel* viewModel = new StockViewModel();
+    viewModel->setStock(stockpointer);
+
+    stockview view (viewModel);
+    view.show();
 
 
     /*testing account

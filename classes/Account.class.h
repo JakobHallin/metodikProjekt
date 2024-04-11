@@ -6,9 +6,11 @@
 #include "Api.class.h"
 #include <QSqlRecord>
 #include "Stock.class.h"
+#include <QObject>
 //#include "api.h"
 
-class Account {
+class Account: public QObject {
+    Q_OBJECT
 private:
     int id;
     float balance;
@@ -19,7 +21,7 @@ private:
     void changeHolding(int index, int amount);
 
 public:
-    Account(int id, float balance);
+    Account(int id, float balance, QObject *parent =nullptr);
     int getSize();
     int getStockID(int index);
     int getStockAmount(int index);
@@ -33,6 +35,9 @@ public:
     float getPrice(int stockID);
     void buyStock(int StockId, int amount);
     void sellStock(int StockID, int amount);
+signals:
+    void balanceChanged(double newBalance);
+    void stocksChanged();
 };
 
 #endif

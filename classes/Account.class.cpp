@@ -1,6 +1,6 @@
 #include "Account.class.h"
 
-Account::Account(int id, float balance) : id(id), balance(balance) {
+Account::Account(int id, float balance, QObject *parent) : QObject(parent), id(id), balance(balance) {
     // Get all the stocks from the database that are related to this account
     QString sql = QString("SELECT * FROM Stock WHERE AccountID= %1").arg(id);
     Sql classSql;
@@ -157,3 +157,7 @@ void Account::sellStock(int StockID, int amount) {
         }
     }            
 }
+//signals
+void Account::balanceChanged(double newBalance){}
+void Account::stocksChanged(){}
+

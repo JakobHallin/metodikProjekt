@@ -7,8 +7,8 @@ userview::userview(QWidget *parent)
 {
     ui->setupUi(this);
     ui->scrollArea->setWidgetResizable(true);
-   accountview* test = addAccountView(1, 10008);
-    test->addStock(100,200);
+   //accountview* test = addAccountView(1, 10008);
+    //test->addStock(100,200);
    /*  accountview* test2 = addAccountView(2, 10008);
    accountview* test3 = addAccountView(3, 10008);
     accountview* test4 = addAccountView(4, 10008);
