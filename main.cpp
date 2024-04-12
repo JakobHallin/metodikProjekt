@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
     */
 
 
-
+/*
     Stock* stockpointer = new Stock(2,3);
     StockViewModel* viewModel = new StockViewModel();
     viewModel->setStock(stockpointer);
@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
     stockview* stockView = new stockview();
     stockView->setViewmodel(viewModel);
     stockView->show();
-
+*/
 
 
     /*testing account
@@ -74,15 +74,17 @@ int main(int argc, char *argv[])
 
 
     //testin accountview mvvm
-    /*Account test (1, 24.4);
+    Account test (1, 24.4);
     Account* account= &test;
     AccountViewModel * accountViewmodel = new AccountViewModel();
     accountViewmodel->setAccount(account);
-    accountview view (accountViewmodel);
-    view.makeStockview();
+    accountview* view= new accountview();
+    //view.setmodel(accountViewmodel);
+     //view   (accountViewmodel);
+    //view.makeStockview();
 
-    view.show();
-*/
+    //view.show();
+//*/
    // QVector<StockViewModel*> vector =accountViewmodel->getstockViewModels();
 
 

@@ -20,6 +20,7 @@ public:
     explicit accountview(QWidget *parent = nullptr);
     ~accountview();
     void makeStockview();
+    void setViewmodel(AccountViewModel* viewModel);
 
 
 private:

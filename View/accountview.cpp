@@ -19,13 +19,17 @@ accountview::~accountview()
 {
     delete ui;
 }
+
+void accountview::setViewmodel(AccountViewModel* viewmodel){
+    this->viewModel = viewmodel;
+}
 //void account::setAccount
 /*stockview* accountview::addStock(AccountViewModel* viewModel){
    // Stock* stockpointer = viewModel->getAccount()->getHolding().at(0);
    // Stock
 
 }*/
-  void accountview::makeStockview(){
+/*  void accountview::makeStockview(){
 
      // this->viewModel = viewModel;
       QVector<StockViewModel*> myVector = this->viewModel->getstockViewModels(); //fell hära
@@ -74,4 +78,4 @@ accountview::~accountview()
             }
         }
 }
-
+*/

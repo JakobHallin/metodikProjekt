@@ -3,8 +3,7 @@
 
 stockview::stockview( QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::stockview),
-    //viewModel(viewModel)
+    , ui(new Ui::stockview)
 {
     ui->setupUi(this);
     //QString stringId = QString::number(viewModel->id());
