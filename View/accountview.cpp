@@ -2,9 +2,13 @@
 #include "ui_accountview.h"
 //AccountViewModel* viewModel
 accountview::accountview(AccountViewModel* viewModel, QWidget *parent)
-    : QMainWindow(parent), ui(new Ui::accountview) {
+    : QMainWindow(parent), ui(new Ui::accountview), viewModel(viewModel) {
     ui->setupUi(this);
     setMinimumSize(QSize(400, 200));
+    //makeStockview();//dont work this->viewmodel not init
+
+    //makeStockview(viewModel);
+
     /*addStock(2,3);
     addStock(3,5);
     addStock(5,3);
@@ -15,19 +19,20 @@ accountview::~accountview()
 {
     delete ui;
 }
+//void account::setAccount
 /*stockview* accountview::addStock(AccountViewModel* viewModel){
    // Stock* stockpointer = viewModel->getAccount()->getHolding().at(0);
    // Stock
 
 }*/
-  void accountview::addStock(AccountViewModel* viewModel){
+  void accountview::makeStockview(){
 
+     // this->viewModel = viewModel;
+      QVector<StockViewModel*> myVector = this->viewModel->getstockViewModels(); //fell hära
 
-      QVector<StockViewModel*> myVector = viewModel->getstockViewModels();
-      for (StockViewModel* stockviewItem : myVector) {
-          if (stockviewItem){
               QWidget *scrollWidget = ui->scrollArea->widget();
               QVBoxLayout *scrollLayout;
+
               if (scrollWidget == nullptr) {
                   // If the scroll area does not have a widget, set one with a vertical layout
                 scrollWidget = new QWidget();
@@ -42,34 +47,30 @@ accountview::~accountview()
                 if (!scrollLayout) { // If the layout is not a QVBoxLayout or does not exist
             // If the cast failed, create a new QVBoxLayout
                     scrollLayout = new QVBoxLayout(scrollWidget);
-            // Create a new QVBoxLayout if the cast failed
-            //scrollLayout = new QVBoxLayout();
-            //crollLayout->addWidget(accountView);
-            //  scrollLayout->setContentsMargins(10, 0, 0, 20);
-            //scrollLayout->setAlignment(Qt::AlignTop);
-            //  scrollWidget->setLayout(scrollLayout);
-            //accounts.append(accountView);
+                    scrollWidget->setLayout(scrollLayout);
 
                 }
             }
-            if (scrollLayout) {
-                scrollLayout->addWidget(stockview);
+
+            scrollLayout->setAlignment(Qt::AlignTop);
+            //scrollWidget->layout()->activate();
+
+
+//loop stockviewmodel for stocksviewsmodels
+        for (StockViewModel* stockviewItem : myVector) {
+            if (stockviewItem){
+                qDebug() << "StockViewModel pointer exist";
+                 stockview* stockView = new stockview(stockviewItem);
+                qDebug() << "StockView created succseed";
+                scrollLayout->addWidget(stockView);
                 scrollLayout->setContentsMargins(10, 0, 0, 20);
-        //scrollLayout->setAlignment(Qt::AlignTop);
-        //stocks.append(stockView);
-            stocks.append(stockView);
+            //scrollLayout->setAlignment(Qt::AlignTop);
+            //stocks.append(stockView);
+                stocks.append(stockView);
             }
-        scrollLayout->setAlignment(Qt::AlignTop);
-        scrollWidget->layout()->activate();
-
-    //scrollWidget->updateGeometry();
-    //ui->scrollArea->updateGeometry();
-    // scrollLayout->addWidget(accountView);
-
-    // scrollWidget->adjustSize();
-    // scrollLayout->setContentsMargins(10, 0, 0, 20);
-    //scrollLayout->update();
-      }
-    }
+            else {
+                qDebug() << "StockViewModel pointer null";
+            }
+        }
 }
 

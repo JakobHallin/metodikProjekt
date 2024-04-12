@@ -78,8 +78,10 @@ int main(int argc, char *argv[])
     AccountViewModel * accountViewmodel = new AccountViewModel();
     accountViewmodel->setAccount(account);
     accountview view (accountViewmodel);
+    view.makeStockview();
+
     view.show();
-    QVector<StockViewModel*> vector =accountViewmodel->getstockViewModels();
+   // QVector<StockViewModel*> vector =accountViewmodel->getstockViewModels();
 
 
   //  User test("Jakob");

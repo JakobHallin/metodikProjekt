@@ -19,7 +19,7 @@ class accountview : public QMainWindow
 public:
     explicit accountview(AccountViewModel* viewModel, QWidget *parent = nullptr);
     ~accountview();
-    void addStock(AccountViewModel* viewModel);
+    void makeStockview();
 
 
 private:
