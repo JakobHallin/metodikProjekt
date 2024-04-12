@@ -12,8 +12,9 @@ class stockview : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit stockview(StockViewModel *viewModel, QWidget *parent = nullptr);
+    explicit stockview(QWidget *parent = nullptr);
     ~stockview();
+    void setViewmodel(StockViewModel *viewModel);
 
 private:
     Ui::stockview *ui;

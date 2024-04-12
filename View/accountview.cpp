@@ -1,8 +1,8 @@
 #include "accountview.h"
 #include "ui_accountview.h"
 //AccountViewModel* viewModel
-accountview::accountview(AccountViewModel* viewModel, QWidget *parent)
-    : QMainWindow(parent), ui(new Ui::accountview), viewModel(viewModel) {
+accountview::accountview(QWidget *parent)
+    : QMainWindow(parent), ui(new Ui::accountview) {
     ui->setupUi(this);
     setMinimumSize(QSize(400, 200));
     //makeStockview();//dont work this->viewmodel not init
@@ -57,6 +57,7 @@ accountview::~accountview()
 
 
 //loop stockviewmodel for stocksviewsmodels
+            qDebug() << "amount of stockviews to add:" << myVector.size();
         for (StockViewModel* stockviewItem : myVector) {
             if (stockviewItem){
                 qDebug() << "StockViewModel pointer exist";
