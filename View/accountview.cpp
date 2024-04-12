@@ -29,7 +29,7 @@ void accountview::setViewmodel(AccountViewModel* viewmodel){
    // Stock
 
 }*/
-/*  void accountview::makeStockview(){
+ void accountview::makeStockview(){
 
      // this->viewModel = viewModel;
       QVector<StockViewModel*> myVector = this->viewModel->getstockViewModels(); //fell hära
@@ -65,8 +65,9 @@ void accountview::setViewmodel(AccountViewModel* viewmodel){
         for (StockViewModel* stockviewItem : myVector) {
             if (stockviewItem){
                 qDebug() << "StockViewModel pointer exist";
-                 stockview* stockView = new stockview(stockviewItem);
+                 stockview* stockView = new stockview();
                 qDebug() << "StockView created succseed";
+                 stockView->setViewmodel(stockviewItem);
                 scrollLayout->addWidget(stockView);
                 scrollLayout->setContentsMargins(10, 0, 0, 20);
             //scrollLayout->setAlignment(Qt::AlignTop);
@@ -78,4 +79,4 @@ void accountview::setViewmodel(AccountViewModel* viewmodel){
             }
         }
 }
-*/
+
