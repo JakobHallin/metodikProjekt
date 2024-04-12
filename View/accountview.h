@@ -21,6 +21,7 @@ public:
     ~accountview();
     void makeStockview();
     void setViewmodel(AccountViewModel* viewModel);
+    void generateStockView();
 
 
 private:

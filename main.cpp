@@ -57,8 +57,8 @@ int main(int argc, char *argv[])
     stockview* stockView = new stockview();
     stockView->setViewmodel(viewModel);
     stockView->show();
-*/
 
+*/
 
     /*testing account
     Account account1(1, 24.4); //får account stocks
@@ -78,15 +78,18 @@ int main(int argc, char *argv[])
     Account* account= &test;
     AccountViewModel * accountViewmodel = new AccountViewModel();
     accountViewmodel->setAccount(account);
+    QVector <StockViewModel*> stockmodel = accountViewmodel->getstockViewModels();
+    qDebug() << stockmodel.at(0)->id();
     accountview* view= new accountview();
     view->setViewmodel(accountViewmodel);
     view->makeStockview();
-
+    view->generateStockView();
     //view.setmodel(accountViewmodel);
      //view   (accountViewmodel);
     //view.makeStockview();
 
     view->show();
+
 //*/
    // QVector<StockViewModel*> vector =accountViewmodel->getstockViewModels();
 

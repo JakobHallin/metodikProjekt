@@ -15,6 +15,7 @@ public:
     explicit stockview(QWidget *parent = nullptr);
     ~stockview();
     void setViewmodel(StockViewModel *viewModel);
+    StockViewModel * getviewModel(){return viewModel;}
 
 private:
     Ui::stockview *ui;

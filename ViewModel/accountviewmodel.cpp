@@ -8,8 +8,8 @@ AccountViewModel::AccountViewModel(QObject* parent): QObject(parent) {
 
 void AccountViewModel::setAccount(Account* account){
     this->account = account;
-    connect(account, &Account::balanceChanged, this, &AccountViewModel::accountUpdate);
-    connect(account, &Account::stocksChanged, this, &AccountViewModel::accountUpdate);
+    //connect(account, &Account::balanceChanged, this, &AccountViewModel::accountUpdate);
+    //connect(account, &Account::stocksChanged, this, &AccountViewModel::accountUpdate);
     addStockViewModel(account);
 }
 int AccountViewModel::id() const{
@@ -43,8 +43,9 @@ void AccountViewModel::addStockViewModel(Account * account){
      QVector<Stock*> myVector = account->getHolding();
     for (Stock* stock : myVector) {
          if (stock) {
-            StockViewModel* pointerstockviewmodel =  new StockViewModel(stock);
-            this->stockViewModels.append(pointerstockviewmodel);
+            StockViewModel* pointerstockviewmodel =  new StockViewModel();
+             pointerstockviewmodel->setStock(stock);
+             this->stockViewModels.append(pointerstockviewmodel);
 
 
             // StockViewModel* pointerstockviewmodel =  new StockViewModel(account->getHolding().at(0));

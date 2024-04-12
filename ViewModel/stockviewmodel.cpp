@@ -10,7 +10,7 @@ void StockViewModel::setStock(Stock* newStock) {
     }
 */
     stock = newStock;
-    connect(stock, &Stock::amountChanged, this, &StockViewModel::stockUpdate);
+    //connect(stock, &Stock::amountChanged, this, &StockViewModel::stockUpdate);
 }
 void StockViewModel::stockUpdate() {
     // Update ViewModel properties based on the Stock model
@@ -19,7 +19,7 @@ void StockViewModel::stockUpdate() {
 }
 
 int StockViewModel::id() const {
-    return stock ? stock->getID() : 0;
+    return stock ? stock->getID() : 0; //error
 }
 
 int StockViewModel::amount() const {
