@@ -47,7 +47,7 @@ QVector<Stock*> Account::getHolding() {
 
 void Account::addStock(Stock* stock) {
     holding.push_back(stock);
-    emit stocksChanged();
+    //emit stocksChanged();
 }
 
 void Account::addBalance(float totalprice) {
