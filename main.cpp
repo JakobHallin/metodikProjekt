@@ -74,7 +74,7 @@ int main(int argc, char *argv[])
 
 
     //testin accountview mvvm
-    Account test (1, 24.4);
+    Account test (1, 5000.4);
     Account* account= &test;
     AccountViewModel * accountViewmodel = new AccountViewModel();
     accountViewmodel->setAccount(account);
@@ -89,6 +89,9 @@ int main(int argc, char *argv[])
     //view.makeStockview();
 
     view->show();
+   // Stock* stocktest =new Stock (20, 3);
+    //view->addStock(stocktest);
+    //view->update();
 
 //*/
    // QVector<StockViewModel*> vector =accountViewmodel->getstockViewModels();

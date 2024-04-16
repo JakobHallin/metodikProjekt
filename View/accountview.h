@@ -22,7 +22,12 @@ public:
     void makeStockview();
     void setViewmodel(AccountViewModel* viewModel);
     void generateStockView();
-
+    //void buy();
+    //void sell();
+   // void pushBuyButton();
+private slots:
+    void pushBuyButton();
+    //void pushSellButton();
 
 private:
     Ui::accountview *ui;

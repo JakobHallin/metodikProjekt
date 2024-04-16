@@ -56,7 +56,7 @@ void Account::addBalance(float totalprice) {
     QString sql = QString("UPDATE Accounts SET Balance = Balance + %1 WHERE AccountID = %2").arg(totalprice).arg(accountID);
     Sql classSql;
     classSql.execute(sql);
-    emit balanceChanged(balance);
+    //emit balanceChanged(balance);
 }
 
 void Account::removeFromBalance(float totalprice) {
@@ -66,7 +66,7 @@ void Account::removeFromBalance(float totalprice) {
     Sql classSql;
     classSql.execute(sql);
 
-    emit balanceChanged(balance);
+    //emit balanceChanged(balance);
 }
 
 float Account::getPrice(int StockID) {
@@ -95,7 +95,7 @@ void Account::buyStock(int StockId, int amount) {
             ) {
             flag = true;
             float prep = getPrice(StockId);
-            prep *= amount;
+            prep = amount * prep; //funkar nu
             if (getBalance() > prep) {
                 changeHolding(i, amount);
                 //emit stocksChanged();
@@ -123,6 +123,7 @@ void Account::buyStock(int StockId, int amount) {
 
 void Account::changeHolding(int index, int amount) {
     holding.at(index)->addAmount(amount);
+        //->addAmount(amount);
     int stockAmount = getStockAmount(index);//holding[index]->getAmount();
     int stockID = getStockID(index);//holding[index]->getID();
     updateStockHolding(stockID, stockAmount);
@@ -138,7 +139,7 @@ void Account::updateStockHolding(int stockID, int stockAmount) {
     Sql classSql;
     classSql.prepareStatement(sql);
     classSql.execute(sql);
-    updateStockHolding(stockID, stockAmount);
+    //updateStockHolding(stockID, stockAmount); //kallar sig själv blir fel
 }
 
 void Account::insertNewStock(int StockId, int amount) {

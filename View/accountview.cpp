@@ -8,7 +8,7 @@ accountview::accountview(QWidget *parent)
     //makeStockview();//dont work this->viewmodel not init
 
     //makeStockview(viewModel);
-
+    connect(ui->BuyButton, &QPushButton::clicked, this, &accountview::pushBuyButton);
     /*addStock(2,3);
     addStock(3,5);
     addStock(5,3);
@@ -19,9 +19,49 @@ accountview::~accountview()
 {
     delete ui;
 }
+void accountview::pushBuyButton(){
+    QString amount = ui->lineEdidAmount->text();
+    int intAmount;
+    bool amountOk;
+    intAmount = amount.toInt(&amountOk);
+
+    QString stockId = ui->lineEditStockId->text();
+    int intStockId; // = stockId.toInt();
+    bool stockOk;
+    intStockId = stockId.toInt(&stockOk);
+ //debug
+    qDebug() << "Amount:" << amount << "Converted to int:" << intAmount << "Conversion success:" << amountOk;
+    qDebug() << "Stock ID:" << stockId << "Converted to int:" << intStockId << "Conversion success:" << stockOk;
+
+
+    //
+    if (amountOk && stockOk){
+        qDebug()<< "buying from view";
+        this->viewModel->buy(intStockId, intAmount); //verkar bli skuma värden
+    //this->viewModel->buy(stockId, amount);
+    }
+    else qDebug()<< "error with buy view buy";
+    ui->BalanceLabel->setText(QString::number(this->viewModel->getAccount()->getBalance()));
+    //måste veta vilken stock
+    for (int i = 0; i< this->stocks.size(); i++){
+
+    this->stocks[i]->updateView();
+        qDebug()<< "looped";
+    }
+     qDebug() << "done";
+
+}
 
 void accountview::setViewmodel(AccountViewModel* viewmodel){
     this->viewModel = viewmodel;
+
+    ui->AccountIdLabel->setText(QString::number(this->viewModel->getAccount()->getID()));
+    ui->BalanceLabel->setText(QString::number(this->viewModel->getAccount()->getBalance()));
+
+
+    //viewmodel->getAccount()->getID());
+    //ui->lab
+      //  (stringAmount);
 }
 //void account::setAccount
 /*stockview* accountview::addStock(AccountViewModel* viewModel){

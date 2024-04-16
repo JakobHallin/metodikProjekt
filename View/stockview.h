@@ -16,10 +16,10 @@ public:
     ~stockview();
     void setViewmodel(StockViewModel *viewModel);
     StockViewModel * getviewModel(){return viewModel;}
-
+    void updateView();
 private:
     Ui::stockview *ui;
-    StockViewModel *viewModel;
+    StockViewModel *viewModel = nullptr;
 };
 
 #endif // STOCKVIEW_H
