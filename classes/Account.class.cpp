@@ -124,8 +124,7 @@ void Account::buyStock(int StockId, int amount) {
 }
 
 void Account::changeHolding(int index, int amount) {
-    holding.at(index)->addAmount(amount);
-        //->addAmount(amount);
+    holding.at(index)->addAmount(amount); //will then emit the signal in stockmodel
     int stockAmount = getStockAmount(index);//holding[index]->getAmount();
     int stockID = getStockID(index);//holding[index]->getID();
     updateStockHolding(stockID, stockAmount);

@@ -27,6 +27,6 @@ void Stock::addAmount(int number) {
     //amount += number;
     if (number != 0) {
         amount += number;
-        emit amountChanged(amount);
+        emit amountChanged(amount); //emits signal
     }
 }
