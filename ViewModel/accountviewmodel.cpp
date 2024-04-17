@@ -10,6 +10,7 @@ void AccountViewModel::setAccount(Account* account){
     this->account = account;
     //connect(account, &Account::balanceChanged, this, &AccountViewModel::accountUpdate);
     //connect(account, &Account::stocksChanged, this, &AccountViewModel::accountUpdate);
+    connect(this->account, &Account::balanceChanged, this, &AccountViewModel::updateBalance); //Stock::amountChanged, this, &StockViewModel::stockUpdate);
     addStockViewModel(account);
 }
 int AccountViewModel::id() const{

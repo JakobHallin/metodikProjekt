@@ -17,7 +17,7 @@ private:
     //int testdata = 2;
     Stock* stock;
 private slots:
-    void stockUpdate(int newAmount); //not yet implemented
+    void stockUpdate(int newAmount); //works
 
 
 };

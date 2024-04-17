@@ -16,7 +16,7 @@ public:
     ~stockview();
     void setViewmodel(StockViewModel *viewModel);
     StockViewModel * getviewModel(){return viewModel;}
-    void updateView(); //will not be used more will use slot
+    //void updateView(); //will not be used more will use slot
 private:
     Ui::stockview *ui;
     StockViewModel *viewModel = nullptr;

@@ -32,10 +32,10 @@ void stockview::setViewmodel(StockViewModel *viewModel){
         updateAmountDisplay(this->viewModel->amount());
     }
 }
-void stockview::updateView(){
+/*void stockview::updateView(){
     this->ui->label_2->setText(QString::number(this->viewModel->amount()));
 
-}
+}*/
 void stockview::updateAmountDisplay(int newAmount){
     this->ui->label_2->setText(QString::number(newAmount));
 
