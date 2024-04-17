@@ -43,7 +43,7 @@ void accountview::pushBuyButton(){
     //this->viewModel->buy(stockId, amount);
     }
     else qDebug()<< "error with buy view buy";
-    ui->BalanceLabel->setText(QString::number(this->viewModel->getAccount()->getBalance()));
+    //ui->BalanceLabel->setText(QString::number(this->viewModel->getAccount()->getBalance()));
     //måste veta vilken stock
     /*
      * for (int i = 0; i< this->stocks.size(); i++){
@@ -55,14 +55,51 @@ void accountview::pushBuyButton(){
      qDebug() << "done";
 
 }
+void accountview::pushSellButton(){
+    QString amount = ui->lineEdidAmount->text();
+    int intAmount;
+    bool amountOk;
+    intAmount = amount.toInt(&amountOk);
+
+    QString stockId = ui->lineEditStockId->text();
+    int intStockId; // = stockId.toInt();
+    bool stockOk;
+    intStockId = stockId.toInt(&stockOk);
+    //debug
+    qDebug() << "Amount:" << amount << "Converted to int:" << intAmount << "Conversion success:" << amountOk;
+    qDebug() << "Stock ID:" << stockId << "Converted to int:" << intStockId << "Conversion success:" << stockOk;
+
+
+    //
+    if (amountOk && stockOk){
+        qDebug()<< "buying from view";
+        this->viewModel->sell(intStockId, intAmount); //verkar bli skuma värden
+        //this->viewModel->buy(stockId, amount);
+    }
+    else qDebug()<< "error with buy view buy";
+    //ui->BalanceLabel->setText(QString::number(this->viewModel->getAccount()->getBalance()));
+    //måste veta vilken stock
+    /*
+     * for (int i = 0; i< this->stocks.size(); i++){
+
+    this->stocks[i]->updateView();
+        qDebug()<< "looped";
+    }
+    */
+    qDebug() << "done";
+
+}
 
 void accountview::setViewmodel(AccountViewModel* viewmodel){
     this->viewModel = viewmodel;
     connect(ui->BuyButton, &QPushButton::clicked, this, &accountview::pushBuyButton);
-
+    connect(ui->SellButton, &QPushButton::clicked, this, &accountview::pushSellButton);
 
     ui->AccountIdLabel->setText(QString::number(this->viewModel->getAccount()->getID()));
-    ui->BalanceLabel->setText(QString::number(this->viewModel->getAccount()->getBalance()));
+    //ui->BalanceLabel->setText(QString::number(this->viewModel->getAccount()->getBalance()));
+
+    connect(this->viewModel, &AccountViewModel::balanceChanged, this, &accountview::updateBalanceDisplay);
+    updateBalanceDisplay(this->viewModel->balance());
 
 
     //viewmodel->getAccount()->getID());

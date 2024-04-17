@@ -56,6 +56,7 @@ void Account::addBalance(float totalprice) {
     QString sql = QString("UPDATE Accounts SET Balance = Balance + %1 WHERE AccountID = %2").arg(totalprice).arg(accountID);
     Sql classSql;
     classSql.execute(sql);
+    emit balanceChanged(balance);
     //emit balanceChanged(balance);
 }
 
@@ -151,6 +152,46 @@ void Account::insertNewStock(int StockId, int amount) {
     classSql.insert(sql, StockId, id, amount);
 }
 //fixar senare
+
+/*
+ *
+ *void Account::buyStock(int StockId, int amount) {
+    //nuvarande så checkar den inte databasen balance så den kan overdrafta
+    bool flag = false;
+    for (size_t i = 0; i < holding.size(); i++) {
+        if (StockId == getStockID(i)
+            //holding[i]->getID()
+            ) {
+            flag = true;
+            float prep = getPrice(StockId);
+            prep = amount * prep; //funkar nu
+            if (getBalance() > prep) {
+                changeHolding(i, amount);
+                //emit stocksChanged();
+
+                removeFromBalance(prep);
+                //emit balanceChanged(balance);
+            }
+        }
+    }
+    if (!flag) {
+        float prep = getPrice(StockId);
+        prep *= amount;
+        if (getBalance() > prep) {
+            balance -= prep;
+            Stock* stock = new Stock(StockId, amount);
+            addStock(stock);
+            insertNewStock(StockId, amount);
+            //emit stocksChanged();
+
+            removeFromBalance(prep);
+            //balanceChanged()
+            //emit balanceChanged(balance);
+        }
+    }
+
+}
+*/
 void Account::sellStock(int StockID, int amount) {
     int currentAmount = 0;
     int id = getID();
@@ -164,7 +205,7 @@ void Account::sellStock(int StockID, int amount) {
     if (currentAmount >= amount) {
         float price = getPrice(StockID);     
         float totalPrice = price * amount; 
-        addBalance(totalPrice);
+        addBalance(totalPrice); //emit balanceChanged(balance);
         int newAmount  = currentAmount - amount;
         updateStockHolding(StockID, newAmount);
         for (size_t i = 0; i < holding.size(); i++) {

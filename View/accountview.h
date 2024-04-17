@@ -27,7 +27,7 @@ public:
    // void pushBuyButton();
 private slots:
     void pushBuyButton();
-    //void pushSellButton();
+    void pushSellButton();
     void updateBalanceDisplay(float value);
 
 private:
