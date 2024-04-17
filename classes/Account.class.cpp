@@ -192,17 +192,60 @@ void Account::insertNewStock(int StockId, int amount) {
 
 }
 */
-void Account::sellStock(int StockID, int amount) {
+void Account::sellStock(int StockId, int amount) {
     int currentAmount = 0;
-    int id = getID();
+    //int id = getID();
     //QString sql = "SELECT Amount FROM Stock WHERE StocksID= '" + std::to_string(StockID) + "' AND AccountID = '" + std::to_string(id) + "'";
+    bool flag = false;
+    for (size_t i = 0; i < holding.size(); i++) {
+        if (StockId == getStockID(i)
+            ) { //stock exist
+            currentAmount  = holding[i]->getAmount();
+            if (currentAmount >= amount){ //if curent is more then I want to sell
+
+
+
+                    float price = getPrice(StockId);
+                    float totalPrice = price * amount;
+                    addBalance(totalPrice); //emit balanceChanged(balance);
+                    int newAmount  = (currentAmount - amount);
+                    updateStockHolding(StockId, newAmount); //måste göra köp och en sälj
+                    /*for (size_t i = 0; i < holding.size(); i++) {
+                        if (StockID == holding[i]->getID()) {
+                            holding[i]->setAmount(newAmount);
+                        }
+                    }*/
+                }
+            /*float prep = getPrice(StockId);
+            prep = amount * prep; //funkar nu
+            if (getBalance() > prep) {
+                changeHolding(i, amount);
+                //emit stocksChanged();
+
+                removeFromBalance(prep);
+                //emit balanceChanged(balance);
+            }*/
+        }
+    }
+}
+
+
+
+/*
     QString sql = QString("SELECT Amount FROM Stock WHERE StocksID= %1 AND AccountID = %2").arg(StockID).arg(id);
     Sql classSql;
     QSqlQuery stmt = classSql.execute(sql);
+
+
+
+
+
+
     while(stmt.next()) {
         currentAmount = stmt.value(stmt.record().indexOf("Short")).toInt();
     }
-    if (currentAmount >= amount) {
+*/
+/*    if (currentAmount >= amount) {
         float price = getPrice(StockID);     
         float totalPrice = price * amount; 
         addBalance(totalPrice); //emit balanceChanged(balance);
@@ -215,6 +258,9 @@ void Account::sellStock(int StockID, int amount) {
         }
     }            
 }
+*/
+
+
 //void Account::balanceChanged(float value){}
 //signals
 //void Account::balanceChanged(double newBalance){}
