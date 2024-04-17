@@ -23,7 +23,7 @@ void stockview::setViewmodel(StockViewModel *viewModel){
     }
     this->viewModel = viewModel;
     QString stringId = QString::number(viewModel->id());
-    QString stringAmount = QString::number(viewModel->amount());
+    //QString stringAmount = QString::number(viewModel->amount());
     ui->label->setText(stringId);
     //ui->label_2->setText(stringAmount);
     if (viewModel) {

@@ -8,7 +8,9 @@ accountview::accountview(QWidget *parent)
     //makeStockview();//dont work this->viewmodel not init
 
     //makeStockview(viewModel);
-    connect(ui->BuyButton, &QPushButton::clicked, this, &accountview::pushBuyButton);
+    //connect(ui->BuyButton, &QPushButton::clicked, this, &accountview::pushBuyButton);
+
+
     /*addStock(2,3);
     addStock(3,5);
     addStock(5,3);
@@ -43,17 +45,21 @@ void accountview::pushBuyButton(){
     else qDebug()<< "error with buy view buy";
     ui->BalanceLabel->setText(QString::number(this->viewModel->getAccount()->getBalance()));
     //måste veta vilken stock
-    for (int i = 0; i< this->stocks.size(); i++){
+    /*
+     * for (int i = 0; i< this->stocks.size(); i++){
 
     this->stocks[i]->updateView();
         qDebug()<< "looped";
     }
+    */
      qDebug() << "done";
 
 }
 
 void accountview::setViewmodel(AccountViewModel* viewmodel){
     this->viewModel = viewmodel;
+    connect(ui->BuyButton, &QPushButton::clicked, this, &accountview::pushBuyButton);
+
 
     ui->AccountIdLabel->setText(QString::number(this->viewModel->getAccount()->getID()));
     ui->BalanceLabel->setText(QString::number(this->viewModel->getAccount()->getBalance()));

@@ -120,6 +120,7 @@ void Account::buyStock(int StockId, int amount) {
             //emit balanceChanged(balance);
         }
     }
+
 }
 
 void Account::changeHolding(int index, int amount) {
