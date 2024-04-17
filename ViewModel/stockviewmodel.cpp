@@ -5,9 +5,11 @@ StockViewModel::StockViewModel(QObject *parent): QObject(parent){
 
 }
 void StockViewModel::setStock(Stock* newStock) {
-    if (stock) {
+
+ /*   if (stock) {
         disconnect(stock, &Stock::amountChanged, this, &StockViewModel::stockUpdate);
     }
+*/
 
     stock = newStock;
     if (stock){

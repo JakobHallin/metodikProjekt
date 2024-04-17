@@ -18,9 +18,10 @@ stockview::stockview( QWidget *parent)
 
 }
 void stockview::setViewmodel(StockViewModel *viewModel){
-    if (this->viewModel) {
+   /* if (this->viewModel) {
         disconnect(viewModel, &StockViewModel::amountChanged, this, &stockview::updateAmountDisplay);
     }
+    */
     this->viewModel = viewModel;
     QString stringId = QString::number(viewModel->id());
     //QString stringAmount = QString::number(viewModel->amount());
