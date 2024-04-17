@@ -16,10 +16,12 @@ public:
     ~stockview();
     void setViewmodel(StockViewModel *viewModel);
     StockViewModel * getviewModel(){return viewModel;}
-    void updateView();
+    void updateView(); //will not be used more will use slot
 private:
     Ui::stockview *ui;
     StockViewModel *viewModel = nullptr;
+private slots:
+    void updateAmountDisplay(int newAmount);
 };
 
 #endif // STOCKVIEW_H

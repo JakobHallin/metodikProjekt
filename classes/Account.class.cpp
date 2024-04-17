@@ -88,6 +88,7 @@ float Account::getPrice(int StockID) {
 }
 
 void Account::buyStock(int StockId, int amount) {
+    //nuvarande så checkar den inte databasen balance så den kan overdrafta
     bool flag = false;
     for (size_t i = 0; i < holding.size(); i++) {
         if (StockId == getStockID(i)

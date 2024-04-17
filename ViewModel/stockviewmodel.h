@@ -12,12 +12,12 @@ public:
     int id() const;
     int amount() const;
 signals:
-    void amountChanged();
+    void amountChanged(int amount);
 private:
-    int testdata = 2;
+    //int testdata = 2;
     Stock* stock;
 private slots:
-    void stockUpdate(); //not yet implemented
+    void stockUpdate(int newAmount); //not yet implemented
 
 
 };
