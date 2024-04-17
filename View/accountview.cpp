@@ -163,3 +163,8 @@ void accountview::makeStockview(){
             }
         }
 }
+void accountview::updateBalanceDisplay(float value){
+    //this.->BalanceLabel->setText(QString::number(this->viewModel->getAccount()->getBalance()));
+    this->ui->BalanceLabel->setText(QString::number(this->viewModel->balance()));
+
+}

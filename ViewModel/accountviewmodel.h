@@ -21,15 +21,16 @@ public:
 
 
 signals: //from model
-    void balanceChanged();
-    void holdingsChanged();
+    void balanceChanged(float value);
+    //void holdingsChanged();
 private:
     Account* account;
     QVector<StockViewModel*> stockViewModels;
 
 
 private slots: //from view
-    void accountUpdate(); //not yet implemented
+    //void accountUpdate(); //not yet implemented
+    void updateBalance(float value);
 };
 
 #endif // ACCOUNTVIEWMODEL_H

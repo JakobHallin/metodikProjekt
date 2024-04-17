@@ -40,7 +40,7 @@ public:
 
 signals:
     void balanceChanged(float value);
-    void stocksChanged();
+    //void stocksChanged();
 };
 
 #endif

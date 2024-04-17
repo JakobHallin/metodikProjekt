@@ -28,6 +28,7 @@ public:
 private slots:
     void pushBuyButton();
     //void pushSellButton();
+    void updateBalanceDisplay(float value);
 
 private:
     Ui::accountview *ui;

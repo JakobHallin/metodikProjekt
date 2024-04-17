@@ -66,7 +66,7 @@ void Account::removeFromBalance(float totalprice) {
     Sql classSql;
     classSql.execute(sql);
 
-    //emit balanceChanged(balance);
+    emit balanceChanged(balance);
 }
 
 float Account::getPrice(int StockID) {
@@ -117,6 +117,7 @@ void Account::buyStock(int StockId, int amount) {
             //emit stocksChanged();
 
             removeFromBalance(prep);
+            //balanceChanged()
             //emit balanceChanged(balance);
         }
     }
@@ -173,6 +174,7 @@ void Account::sellStock(int StockID, int amount) {
         }
     }            
 }
+//void Account::balanceChanged(float value){}
 //signals
 //void Account::balanceChanged(double newBalance){}
 //void Account::stocksChanged(){}

@@ -84,11 +84,10 @@ int main(int argc, char *argv[])
     view->setViewmodel(accountViewmodel);
     view->makeStockview();
     view->generateStockView();
-    //view.setmodel(accountViewmodel);
-     //view   (accountViewmodel);
-    //view.makeStockview();
-
     view->show();
+
+    //fixa sell
+
    // Stock* stocktest =new Stock (20, 3);
     //view->addStock(stocktest);
     //view->update();

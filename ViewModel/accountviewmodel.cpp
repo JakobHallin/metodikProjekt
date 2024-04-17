@@ -31,10 +31,14 @@ void AccountViewModel::sell(int stockID, int amount){
         account->sellStock(stockID, amount);
     }
 }
+void AccountViewModel::updateBalance(float value){
+    emit balanceChanged(value);
 
-void AccountViewModel::accountUpdate(){
+}
+/*void AccountViewModel::accountUpdate(){
     emit holdingsChanged();
 }
+*/
 Account* AccountViewModel::getAccount(){ //will not be used
     return account;
 }
