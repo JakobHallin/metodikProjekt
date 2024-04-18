@@ -62,7 +62,7 @@ void accountview::pushSellButton(){
 
 
     //
-    if (amountOk && stockOk){
+    if (amountOk && stockOk && intAmount > 0 && intStockId > 0){
         qDebug()<< "buying from view";
         this->viewModel->sell(intStockId, intAmount); //verkar bli skuma värden
         //this->viewModel->buy(stockId, amount);

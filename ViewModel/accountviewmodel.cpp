@@ -27,7 +27,7 @@ void AccountViewModel::buy(int stockID, int amount){
         account->buyStock(stockID, amount);
     }
 }
-void AccountViewModel::sell(int stockID, int amount){
+void AccountViewModel::sell(int stockID, int amount){ //good
     if (account) {
         account->sellStock(stockID, amount);
     }

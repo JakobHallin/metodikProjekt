@@ -21,6 +21,7 @@ private:
     void changeHolding(int index, int amount); //will remove
 
     void addtoholding(int index, int amount);
+    void removetoholding(int index, int amount);
 
 
 public:

@@ -23,6 +23,13 @@ int Stock::getAmount() {
     return id;
 }
 */
+void Stock::removeAmount(int number){
+    if (amount > number  ) {
+        amount -= number;
+        emit amountChanged(amount); //emits signal
+    }
+
+}
 void Stock::addAmount(int number) {
     //amount += number;
     if (number != 0) {

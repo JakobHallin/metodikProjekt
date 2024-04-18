@@ -133,7 +133,14 @@ void Account::changeHolding(int index, int amount) {
     int stockID = getStockID(index);//holding[index]->getID();
     updateStockHolding(stockID, stockAmount);
     //dont need to emit here
-
+}
+void Account::removetoholding(int index, int amount){
+    holding.at(index)->removeAmount(amount);
+    int stockID = getStockID(index);
+    QString sql = QString("UPDATE Stock SET Amount = Amount - %1 WHERE StocksID = %2 AND AccountID = %3").arg(amount).arg(stockID).arg(id);
+    Sql classSql;
+    classSql.prepareStatement(sql);
+    classSql.execute(sql);
 }
 void Account::addtoholding(int index,int amount){
     holding.at(index)->addAmount(amount);
@@ -161,47 +168,7 @@ void Account::insertNewStock(int StockId, int amount) {
     Sql classSql;
     classSql.insert(sql, StockId, id, amount);
 }
-//fixar senare
 
-/*
- *
- *void Account::buyStock(int StockId, int amount) {
-    //nuvarande så checkar den inte databasen balance så den kan overdrafta
-    bool flag = false;
-    for (size_t i = 0; i < holding.size(); i++) {
-        if (StockId == getStockID(i)
-            //holding[i]->getID()
-            ) {
-            flag = true;
-            float prep = getPrice(StockId);
-            prep = amount * prep; //funkar nu
-            if (getBalance() > prep) {
-                changeHolding(i, amount);
-                //emit stocksChanged();
-
-                removeFromBalance(prep);
-                //emit balanceChanged(balance);
-            }
-        }
-    }
-    if (!flag) {
-        float prep = getPrice(StockId);
-        prep *= amount;
-        if (getBalance() > prep) {
-            balance -= prep;
-            Stock* stock = new Stock(StockId, amount);
-            addStock(stock);
-            insertNewStock(StockId, amount);
-            //emit stocksChanged();
-
-            removeFromBalance(prep);
-            //balanceChanged()
-            //emit balanceChanged(balance);
-        }
-    }
-
-}
-*/
 void Account::sellStock(int StockId, int amount) {
     int currentAmount = 0;
     //int id = getID();
@@ -218,13 +185,10 @@ void Account::sellStock(int StockId, int amount) {
                     float price = getPrice(StockId);
                     float totalPrice = price * amount;
                     addBalance(totalPrice); //emit balanceChanged(balance);
-                    int newAmount  = (currentAmount - amount);
-                    updateStockHolding(StockId, newAmount); //måste göra köp och en sälj
-                    /*for (size_t i = 0; i < holding.size(); i++) {
-                        if (StockID == holding[i]->getID()) {
-                            holding[i]->setAmount(newAmount);
-                        }
-                    }*/
+                    //int newAmount  = (currentAmount - amount);
+                    //updateStockHolding(StockId, newAmount); //måste göra köp och en sälj
+                    removetoholding(i, amount);
+
                 }
             /*float prep = getPrice(StockId);
             prep = amount * prep; //funkar nu

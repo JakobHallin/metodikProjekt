@@ -16,6 +16,7 @@ public:
 //    getAmount();
     int getAmount() { return amount; }
     void addAmount(int number);
+    void removeAmount(int numebr);
 signals:
     void amountChanged(int newAmount);
 
