@@ -86,7 +86,7 @@ int main(int argc, char *argv[])
     view->generateStockView();
     view->show();
 
-    //fixa sell
+
 
    // Stock* stocktest =new Stock (20, 3);
     //view->addStock(stocktest);

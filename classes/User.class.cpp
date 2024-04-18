@@ -1,5 +1,5 @@
 #include "User.class.h"
-/*
+
 
 User::User(QString userID) {
     QString userID2 = "jakob";
@@ -76,4 +76,4 @@ bool User::stockExist(int id) {
     return (count == 1);
 }
 
-*/
+
