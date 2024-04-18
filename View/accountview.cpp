@@ -37,21 +37,12 @@ void accountview::pushBuyButton(){
 
 
     //
-    if (amountOk && stockOk){
+    if (amountOk && stockOk && intAmount > 0 && intStockId > 0){
         qDebug()<< "buying from view";
         this->viewModel->buy(intStockId, intAmount); //verkar bli skuma värden
     //this->viewModel->buy(stockId, amount);
     }
     else qDebug()<< "error with buy view buy";
-    //ui->BalanceLabel->setText(QString::number(this->viewModel->getAccount()->getBalance()));
-    //måste veta vilken stock
-    /*
-     * for (int i = 0; i< this->stocks.size(); i++){
-
-    this->stocks[i]->updateView();
-        qDebug()<< "looped";
-    }
-    */
      qDebug() << "done";
 
 }

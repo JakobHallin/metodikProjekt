@@ -99,7 +99,9 @@ void Account::buyStock(int StockId, int amount) {
             float prep = getPrice(StockId);
             prep = amount * prep; //funkar nu
             if (getBalance() > prep) {
-                changeHolding(i, amount);
+
+                addtoholding(i, amount);
+                //changeHolding(i, amount);
                 //emit stocksChanged();
 
                 removeFromBalance(prep);
@@ -133,7 +135,15 @@ void Account::changeHolding(int index, int amount) {
     //dont need to emit here
 
 }
+void Account::addtoholding(int index,int amount){
+    holding.at(index)->addAmount(amount);
+    int stockID = getStockID(index);
+    QString sql = QString("UPDATE Stock SET Amount = Amount + %1 WHERE StocksID = %2 AND AccountID = %3").arg(amount).arg(stockID).arg(id);
+    Sql classSql;
+    classSql.prepareStatement(sql);
+    classSql.execute(sql);
 
+}
 void Account::updateStockHolding(int stockID, int stockAmount) {
     //std::string sql = "UPDATE Stock SET Amount = " + std::to_string(stockAmount) + " WHERE StocksID = " + std::to_string(stockID) + " AND AccountID = " + std::to_string(id);
     QString sql = QString("UPDATE Stock SET Amount = %1 WHERE StocksID = %2 AND AccountID = %3").arg(stockAmount).arg(stockID).arg(id);
