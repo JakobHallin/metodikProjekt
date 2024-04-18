@@ -55,12 +55,7 @@ void AccountViewModel::addStockViewModel(Account * account){
 
             // StockViewModel* pointerstockviewmodel =  new StockViewModel(account->getHolding().at(0));
         }
-
     }
-
-    //this->stockViewModels.append(pointerstockviewmodel);
-
-
 }
 QVector<StockViewModel*> AccountViewModel::getstockViewModels(){
     return this->stockViewModels;

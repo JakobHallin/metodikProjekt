@@ -5,5 +5,6 @@
 #include "WB4RFHLAU6/moc_userview.cpp"
 #include "PZVFIPK5HQ/moc_accountviewmodel.cpp"
 #include "PZVFIPK5HQ/moc_stockviewmodel.cpp"
+#include "PZVFIPK5HQ/moc_userviewmodel.cpp"
 #include "QESDO5J2AP/moc_Account.class.cpp"
 #include "QESDO5J2AP/moc_Stock.class.cpp"

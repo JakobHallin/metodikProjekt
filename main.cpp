@@ -1,9 +1,10 @@
 #include "View/mainwindow.h"
-//#include "classes/User.class.h"
-
+#include "classes/User.class.h"
+#include "View/userview.h"
 #include "classes/Stock.class.h"
 #include "classes/Account.class.h"
 #include "ViewModel/accountviewmodel.h"
+#include "ViewModel/userviewmodel.h"
 #include "View/accountview.h"
 #include "View/stockview.h"
 #include "View/stockview.h"
@@ -74,6 +75,7 @@ int main(int argc, char *argv[])
 
 
     //testin accountview mvvm
+    /*
     Account test (1, 5000.4);
     Account* account= &test;
     AccountViewModel * accountViewmodel = new AccountViewModel();
@@ -85,8 +87,19 @@ int main(int argc, char *argv[])
     view->makeStockview();
     view->generateStockView();
     view->show();
+*/
 
+    User* usertest = new User("Jakob");
+    usertest->getBalance(0);
+    UserViewModel* userviewmodel = new UserViewModel();
+    userviewmodel->setUser(usertest);
+    userview * view = new userview();
+    view->setViewmodel(userviewmodel);
+    view->makeAccountView();
+    view->generateAccountView();
+    view->show();
 
+    //userview * userview = new userview();
 
    // Stock* stocktest =new Stock (20, 3);
     //view->addStock(stocktest);

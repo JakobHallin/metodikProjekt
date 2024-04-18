@@ -8,10 +8,11 @@
 
 class User: public QObject {
 private:
-    std::vector<Account*> Accounts;
-
+    QVector<Account*> Accounts;
+    QString userID;
 public:
     User(QString userID);
+    QString getUserID(){return this->userID; }
     int getSize();
     int getAmountStocks(int AccountIndex);
     int getAccountsStockID(int AccountIndex, int stockIndex);
@@ -21,7 +22,8 @@ public:
     void buyFromAccountStockAmount(int AccountIndex, int StockID, int amount);
     void sellFromAccountStockAmount(int AccountIndex, int StockID, int amount);
     void addAccount(Account* Add);
-    std::vector<Account*> getAccounts();
+
+    QVector<Account*> getAccounts();
     void changeBalance(int index, float amount);
     bool stockExist(int id);
 

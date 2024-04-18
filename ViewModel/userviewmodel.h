@@ -1,10 +1,24 @@
 #ifndef USERVIEWMODEL_H
 #define USERVIEWMODEL_H
-
-class UserViewModel
+#include <QObject>
+#include "../classes/User.class.h"
+#include "../ViewModel/accountviewmodel.h"
+class UserViewModel: QObject
 {
+     Q_OBJECT
 public:
-    UserViewModel();
+    UserViewModel(QObject * parent= nullptr);
+    void setUser(User* user);
+    QString getUserID(){ return user->getUserID();}
+    void addAccountViewModel(User * user);
+    QVector<AccountViewModel*> getAccountViewModel(){return this->accountViewModels;}
+
+
+
+private:
+    User* user;
+    QVector<AccountViewModel*> accountViewModels;
+//senare kanske implementera byte
 };
 
 #endif // USERVIEWMODEL_H

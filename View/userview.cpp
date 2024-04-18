@@ -6,7 +6,7 @@ userview::userview(QWidget *parent)
     , ui(new Ui::userview)
 {
     ui->setupUi(this);
-    ui->scrollArea->setWidgetResizable(true);
+   // ui->scrollArea->setWidgetResizable(true);
    //accountview* test = addAccountView(1, 10008);
     //test->addStock(100,200);
    /*  accountview* test2 = addAccountView(2, 10008);
@@ -26,6 +26,12 @@ userview::~userview()
 {
     delete ui;
 }
+void userview::setViewmodel(UserViewModel* viewmodel){
+    this->viewModel = viewmodel;
+
+}
+
+
 /*accountview* userview::addAccountView(int accountId, int balance) {
     // Assumes the layout is already created in the constructor
     accountview *accountView = new accountview(accountId, balance, this);
@@ -75,3 +81,64 @@ userview::~userview()
     return accountView;
 }
 */
+void userview::generateAccountView(){
+    QWidget *scrollWidget = ui->scrollArea->widget();
+    QVBoxLayout *scrollLayout;
+
+
+    if (scrollWidget == nullptr) {
+        // If the scroll area does not have a widget, set one with a vertical layout
+        scrollWidget = new QWidget();
+        ui->scrollArea->setWidget(scrollWidget); // Assign the new widget to the scroll area
+        scrollLayout = new QVBoxLayout(scrollWidget); // Create the layout and assign it to the content widget
+        scrollWidget->setLayout(scrollLayout);
+    }
+    //QVBoxLayout
+    else {
+        scrollLayout = qobject_cast<QVBoxLayout*>(scrollWidget->layout());
+
+        if (!scrollLayout) { // If the layout is not a QVBoxLayout or does not exist
+            // If the cast failed, create a new QVBoxLayout
+            scrollLayout = new QVBoxLayout(scrollWidget);
+            scrollWidget->setLayout(scrollLayout);
+
+        }
+    }
+
+    scrollLayout->setAlignment(Qt::AlignTop);
+    //scrollWidget->layout()->activate();
+    for (accountview* view : this->accounts) {
+        if (view){
+
+            //view->getviewModel()->amount();
+            //view->getviewModel()->id();
+            scrollLayout->addWidget(view);
+        }
+    }
+}
+
+void userview::makeAccountView(){
+
+    // this->viewModel = viewModel;
+    QVector<AccountViewModel*> myVector = this->viewModel->getAccountViewModel();
+                                         //getaViewModels(); //fell hära
+
+
+
+    //loop stockviewmodel for stocksviewsmodels
+    qDebug() << "amount of stockviews to add:" << myVector.size();
+    for (AccountViewModel* viewItem : myVector) {
+        if (viewItem){
+            qDebug() << "StockViewModel pointer exist";
+            accountview* accountView = new accountview();
+            qDebug() << "StockView created succseed";
+            accountView->setViewmodel(viewItem);
+
+            accounts.append(accountView);
+        }
+        else {
+            qDebug() << "StockViewModel pointer null";
+        }
+    }
+}
+

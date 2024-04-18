@@ -1,11 +1,11 @@
 #include "User.class.h"
 
 
-User::User(QString userID) {
-    QString userID2 = "jakob";
+User::User(QString userID) { //inte case sensetive
+   // QString userID2 = "jakob";
     //userID = userID.toLower();
     //std::string sql = "SELECT * FROM Accounts WHERE UserID = '" + std::to_string(userID) + "'";
-    QString sql = QString("SELECT * FROM Accounts WHERE UserID= '%1'").arg(userID2); // '%1' för att see till att den inte antar det som coulumn
+    QString sql = QString("SELECT * FROM Accounts WHERE UserID= '%1'").arg(userID); // '%1' för att see till att den inte antar det som coulumn
 
     Sql classSql;
     QSqlQuery stmt = classSql.execute(sql); //error here cause Execute failed: "Unknown column 'jakob' in 'where clause' QMYSQL: Unable to execute query"
@@ -17,7 +17,7 @@ User::User(QString userID) {
         int accountID = stmt.value(stmt.record().indexOf("AccountID")).toInt();
         int balance = stmt.value(stmt.record().indexOf("Balance")).toInt();
 
-        addAccount(new Account(accountID, balance));
+        this->addAccount(new Account(accountID, balance));
     }
 }
 
@@ -57,7 +57,7 @@ void User::addAccount(Account* Add) {
     Accounts.push_back(Add);
 }
 
-std::vector<Account*> User::getAccounts() {
+QVector<Account*> User::getAccounts() {
     return Accounts;
 }
 

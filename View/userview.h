@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include <QVBoxLayout>
 #include "accountview.h"
-
+#include "../ViewModel/userviewmodel.h"
 namespace Ui {
 class userview;
 }
@@ -17,12 +17,17 @@ public:
     explicit userview(QWidget *parent = nullptr); //should get userID
     ~userview();
     //void addAccountView(accountview *accountView);
-    accountview* addAccountView(int accountId, int balance);
-    //AccountGroupBox* addAccountGroup(int accountId, int balance);
 
+    void setViewmodel(UserViewModel* viewmodel);
+
+    //accountview* addAccountView(int accountId, int balance);
+    //AccountGroupBox* addAccountGroup(int accountId, int balance);
+    void makeAccountView();
+    void generateAccountView();
 private:
     Ui::userview *ui;
     QVector<accountview*> accounts;
+    UserViewModel* viewModel;
 signals:
     void amountChanged(int newAmount);
 
