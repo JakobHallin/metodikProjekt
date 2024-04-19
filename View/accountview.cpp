@@ -4,7 +4,11 @@
 accountview::accountview(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::accountview) {
     ui->setupUi(this);
-    setMinimumSize(QSize(400, 200));
+    ui->centralwidget->setStyleSheet("border: 1px solid red;");
+    this->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+    //this->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+   // setMinimumSize(QSize(400, 160));
     //makeStockview();//dont work this->viewmodel not init
 
     //makeStockview(viewModel);
@@ -161,6 +165,7 @@ void accountview::makeStockview(){
                 qDebug() << "StockViewModel pointer null";
             }
         }
+
 }
 void accountview::updateBalanceDisplay(float value){
     //this.->BalanceLabel->setText(QString::number(this->viewModel->getAccount()->getBalance()));

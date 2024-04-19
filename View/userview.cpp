@@ -6,7 +6,9 @@ userview::userview(QWidget *parent)
     , ui(new Ui::userview)
 {
     ui->setupUi(this);
-   // ui->scrollArea->setWidgetResizable(true);
+   // setMinimumSize(QSize(800, 1400));
+
+   //ui->scrollArea->setWidgetResizable(true);
    //accountview* test = addAccountView(1, 10008);
     //test->addStock(100,200);
    /*  accountview* test2 = addAccountView(2, 10008);
@@ -89,7 +91,8 @@ void userview::generateAccountView(){
     if (scrollWidget == nullptr) {
         // If the scroll area does not have a widget, set one with a vertical layout
         scrollWidget = new QWidget();
-        ui->scrollArea->setWidget(scrollWidget); // Assign the new widget to the scroll area
+        //ui->scrollArea->setWidget(scrollWidget); // Assign the new widget to the scroll area
+
         scrollLayout = new QVBoxLayout(scrollWidget); // Create the layout and assign it to the content widget
         scrollWidget->setLayout(scrollLayout);
     }
@@ -100,21 +103,54 @@ void userview::generateAccountView(){
         if (!scrollLayout) { // If the layout is not a QVBoxLayout or does not exist
             // If the cast failed, create a new QVBoxLayout
             scrollLayout = new QVBoxLayout(scrollWidget);
+
             scrollWidget->setLayout(scrollLayout);
 
+
         }
     }
 
-    scrollLayout->setAlignment(Qt::AlignTop);
+   // scrollLayout->setAlignment(Qt::AlignTop);
     //scrollWidget->layout()->activate();
+    scrollLayout->setContentsMargins(10, 10, 10, 10);
+    scrollLayout->setSpacing(0);
+
     for (accountview* view : this->accounts) {
         if (view){
+            /*
 
+            view->generateStockView();
+            view->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
+
+            //view->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
             //view->getviewModel()->amount();
             //view->getviewModel()->id();
+            //view->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
             scrollLayout->addWidget(view);
+            //scrollLayout->addWidget()
+
+*/
+            QScrollArea* individualScrollArea = new QScrollArea(scrollWidget);
+            individualScrollArea->setWidgetResizable(true);
+            //individualScrollArea->setFrameShape(QFrame::NoFrame); // Optional, removes the frame for aesthetics.
+            view->generateStockView();
+            individualScrollArea->setWidget(view);
+            individualScrollArea->setContentsMargins(10,10,10,10);
+
+
+            view->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+
+            // Add the individual scroll area to the layout instead of the view directly.
+            scrollLayout->addWidget(individualScrollArea);
+
         }
     }
+
+     ui->scrollArea->setWidget(scrollWidget);
+
+    ui->scrollArea->setWidgetResizable(true); // Make sure this is set to allow dynamic resizing
+    //scrollWidget->adjustSize(); // Adjust size of the scroll widget after adding children
+    //ui->scrollArea->update();
 }
 
 void userview::makeAccountView(){
@@ -133,6 +169,8 @@ void userview::makeAccountView(){
             accountview* accountView = new accountview();
             qDebug() << "StockView created succseed";
             accountView->setViewmodel(viewItem);
+            accountView->makeStockview();
+            //accountView->generateStockView();
 
             accounts.append(accountView);
         }
@@ -140,5 +178,7 @@ void userview::makeAccountView(){
             qDebug() << "StockViewModel pointer null";
         }
     }
+    this->generateAccountView();
+
 }
 

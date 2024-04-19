@@ -75,19 +75,19 @@ int main(int argc, char *argv[])
 
 
     //testin accountview mvvm
-    /*
+
     Account test (1, 5000.4);
     Account* account= &test;
     AccountViewModel * accountViewmodel = new AccountViewModel();
     accountViewmodel->setAccount(account);
     QVector <StockViewModel*> stockmodel = accountViewmodel->getstockViewModels();
     qDebug() << stockmodel.at(0)->id();
-    accountview* view= new accountview();
-    view->setViewmodel(accountViewmodel);
-    view->makeStockview();
-    view->generateStockView();
-    view->show();
-*/
+    accountview* view2= new accountview();
+    view2->setViewmodel(accountViewmodel);
+    view2->makeStockview();
+    view2->generateStockView();
+    view2->show();
+
 
     User* usertest = new User("Jakob");
     usertest->getBalance(0);
@@ -96,7 +96,7 @@ int main(int argc, char *argv[])
     userview * view = new userview();
     view->setViewmodel(userviewmodel);
     view->makeAccountView();
-    view->generateAccountView();
+    //view->generateAccountView();
     view->show();
 
     //userview * userview = new userview();
@@ -114,7 +114,7 @@ int main(int argc, char *argv[])
     //stockview s(2,3);
     //s.show();
 
-   // MainWindow w;
-   // w.show();
+    MainWindow w;
+    w.show();
     return a.exec();
 }

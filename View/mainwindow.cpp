@@ -15,8 +15,23 @@ MainWindow::~MainWindow()
     delete ui;
 }
 void MainWindow::pushLoginButton(){
-    userview *otherView = new userview();
-    otherView->setAttribute(Qt::WA_DeleteOnClose); // Ensure the view is deleted when closed
-    otherView->show();
+
+    //userview *otherView = new userview();
+    //otherView->setAttribute(Qt::WA_DeleteOnClose); // Ensure the view is deleted when closed
+    //otherView->show();
+
+    User* usertest = new User("Jakob");
+    usertest->getBalance(0);
+    UserViewModel* userviewmodel = new UserViewModel();
+    userviewmodel->setUser(usertest);
+    userview * view = new userview();
+    view->setViewmodel(userviewmodel);
+    view->makeAccountView();
+    //view->generateAccountView();
+    view->setAttribute(Qt::WA_DeleteOnClose); // Ensure the view is deleted when closed
+
+    view->show();
+
+
 
 }

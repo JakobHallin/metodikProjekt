@@ -5,6 +5,7 @@
 #include <QVBoxLayout>
 #include "accountview.h"
 #include "../ViewModel/userviewmodel.h"
+#include <QScrollArea>
 namespace Ui {
 class userview;
 }
