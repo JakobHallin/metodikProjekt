@@ -12,9 +12,9 @@ Account::Account(int id, float balance, QObject *parent) : QObject(parent), id(i
         int amount = stmt.value("Amount").toInt();
         this->addStock(new Stock(stockId, amount));
     }
-    this->addStock(new Stock(4, 9));
-    this->addStock(new Stock(5, 8));
-    this->addStock(new Stock(7, 5));
+    //this->addStock(new Stock(4, 9));
+    //this->addStock(new Stock(5, 8));
+    //this->addStock(new Stock(7, 5));
     //unsure if I need to emit signal here?
 }
 
