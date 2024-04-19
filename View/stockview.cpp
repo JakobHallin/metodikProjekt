@@ -12,7 +12,7 @@ stockview::stockview( QWidget *parent)
     //QString stringAmount = QString::number(viewModel->amount());
     //ui->label->setText(stringId);
     //ui->label_2->setText(stringAmount);
-   // setMinimumSize(QSize(40, 90));
+    setMinimumSize(QSize(40, 90));
 
    /* connect(viewModel, &StockViewModel::amountChanged, this, [this]() {
         ui->label_2->setText(QString::number(this->viewModel->amount()));

@@ -6,6 +6,7 @@ userview::userview(QWidget *parent)
     , ui(new Ui::userview)
 {
     ui->setupUi(this);
+     ui->centralwidget->setStyleSheet("border: 1px solid blue;");
    // setMinimumSize(QSize(800, 1400));
 
    //ui->scrollArea->setWidgetResizable(true);
@@ -136,6 +137,7 @@ void userview::generateAccountView(){
             view->generateStockView();
             individualScrollArea->setWidget(view);
             individualScrollArea->setContentsMargins(10,10,10,10);
+            individualScrollArea->setMinimumSize(QSize(400, 450));
 
 
             view->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);

@@ -114,7 +114,7 @@ int main(int argc, char *argv[])
     //stockview s(2,3);
     //s.show();
 
-    MainWindow w;
-    w.show();
+    //MainWindow w;
+    //w.show();
     return a.exec();
 }
