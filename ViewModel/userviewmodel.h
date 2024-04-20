@@ -3,11 +3,12 @@
 #include <QObject>
 #include "../classes/User.class.h"
 #include "../ViewModel/accountviewmodel.h"
-class UserViewModel: QObject
+class UserViewModel: public QObject
 {
      Q_OBJECT
 public:
     UserViewModel(QObject * parent= nullptr);
+    ~UserViewModel();
     void setUser(User* user);
     QString getUserID(){ return user->getUserID();}
     void addAccountViewModel(User * user);

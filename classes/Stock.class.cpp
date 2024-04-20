@@ -8,11 +8,9 @@ void Stock::setID(int id) {
 }
 */
 void Stock::setAmount(int n) {
-    this->amount = n;
-    if (amount != n) {
+
         amount = n;
-        //emit amountChanged(n);
-    }
+
 }
 /*
 int Stock::getAmount() {

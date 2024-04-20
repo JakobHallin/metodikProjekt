@@ -19,8 +19,15 @@ User::User(QString userID) { //inte case sensetive
 
         this->addAccount(new Account(accountID, balance));
     }
-}
 
+}
+User::~User(){
+    for (auto account: Accounts){
+        delete account;
+    }
+    Accounts.clear();
+
+}
 int User::getSize() {
     return Accounts.size();
 }

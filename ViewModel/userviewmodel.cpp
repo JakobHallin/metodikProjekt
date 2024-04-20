@@ -4,8 +4,14 @@ UserViewModel::UserViewModel(QObject* parent): QObject(parent) {}
 void UserViewModel::setUser(User* user){
     this->user = user;
     addAccountViewModel(user);
+    this->user->setParent(this);
+}
 
-
+UserViewModel::~UserViewModel(){
+    for (auto account: accountViewModels){
+        delete account;
+    }
+    accountViewModels.clear();
 }
 void UserViewModel::addAccountViewModel(User * user){
     //for loop

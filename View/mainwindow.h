@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "userview.h"
+#include "../classes/Sql.class.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {

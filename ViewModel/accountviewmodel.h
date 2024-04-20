@@ -18,7 +18,7 @@ public:
     void sell(int stockID, int amount);
     void addStockViewModel(Account * account);//I already have account
 
-
+    ~AccountViewModel();
 
 signals: //from model
     void balanceChanged(float value);

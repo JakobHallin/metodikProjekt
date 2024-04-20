@@ -26,6 +26,7 @@ private:
 
 public:
     Account(int id, float balance, QObject *parent =nullptr);
+    ~Account();
     int getSize();
     int getStockID(int index);
     int getStockAmount(int index);

@@ -7,11 +7,13 @@
 #include "Account.class.h"
 
 class User: public QObject {
+    Q_OBJECT
 private:
     QVector<Account*> Accounts;
     QString userID;
 public:
     User(QString userID);
+    ~User();
     QString getUserID(){return this->userID; }
     int getSize();
     int getAmountStocks(int AccountIndex);

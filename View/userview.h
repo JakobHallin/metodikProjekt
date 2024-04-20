@@ -25,6 +25,8 @@ public:
     //AccountGroupBox* addAccountGroup(int accountId, int balance);
     void makeAccountView();
     void generateAccountView();
+
+
 private:
     Ui::userview *ui;
     QVector<accountview*> accounts;

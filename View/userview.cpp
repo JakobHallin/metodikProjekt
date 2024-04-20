@@ -27,10 +27,18 @@ userview::userview(QWidget *parent)
 
 userview::~userview()
 {
+    for (auto account : accounts) {
+        delete account;
+    }
+
+    accounts.clear();
     delete ui;
+
 }
 void userview::setViewmodel(UserViewModel* viewmodel){
     this->viewModel = viewmodel;
+    this->viewModel->setParent(this);
+
 
 }
 
@@ -181,6 +189,7 @@ void userview::makeAccountView(){
         }
     }
     this->generateAccountView();
+
 
 }
 

@@ -17,6 +17,12 @@ Account::Account(int id, float balance, QObject *parent) : QObject(parent), id(i
     //this->addStock(new Stock(7, 5));
     //unsure if I need to emit signal here?
 }
+Account::~Account(){
+    for (auto stock: holding){
+        delete stock;
+    }
+    holding.clear();
+}
 
 int Account::getSize() {
     //return holding.size();
