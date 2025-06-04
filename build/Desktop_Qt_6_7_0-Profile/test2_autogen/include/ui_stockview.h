@@ -34,7 +34,7 @@ public:
     {
         if (stockview->objectName().isEmpty())
             stockview->setObjectName("stockview");
-        stockview->resize(365, 116);
+        stockview->resize(368, 118);
         centralwidget = new QWidget(stockview);
         centralwidget->setObjectName("centralwidget");
         label = new QLabel(centralwidget);
@@ -45,14 +45,14 @@ public:
         label_2->setGeometry(QRect(250, 30, 67, 17));
         label_3 = new QLabel(centralwidget);
         label_3->setObjectName("label_3");
-        label_3->setGeometry(QRect(20, 30, 67, 17));
+        label_3->setGeometry(QRect(10, 30, 61, 17));
         label_4 = new QLabel(centralwidget);
         label_4->setObjectName("label_4");
-        label_4->setGeometry(QRect(180, 30, 67, 17));
+        label_4->setGeometry(QRect(180, 30, 61, 17));
         stockview->setCentralWidget(centralwidget);
         menubar = new QMenuBar(stockview);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 365, 22));
+        menubar->setGeometry(QRect(0, 0, 368, 22));
         stockview->setMenuBar(menubar);
         statusbar = new QStatusBar(stockview);
         statusbar->setObjectName("statusbar");

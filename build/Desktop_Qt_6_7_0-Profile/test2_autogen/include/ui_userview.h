@@ -34,7 +34,7 @@ public:
     {
         if (userview->objectName().isEmpty())
             userview->setObjectName("userview");
-        userview->resize(772, 547);
+        userview->resize(582, 547);
         centralwidget = new QWidget(userview);
         centralwidget->setObjectName("centralwidget");
         label = new QLabel(centralwidget);
@@ -42,18 +42,18 @@ public:
         label->setGeometry(QRect(60, 30, 67, 17));
         scrollArea = new QScrollArea(centralwidget);
         scrollArea->setObjectName("scrollArea");
-        scrollArea->setGeometry(QRect(50, 60, 691, 381));
+        scrollArea->setGeometry(QRect(50, 60, 511, 381));
         scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
         scrollArea->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName("scrollAreaWidgetContents");
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 675, 379));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 495, 379));
         scrollArea->setWidget(scrollAreaWidgetContents);
         userview->setCentralWidget(centralwidget);
         menubar = new QMenuBar(userview);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 772, 22));
+        menubar->setGeometry(QRect(0, 0, 582, 22));
         userview->setMenuBar(menubar);
         statusbar = new QStatusBar(userview);
         statusbar->setObjectName("statusbar");
