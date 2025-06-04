@@ -2,7 +2,9 @@
 
 
 User::User(QString userID) { //inte case sensetive
-   // QString userID2 = "jakob";
+    auto start = std::chrono::steady_clock::now();
+
+    // QString userID2 = "jakob";
     //userID = userID.toLower();
     //std::string sql = "SELECT * FROM Accounts WHERE UserID = '" + std::to_string(userID) + "'";
     QString sql = QString("SELECT * FROM Accounts WHERE UserID= '%1'").arg(userID); // '%1' för att see till att den inte antar det som coulumn
@@ -19,8 +21,16 @@ User::User(QString userID) { //inte case sensetive
 
         this->addAccount(new Account(accountID, balance));
     }
+    auto end = std::chrono::steady_clock::now();
+    qDebug() << "Time to set up user:" << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count() << "ns";
 }
+User::~User(){
+    for (auto account: Accounts){
+        delete account;
+    }
+    Accounts.clear();
 
+}
 int User::getSize() {
     return Accounts.size();
 }

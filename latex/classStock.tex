@@ -1,0 +1,170 @@
+\hypertarget{classStock}{}\doxysection{Stock Class Reference}
+\label{classStock}\index{Stock@{Stock}}
+
+
+Represents a stock in the system with ID, name, and price.  
+
+
+
+
+{\ttfamily \#include $<$Stock.\+class.\+h$>$}
+
+
+
+Inheritance diagram for Stock\+:
+% FIG 0
+
+
+Collaboration diagram for Stock\+:
+% FIG 1
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classStock_a3c505aa50c28f458c5e44817163f015a}{amount\+Changed}} (int new\+Amount)
+\begin{DoxyCompactList}\small\item\em Emitted whenever the amount changes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classStock_ae978ed07b0b5580ed6afe438135b7bcf}{Stock}} (int id, int amount, QObject $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classStock}{Stock}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classStock_a718173ee2f1b0dccf99b1317edd6dd12}{set\+Amount}} (int n)
+\begin{DoxyCompactList}\small\item\em Sets the amount of shares owned. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classStock_a48df3ebf3d4f1c8249bfd33197504984}{get\+ID}} () const
+\begin{DoxyCompactList}\small\item\em Gets the stock ID. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classStock_a8bfa0327c8dc4fd49ca49fd01e8b25e4}{get\+Amount}} () const
+\begin{DoxyCompactList}\small\item\em Gets the amount of shares owned. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classStock_afb5db6085744b7c2b16845352293d3aa}{add\+Amount}} (int number)
+\begin{DoxyCompactList}\small\item\em Adds to the current amount of shares. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classStock_a3ac21f4c3b6378be87fe2fb9d73d3e9c}{remove\+Amount}} (int number)
+\begin{DoxyCompactList}\small\item\em Removes from the current amount of shares. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a stock in the system with ID, name, and price. 
+
+The \mbox{\hyperlink{classStock}{Stock}} class encapsulates a stock’s unique identifier and the number of shares (amount) owned. It emits a signal whenever the amount changes. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classStock_ae978ed07b0b5580ed6afe438135b7bcf}\label{classStock_ae978ed07b0b5580ed6afe438135b7bcf}} 
+\index{Stock@{Stock}!Stock@{Stock}}
+\index{Stock@{Stock}!Stock@{Stock}}
+\doxysubsubsection{\texorpdfstring{Stock()}{Stock()}}
+{\footnotesize\ttfamily Stock\+::\+Stock (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{int}]{amount,  }\item[{QObject $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructs a \mbox{\hyperlink{classStock}{Stock}} object. 
+
+Initializes a \mbox{\hyperlink{classStock}{Stock}} with the given ID and starting amount.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The stock ID. \\
+\hline
+{\em amount} & Initial number of shares. \\
+\hline
+{\em parent} & Optional parent QObject. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classStock_afb5db6085744b7c2b16845352293d3aa}\label{classStock_afb5db6085744b7c2b16845352293d3aa}} 
+\index{Stock@{Stock}!addAmount@{addAmount}}
+\index{addAmount@{addAmount}!Stock@{Stock}}
+\doxysubsubsection{\texorpdfstring{addAmount()}{addAmount()}}
+{\footnotesize\ttfamily void Stock\+::add\+Amount (\begin{DoxyParamCaption}\item[{int}]{number }\end{DoxyParamCaption})}
+
+
+
+Adds to the current amount of shares. 
+
+Increases the number of shares and emits \mbox{\hyperlink{classStock_a3c505aa50c28f458c5e44817163f015a}{amount\+Changed()}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em number} & Number of shares to add. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classStock_a3c505aa50c28f458c5e44817163f015a}\label{classStock_a3c505aa50c28f458c5e44817163f015a}} 
+\index{Stock@{Stock}!amountChanged@{amountChanged}}
+\index{amountChanged@{amountChanged}!Stock@{Stock}}
+\doxysubsubsection{\texorpdfstring{amountChanged}{amountChanged}}
+{\footnotesize\ttfamily void Stock\+::amount\+Changed (\begin{DoxyParamCaption}\item[{int}]{new\+Amount }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Emitted whenever the amount changes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Amount} & The updated number of shares. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classStock_a8bfa0327c8dc4fd49ca49fd01e8b25e4}\label{classStock_a8bfa0327c8dc4fd49ca49fd01e8b25e4}} 
+\index{Stock@{Stock}!getAmount@{getAmount}}
+\index{getAmount@{getAmount}!Stock@{Stock}}
+\doxysubsubsection{\texorpdfstring{getAmount()}{getAmount()}}
+{\footnotesize\ttfamily int Stock\+::get\+Amount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the amount of shares owned. 
+
+\begin{DoxyReturn}{Returns}
+The amount of stocks. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classStock_a48df3ebf3d4f1c8249bfd33197504984}\label{classStock_a48df3ebf3d4f1c8249bfd33197504984}} 
+\index{Stock@{Stock}!getID@{getID}}
+\index{getID@{getID}!Stock@{Stock}}
+\doxysubsubsection{\texorpdfstring{getID()}{getID()}}
+{\footnotesize\ttfamily int Stock\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the stock ID. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classStock}{Stock}} ID. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classStock_a3ac21f4c3b6378be87fe2fb9d73d3e9c}\label{classStock_a3ac21f4c3b6378be87fe2fb9d73d3e9c}} 
+\index{Stock@{Stock}!removeAmount@{removeAmount}}
+\index{removeAmount@{removeAmount}!Stock@{Stock}}
+\doxysubsubsection{\texorpdfstring{removeAmount()}{removeAmount()}}
+{\footnotesize\ttfamily void Stock\+::remove\+Amount (\begin{DoxyParamCaption}\item[{int}]{number }\end{DoxyParamCaption})}
+
+
+
+Removes from the current amount of shares. 
+
+Decreases the number of shares and emits \mbox{\hyperlink{classStock_a3c505aa50c28f458c5e44817163f015a}{amount\+Changed()}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em number} & Number of shares to remove. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classStock_a718173ee2f1b0dccf99b1317edd6dd12}\label{classStock_a718173ee2f1b0dccf99b1317edd6dd12}} 
+\index{Stock@{Stock}!setAmount@{setAmount}}
+\index{setAmount@{setAmount}!Stock@{Stock}}
+\doxysubsubsection{\texorpdfstring{setAmount()}{setAmount()}}
+{\footnotesize\ttfamily void Stock\+::set\+Amount (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Sets the amount of shares owned. 
+
+Updates the internal amount and emits \mbox{\hyperlink{classStock_a3c505aa50c28f458c5e44817163f015a}{amount\+Changed()}} if the value changes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & New number of shares. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+classes/\mbox{\hyperlink{Stock_8class_8h}{Stock.\+class.\+h}}\item 
+build/\+Desktop\+\_\+\+Qt\+\_\+6\+\_\+7\+\_\+0-\/\+Profile/test2\+\_\+autogen/\+QESDO5\+J2\+AP/\mbox{\hyperlink{moc__Stock_8class_8cpp}{moc\+\_\+\+Stock.\+class.\+cpp}}\item 
+classes/\mbox{\hyperlink{Stock_8class_8cpp}{Stock.\+class.\+cpp}}\end{DoxyCompactItemize}

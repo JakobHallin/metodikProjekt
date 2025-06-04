@@ -1,0 +1,11 @@
+digraph "build/Desktop_Qt_6_7_0-Profile/test2_autogen/PZVFIPK5HQ" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_b7143e71e0a58b5f92e2deaf4cdb889e {
+    graph [ bgcolor="#ddddee", pencolor="black", label="test2_autogen" fontname="Helvetica", fontsize="10", URL="dir_b7143e71e0a58b5f92e2deaf4cdb889e.html"]
+  dir_00e77682749579a2e119968c75467f8c [shape=box, label="PZVFIPK5HQ", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_00e77682749579a2e119968c75467f8c.html"];
+  }
+  dir_8b813a46eb1ef45602fb594223d0a80f [shape=box label="ViewModel" URL="dir_8b813a46eb1ef45602fb594223d0a80f.html"];
+  dir_00e77682749579a2e119968c75467f8c->dir_8b813a46eb1ef45602fb594223d0a80f [headlabel="3", labeldistance=1.5 headhref="dir_000012_000017.html"];
+}

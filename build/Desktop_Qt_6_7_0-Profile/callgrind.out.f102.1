@@ -1,0 +1,152 @@
+# callgrind format
+version: 1
+creator: callgrind-3.18.1
+pid: 7656
+cmd:  /home/jakob/test2/build/Desktop_Qt_6_7_0-Profile/test2
+part: 1
+
+
+desc: I1 cache: 
+desc: D1 cache: 
+desc: LL cache: 
+
+desc: Timerange: Basic block 0 - 200006518
+desc: Trigger: dump
+
+positions: line
+events: Ir
+summary: 0
+
+
+ob=(3) /usr/lib/x86_64-linux-gnu/libc.so.6
+fl=(344) ./nptl/./nptl/pthread_create.c
+fn=(12586) start_thread
+fe=(344)
+
+fn=(12587) start_thread'2
+fe=(344)
+
+fl=(351) ./misc/../sysdeps/unix/sysv/linux/x86_64/clone.S
+fn=(12470) clone
+
+fl=(524) ./nptl/./nptl/pthread_cond_wait.c
+fn=(191176) pthread_cond_timedwait@@GLIBC_2.3.2
+
+fl=(284) ./csu/../sysdeps/nptl/libc_start_call_main.h
+fn=(2986) (below main)
+
+fl=(524)
+fn=(191176)
+
+fn=(93772) pthread_cond_wait@@GLIBC_2.3.2
+
+fl=(269) ./csu/../csu/libc-start.c
+fn=(2466) __libc_start_main@@GLIBC_2.34
+
+ob=(45) /home/jakob/Qt/6.7.0/gcc_64/lib/libQt6Gui.so.6.7.0
+fl=(261) ???
+fn=(184856) QPAEventDispatcherGlib::processEvents(QFlags<QEventLoop::ProcessEventsFlag>)
+0 128
+
+fn=(184812) QGuiApplication::exec()
+0 5
+
+ob=(48) /home/jakob/test2/build/Desktop_Qt_6_7_0-Profile/test2
+fl=(268) ???
+fn=(2464) (below main)
+
+fl=(270) /home/jakob/test2/main.cpp
+fn=(2990) main
+
+ob=(1) /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+fl=(1) ???
+fn=(0) 0x0000000000020290
+
+ob=(47) /home/jakob/Qt/6.7.0/gcc_64/lib/libQt6Widgets.so.6.7.0
+fl=(267) ???
+fn=(184806) QApplication::exec()
+0 5
+
+ob=(39) /home/jakob/Qt/6.7.0/gcc_64/lib/libQt6Core.so.6.7.0
+fl=(254) ???
+fn=(13046) QEventLoop::exec(QFlags<QEventLoop::ProcessEventsFlag>)
+
+fn=(12590) 0x00000000002fbe30
+
+fn=(184852) QCoreApplication::exec()
+0 1
+
+fn=(12590)
+
+fn=(13078) QEventLoop::processEvents(QFlags<QEventLoop::ProcessEventsFlag>)
+
+fn=(190964) 0x0000000000304590
+
+fn=(13080) QEventDispatcherGlib::processEvents(QFlags<QEventLoop::ProcessEventsFlag>)
+0 185
+
+fn=(93766) QWaitCondition::wait(QMutex*, QDeadlineTimer)
+0 142
+
+fn=(13080)
+
+fn=(13020) QThread::exec()
+0 5
+
+fn=(93766)
+
+ob=(40) /home/jakob/Qt/6.7.0/gcc_64/lib/libQt6DBus.so.6.7.0
+fl=(256) ???
+fn=(13014) 0x000000000003bd50
+0 5
+
+ob=(137) /usr/lib/x86_64-linux-gnu/dri/iris_dri.so
+fl=(700) ???
+fn=(184282) 0x00000000000bfa80
+
+fn=(184356) 0x000000000010f890
+
+fn=(184278) 0x000000000010f7b0
+
+ob=(36) /usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.7200.4
+fl=(244) ???
+fn=(38366) g_main_loop_run
+
+fn=(13090) 0x00000000000ab070
+
+fn=(29688) 0x0000000000053410
+
+fn=(29664) 0x00000000000a6690
+
+fn=(13224) g_poll
+
+fn=(13088) g_main_context_iteration
+
+ob=(80) /usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.7200.4
+fl=(438) ???
+fn=(38358) 0x0000000000115060
+
+ob=(52) /home/jakob/Qt/6.7.0/gcc_64/lib/libQt6WaylandClient.so.6.7.0
+fl=(332) ???
+fn=(93662) 0x000000000007e640
+0 136
+
+ob=(2) ???
+fl=(51) ???
+fn=(184358) 0x000000002c092e70
+
+fn=(38312) 0x0000000009edfe00
+
+fn=(184358)
+
+fn=(13226) 0x0000000008be1440
+
+fn=(38364) 0x000000000b2dbfc0
+
+fn=(184804) 0x000000000010fc50
+
+ob=(94) /usr/lib/x86_64-linux-gnu/gio/modules/libdconfsettings.so
+fl=(471) ???
+fn=(38306) 0x0000000000007320
+
+totals: 612

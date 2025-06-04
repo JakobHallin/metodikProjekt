@@ -8,3 +8,4 @@
 #include "PZVFIPK5HQ/moc_userviewmodel.cpp"
 #include "QESDO5J2AP/moc_Account.class.cpp"
 #include "QESDO5J2AP/moc_Stock.class.cpp"
+#include "QESDO5J2AP/moc_User.class.cpp"

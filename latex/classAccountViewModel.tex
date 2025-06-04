@@ -1,0 +1,233 @@
+\hypertarget{classAccountViewModel}{}\doxysection{Account\+View\+Model Class Reference}
+\label{classAccountViewModel}\index{AccountViewModel@{AccountViewModel}}
+
+
+View\+Model class that wraps an \mbox{\hyperlink{classAccount}{Account}} object for interaction with the UI.  
+
+
+
+
+{\ttfamily \#include $<$accountviewmodel.\+h$>$}
+
+
+
+Inheritance diagram for Account\+View\+Model\+:
+% FIG 0
+
+
+Collaboration diagram for Account\+View\+Model\+:
+% FIG 1
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classAccountViewModel_a628875ee32c816d0d077f2c007f84987}{balance\+Changed}} (float value)
+\begin{DoxyCompactList}\small\item\em Emitted whenever the account balance changes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAccountViewModel_af1e3024c4ead485f87ff7c0a926800c9}{Account\+View\+Model}} (QObject $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructs an \mbox{\hyperlink{classAccountViewModel}{Account\+View\+Model}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAccountViewModel_a2070c25a2d8edc518e437977132e94e8}{set\+Account}} (\mbox{\hyperlink{classAccount}{Account}} $\ast$account)
+\begin{DoxyCompactList}\small\item\em Associates an \mbox{\hyperlink{classAccount}{Account}} model with this View\+Model. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classAccountViewModel_a3a416028fd226bb20b90da078256f125}{id}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the account’s unique ID. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classAccountViewModel_a4727c0c0bd81c8a22ae6f7120c6c51d4}{balance}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the current account balance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classAccount}{Account}} $\ast$ \mbox{\hyperlink{classAccountViewModel_aac2b504220c336511cdc8a48d0532a10}{get\+Account}} ()
+\begin{DoxyCompactList}\small\item\em Gets the underlying \mbox{\hyperlink{classAccount}{Account}} model. \end{DoxyCompactList}\item 
+QVector$<$ \mbox{\hyperlink{classStockViewModel}{Stock\+View\+Model}} $\ast$ $>$ \mbox{\hyperlink{classAccountViewModel_a9b6da60329c82fa5cebd2c81e917bdfe}{getstock\+View\+Models}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the list of \mbox{\hyperlink{classStockViewModel}{Stock\+View\+Model}} instances for each stock in the account. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAccountViewModel_a97f1eb2139cd5e1f36058c5ece48acce}{buy}} (int stock\+ID, int amount)
+\begin{DoxyCompactList}\small\item\em Buys a specified number of shares of a stock within this account. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAccountViewModel_ada1360fc5acb85094d0eb30794cc81be}{sell}} (int stock\+ID, int amount)
+\begin{DoxyCompactList}\small\item\em Sells a specified number of shares of a stock within this account. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAccountViewModel_ab44d4b3a30f82f96ef46923e926baadf}{add\+Stock\+View\+Model}} (\mbox{\hyperlink{classAccount}{Account}} $\ast$account)
+\begin{DoxyCompactList}\small\item\em Populates the list of \mbox{\hyperlink{classStockViewModel}{Stock\+View\+Model}} objects from the Account’s holdings. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classAccountViewModel_a3ecc166cba02e7ee9df5660606c72f2c}{$\sim$\+Account\+View\+Model}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{classAccountViewModel}{Account\+View\+Model}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+View\+Model class that wraps an \mbox{\hyperlink{classAccount}{Account}} object for interaction with the UI. 
+
+Provides observable access to the account’s ID, balance, and its stocks’ view models. Facilitates buy/sell operations by forwarding to the \mbox{\hyperlink{classAccount}{Account}} model. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classAccountViewModel_af1e3024c4ead485f87ff7c0a926800c9}\label{classAccountViewModel_af1e3024c4ead485f87ff7c0a926800c9}} 
+\index{AccountViewModel@{AccountViewModel}!AccountViewModel@{AccountViewModel}}
+\index{AccountViewModel@{AccountViewModel}!AccountViewModel@{AccountViewModel}}
+\doxysubsubsection{\texorpdfstring{AccountViewModel()}{AccountViewModel()}}
+{\footnotesize\ttfamily Account\+View\+Model\+::\+Account\+View\+Model (\begin{DoxyParamCaption}\item[{QObject $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructs an \mbox{\hyperlink{classAccountViewModel}{Account\+View\+Model}}. 
+
+Initializes an empty \mbox{\hyperlink{classAccountViewModel}{Account\+View\+Model}} with no associated \mbox{\hyperlink{classAccount}{Account}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & Optional parent QObject pointer. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAccountViewModel_a3ecc166cba02e7ee9df5660606c72f2c}\label{classAccountViewModel_a3ecc166cba02e7ee9df5660606c72f2c}} 
+\index{AccountViewModel@{AccountViewModel}!````~AccountViewModel@{$\sim$AccountViewModel}}
+\index{````~AccountViewModel@{$\sim$AccountViewModel}!AccountViewModel@{AccountViewModel}}
+\doxysubsubsection{\texorpdfstring{$\sim$AccountViewModel()}{~AccountViewModel()}}
+{\footnotesize\ttfamily Account\+View\+Model\+::$\sim$\+Account\+View\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor for \mbox{\hyperlink{classAccountViewModel}{Account\+View\+Model}}. 
+
+Cleans up any allocated \mbox{\hyperlink{classStockViewModel}{Stock\+View\+Model}} objects. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAccountViewModel_ab44d4b3a30f82f96ef46923e926baadf}\label{classAccountViewModel_ab44d4b3a30f82f96ef46923e926baadf}} 
+\index{AccountViewModel@{AccountViewModel}!addStockViewModel@{addStockViewModel}}
+\index{addStockViewModel@{addStockViewModel}!AccountViewModel@{AccountViewModel}}
+\doxysubsubsection{\texorpdfstring{addStockViewModel()}{addStockViewModel()}}
+{\footnotesize\ttfamily void Account\+View\+Model\+::add\+Stock\+View\+Model (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAccount}{Account}} $\ast$}]{account }\end{DoxyParamCaption})}
+
+
+
+Populates the list of \mbox{\hyperlink{classStockViewModel}{Stock\+View\+Model}} objects from the Account’s holdings. 
+
+Creates a \mbox{\hyperlink{classStockViewModel}{Stock\+View\+Model}} for each \mbox{\hyperlink{classStock}{Stock}} in the \mbox{\hyperlink{classAccount}{Account}} and connects their signals.
+
+
+\begin{DoxyParams}{Parameters}
+{\em account} & Pointer to the \mbox{\hyperlink{classAccount}{Account}} model whose holdings are used. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAccountViewModel_a4727c0c0bd81c8a22ae6f7120c6c51d4}\label{classAccountViewModel_a4727c0c0bd81c8a22ae6f7120c6c51d4}} 
+\index{AccountViewModel@{AccountViewModel}!balance@{balance}}
+\index{balance@{balance}!AccountViewModel@{AccountViewModel}}
+\doxysubsubsection{\texorpdfstring{balance()}{balance()}}
+{\footnotesize\ttfamily float Account\+View\+Model\+::balance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the current account balance. 
+
+\begin{DoxyReturn}{Returns}
+Balance as a float. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAccountViewModel_a628875ee32c816d0d077f2c007f84987}\label{classAccountViewModel_a628875ee32c816d0d077f2c007f84987}} 
+\index{AccountViewModel@{AccountViewModel}!balanceChanged@{balanceChanged}}
+\index{balanceChanged@{balanceChanged}!AccountViewModel@{AccountViewModel}}
+\doxysubsubsection{\texorpdfstring{balanceChanged}{balanceChanged}}
+{\footnotesize\ttfamily void Account\+View\+Model\+::balance\+Changed (\begin{DoxyParamCaption}\item[{float}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Emitted whenever the account balance changes. 
+
+Connected to UI elements to update displayed balance.
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & New balance value. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAccountViewModel_a97f1eb2139cd5e1f36058c5ece48acce}\label{classAccountViewModel_a97f1eb2139cd5e1f36058c5ece48acce}} 
+\index{AccountViewModel@{AccountViewModel}!buy@{buy}}
+\index{buy@{buy}!AccountViewModel@{AccountViewModel}}
+\doxysubsubsection{\texorpdfstring{buy()}{buy()}}
+{\footnotesize\ttfamily void Account\+View\+Model\+::buy (\begin{DoxyParamCaption}\item[{int}]{stock\+ID,  }\item[{int}]{amount }\end{DoxyParamCaption})}
+
+
+
+Buys a specified number of shares of a stock within this account. 
+
+Delegates the buy operation to the underlying \mbox{\hyperlink{classAccount}{Account}} model. The \mbox{\hyperlink{classAccount}{Account}} model adjusts balance and holdings accordingly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em stock\+ID} & ID of the stock to purchase. \\
+\hline
+{\em amount} & Number of shares to buy. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAccountViewModel_aac2b504220c336511cdc8a48d0532a10}\label{classAccountViewModel_aac2b504220c336511cdc8a48d0532a10}} 
+\index{AccountViewModel@{AccountViewModel}!getAccount@{getAccount}}
+\index{getAccount@{getAccount}!AccountViewModel@{AccountViewModel}}
+\doxysubsubsection{\texorpdfstring{getAccount()}{getAccount()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classAccount}{Account}} $\ast$ Account\+View\+Model\+::get\+Account (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the underlying \mbox{\hyperlink{classAccount}{Account}} model. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the associated \mbox{\hyperlink{classAccount}{Account}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAccountViewModel_a9b6da60329c82fa5cebd2c81e917bdfe}\label{classAccountViewModel_a9b6da60329c82fa5cebd2c81e917bdfe}} 
+\index{AccountViewModel@{AccountViewModel}!getstockViewModels@{getstockViewModels}}
+\index{getstockViewModels@{getstockViewModels}!AccountViewModel@{AccountViewModel}}
+\doxysubsubsection{\texorpdfstring{getstockViewModels()}{getstockViewModels()}}
+{\footnotesize\ttfamily QVector$<$ \mbox{\hyperlink{classStockViewModel}{Stock\+View\+Model}} $\ast$ $>$ Account\+View\+Model\+::getstock\+View\+Models (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the list of \mbox{\hyperlink{classStockViewModel}{Stock\+View\+Model}} instances for each stock in the account. 
+
+\begin{DoxyReturn}{Returns}
+QVector of pointers to \mbox{\hyperlink{classStockViewModel}{Stock\+View\+Model}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAccountViewModel_a3a416028fd226bb20b90da078256f125}\label{classAccountViewModel_a3a416028fd226bb20b90da078256f125}} 
+\index{AccountViewModel@{AccountViewModel}!id@{id}}
+\index{id@{id}!AccountViewModel@{AccountViewModel}}
+\doxysubsubsection{\texorpdfstring{id()}{id()}}
+{\footnotesize\ttfamily int Account\+View\+Model\+::id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the account’s unique ID. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classAccount}{Account}} ID (int). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAccountViewModel_ada1360fc5acb85094d0eb30794cc81be}\label{classAccountViewModel_ada1360fc5acb85094d0eb30794cc81be}} 
+\index{AccountViewModel@{AccountViewModel}!sell@{sell}}
+\index{sell@{sell}!AccountViewModel@{AccountViewModel}}
+\doxysubsubsection{\texorpdfstring{sell()}{sell()}}
+{\footnotesize\ttfamily void Account\+View\+Model\+::sell (\begin{DoxyParamCaption}\item[{int}]{stock\+ID,  }\item[{int}]{amount }\end{DoxyParamCaption})}
+
+
+
+Sells a specified number of shares of a stock within this account. 
+
+Delegates the sell operation to the underlying \mbox{\hyperlink{classAccount}{Account}} model. The \mbox{\hyperlink{classAccount}{Account}} model adjusts balance and holdings accordingly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em stock\+ID} & ID of the stock to sell. \\
+\hline
+{\em amount} & Number of shares to sell. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAccountViewModel_a2070c25a2d8edc518e437977132e94e8}\label{classAccountViewModel_a2070c25a2d8edc518e437977132e94e8}} 
+\index{AccountViewModel@{AccountViewModel}!setAccount@{setAccount}}
+\index{setAccount@{setAccount}!AccountViewModel@{AccountViewModel}}
+\doxysubsubsection{\texorpdfstring{setAccount()}{setAccount()}}
+{\footnotesize\ttfamily void Account\+View\+Model\+::set\+Account (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAccount}{Account}} $\ast$}]{account }\end{DoxyParamCaption})}
+
+
+
+Associates an \mbox{\hyperlink{classAccount}{Account}} model with this View\+Model. 
+
+Connects the Account’s balance\+Changed signal to this View\+Model’s update\+Balance slot. Populates stock\+View\+Models from the Account’s holdings.
+
+
+\begin{DoxyParams}{Parameters}
+{\em account} & Pointer to the \mbox{\hyperlink{classAccount}{Account}} model to wrap. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+View\+Model/\mbox{\hyperlink{accountviewmodel_8h}{accountviewmodel.\+h}}\item 
+build/\+Desktop\+\_\+\+Qt\+\_\+6\+\_\+7\+\_\+0-\/\+Profile/test2\+\_\+autogen/\+PZVFIPK5\+HQ/\mbox{\hyperlink{moc__accountviewmodel_8cpp}{moc\+\_\+accountviewmodel.\+cpp}}\item 
+View\+Model/\mbox{\hyperlink{accountviewmodel_8cpp}{accountviewmodel.\+cpp}}\end{DoxyCompactItemize}

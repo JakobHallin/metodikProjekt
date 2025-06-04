@@ -1,0 +1,8 @@
+digraph "ViewModel" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  dir_8b813a46eb1ef45602fb594223d0a80f [shape=box, label="ViewModel", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_8b813a46eb1ef45602fb594223d0a80f.html"];
+  dir_b02e4219757ae4e3a0f1714873865bbf [shape=box label="classes" URL="dir_b02e4219757ae4e3a0f1714873865bbf.html"];
+  dir_8b813a46eb1ef45602fb594223d0a80f->dir_b02e4219757ae4e3a0f1714873865bbf [headlabel="3", labeldistance=1.5 headhref="dir_000017_000015.html"];
+}

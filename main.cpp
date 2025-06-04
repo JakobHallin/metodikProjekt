@@ -59,23 +59,13 @@ int main(int argc, char *argv[])
     stockView->setViewmodel(viewModel);
     stockView->show();
 
+ //no memmory losee
+
+
 */
-
-    /*testing account
-    Account account1(1, 24.4); //får account stocks
-
-    account1.getBalance();
-    //QTextStream output(stdout);
-    QString str =  QString::number(account1.getBalance());
-    qDebug() << str;
-    QString str2 = QString::number(account1.getStockID(1)); //funkar men om den är utanför size så blir det fel
-
-    qDebug() << str2;
-*/
-
 
     //testin accountview mvvm
-
+/*
     Account test (1, 5000.4);
     Account* account= &test;
     AccountViewModel * accountViewmodel = new AccountViewModel();
@@ -87,8 +77,10 @@ int main(int argc, char *argv[])
     view2->makeStockview();
     view2->generateStockView();
     view2->show();
+    //no memmory lose
 
-
+*/
+/*
     User* usertest = new User("Jakob");
     usertest->getBalance(0);
     UserViewModel* userviewmodel = new UserViewModel();
@@ -98,23 +90,12 @@ int main(int argc, char *argv[])
     view->makeAccountView();
     //view->generateAccountView();
     view->show();
+    //no memmory lose;
 
-    //userview * userview = new userview();
-
-   // Stock* stocktest =new Stock (20, 3);
-    //view->addStock(stocktest);
-    //view->update();
-
-//*/
-   // QVector<StockViewModel*> vector =accountViewmodel->getstockViewModels();
-
-
-  //  User test("Jakob");
-    //account och Stocks funkar
-    //stockview s(2,3);
-    //s.show();
-
-    //MainWindow w;
-    //w.show();
+*/
+    std::unique_ptr<QString> message = std::make_unique<QString>("Should have started with making smartpointer");
+    std::cout << message->toStdString() << std::endl;
+    MainWindow w;
+    w.show();
     return a.exec();
 }

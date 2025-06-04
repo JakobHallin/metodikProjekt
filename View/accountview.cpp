@@ -23,7 +23,12 @@ accountview::accountview(QWidget *parent)
 
 accountview::~accountview()
 {
+    for (auto stock : stocks) {
+        delete stock;
+    }
+    stocks.clear();
     delete ui;
+    //viewmodel should not be deleted
 }
 void accountview::pushBuyButton(){
     QString amount = ui->lineEdidAmount->text();

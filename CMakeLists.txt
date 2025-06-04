@@ -75,3 +75,4 @@ install(TARGETS test2
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(test2)
 endif()
+# Unit Testing with Google Test

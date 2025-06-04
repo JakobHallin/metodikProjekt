@@ -4,7 +4,15 @@ AccountViewModel::AccountViewModel(QObject* parent): QObject(parent) {
 
 }
 
+AccountViewModel::~AccountViewModel(){
 
+    for ( auto stock : stockViewModels){
+        delete stock;
+    }
+    stockViewModels.clear();
+
+
+}
 
 void AccountViewModel::setAccount(Account* account){
     this->account = account;

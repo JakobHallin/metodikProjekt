@@ -1,0 +1,325 @@
+\hypertarget{classAccount}{}\doxysection{Account Class Reference}
+\label{classAccount}\index{Account@{Account}}
+
+
+Represents a user\textquotesingle{}s trading account, including balance and stock holdings.  
+
+
+
+
+{\ttfamily \#include $<$Account.\+class.\+h$>$}
+
+
+
+Inheritance diagram for Account\+:
+% FIG 0
+
+
+Collaboration diagram for Account\+:
+% FIG 1
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classAccount_ab5db0bd2d794f52e51924048dab8f010}{balance\+Changed}} (float value)
+\begin{DoxyCompactList}\small\item\em Emitted whenever the balance changes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAccount_a2aff84211a8185a4f62174c76e1f73b8}{Account}} (int id, float balance, QObject $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructs an \mbox{\hyperlink{classAccount}{Account}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classAccount_a569c9ef0e42b9157690b4ceb646daba8}{$\sim$\+Account}} ()
+\begin{DoxyCompactList}\small\item\em Destructor to clean up allocated \mbox{\hyperlink{classStock}{Stock}} objects. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classAccount_a89222bb43c048f8ceff9808e6de452dc}{get\+Size}} ()
+\begin{DoxyCompactList}\small\item\em Gets the number of different stocks held in this account. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classAccount_a3e93753ab6c82409a5cab2ab0b57fff1}{get\+Stock\+ID}} (int index)
+\begin{DoxyCompactList}\small\item\em Retrieves the stock ID at a given index in holdings. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classAccount_a28a52be66fd30124b8bdda6b3fe9077f}{get\+Stock\+Amount}} (int index)
+\begin{DoxyCompactList}\small\item\em Retrieves the number of shares for a stock at a given index. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAccount_a3342335acfec8a4e3bddbe73713ae09c}{set\+Balance}} (float n)
+\begin{DoxyCompactList}\small\item\em Sets the account balance to a new value. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classAccount_a04fd5e5104223d77d6627ec8eb88be02}{get\+ID}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the unique account ID. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classAccount_a6a55c17b886dce3a59b18bb746ba4301}{get\+Balance}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the current balance. \end{DoxyCompactList}\item 
+QVector$<$ \mbox{\hyperlink{classStock}{Stock}} $\ast$ $>$ \mbox{\hyperlink{classAccount_ad99b24f13e055217c6c2b0cabb4b107a}{get\+Holding}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves a copy of the list of \mbox{\hyperlink{classStock}{Stock}} pointers held. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAccount_abb4ba232962bddde37dc5697cee2dd74}{add\+Stock}} (\mbox{\hyperlink{classStock}{Stock}} $\ast$stock)
+\begin{DoxyCompactList}\small\item\em Adds a \mbox{\hyperlink{classStock}{Stock}} object to the holdings. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAccount_a15906a960a19181f9421249a704cf45c}{add\+Balance}} (float totalprice)
+\begin{DoxyCompactList}\small\item\em Increases the balance by a given amount. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAccount_ab20bfd444b5f394bf45e67f342081297}{remove\+From\+Balance}} (float totalprice)
+\begin{DoxyCompactList}\small\item\em Decreases the balance by a given amount. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classAccount_a1c9a550326947d39e4f4960e6e4ffa04}{get\+Price}} (int stock\+ID)
+\begin{DoxyCompactList}\small\item\em Retrieves the current price for a given stock (via API). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAccount_ac2157999c3f7d5adc010c44aa6a20a0a}{buy\+Stock}} (int Stock\+Id, int amount)
+\begin{DoxyCompactList}\small\item\em Buys a specified number of shares of a stock. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAccount_a3764b811f7edd7eb8e3d7cd39424498f}{sell\+Stock}} (int Stock\+ID, int amount)
+\begin{DoxyCompactList}\small\item\em Sells a specified number of shares of a stock. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a user\textquotesingle{}s trading account, including balance and stock holdings. 
+
+The \mbox{\hyperlink{classAccount}{Account}} class allows buying and selling stocks, updating the account balance, and managing the list of \mbox{\hyperlink{classStock}{Stock}} objects held by the account. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classAccount_a2aff84211a8185a4f62174c76e1f73b8}\label{classAccount_a2aff84211a8185a4f62174c76e1f73b8}} 
+\index{Account@{Account}!Account@{Account}}
+\index{Account@{Account}!Account@{Account}}
+\doxysubsubsection{\texorpdfstring{Account()}{Account()}}
+{\footnotesize\ttfamily Account\+::\+Account (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{float}]{balance,  }\item[{QObject $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+Constructs an \mbox{\hyperlink{classAccount}{Account}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Unique account identifier. \\
+\hline
+{\em balance} & Initial balance for the account. \\
+\hline
+{\em parent} & Optional parent QObject. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAccount_a569c9ef0e42b9157690b4ceb646daba8}\label{classAccount_a569c9ef0e42b9157690b4ceb646daba8}} 
+\index{Account@{Account}!````~Account@{$\sim$Account}}
+\index{````~Account@{$\sim$Account}!Account@{Account}}
+\doxysubsubsection{\texorpdfstring{$\sim$Account()}{~Account()}}
+{\footnotesize\ttfamily Account\+::$\sim$\+Account (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor to clean up allocated \mbox{\hyperlink{classStock}{Stock}} objects. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAccount_a15906a960a19181f9421249a704cf45c}\label{classAccount_a15906a960a19181f9421249a704cf45c}} 
+\index{Account@{Account}!addBalance@{addBalance}}
+\index{addBalance@{addBalance}!Account@{Account}}
+\doxysubsubsection{\texorpdfstring{addBalance()}{addBalance()}}
+{\footnotesize\ttfamily void Account\+::add\+Balance (\begin{DoxyParamCaption}\item[{float}]{totalprice }\end{DoxyParamCaption})}
+
+
+
+Increases the balance by a given amount. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em totalprice} & Amount to add to the balance (e.\+g., from selling stock). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAccount_abb4ba232962bddde37dc5697cee2dd74}\label{classAccount_abb4ba232962bddde37dc5697cee2dd74}} 
+\index{Account@{Account}!addStock@{addStock}}
+\index{addStock@{addStock}!Account@{Account}}
+\doxysubsubsection{\texorpdfstring{addStock()}{addStock()}}
+{\footnotesize\ttfamily void Account\+::add\+Stock (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStock}{Stock}} $\ast$}]{stock }\end{DoxyParamCaption})}
+
+
+
+Adds a \mbox{\hyperlink{classStock}{Stock}} object to the holdings. 
+
+If the stock already exists, updates its amount; otherwise inserts new.
+
+
+\begin{DoxyParams}{Parameters}
+{\em stock} & Pointer to the \mbox{\hyperlink{classStock}{Stock}} object to add. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAccount_ab5db0bd2d794f52e51924048dab8f010}\label{classAccount_ab5db0bd2d794f52e51924048dab8f010}} 
+\index{Account@{Account}!balanceChanged@{balanceChanged}}
+\index{balanceChanged@{balanceChanged}!Account@{Account}}
+\doxysubsubsection{\texorpdfstring{balanceChanged}{balanceChanged}}
+{\footnotesize\ttfamily void Account\+::balance\+Changed (\begin{DoxyParamCaption}\item[{float}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Emitted whenever the balance changes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The updated balance. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAccount_ac2157999c3f7d5adc010c44aa6a20a0a}\label{classAccount_ac2157999c3f7d5adc010c44aa6a20a0a}} 
+\index{Account@{Account}!buyStock@{buyStock}}
+\index{buyStock@{buyStock}!Account@{Account}}
+\doxysubsubsection{\texorpdfstring{buyStock()}{buyStock()}}
+{\footnotesize\ttfamily void Account\+::buy\+Stock (\begin{DoxyParamCaption}\item[{int}]{Stock\+Id,  }\item[{int}]{amount }\end{DoxyParamCaption})}
+
+
+
+Buys a specified number of shares of a stock. 
+
+Queries current price, subtracts cost from balance, and updates holdings.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Stock\+Id} & ID of the stock to purchase. \\
+\hline
+{\em amount} & Number of shares to buy. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAccount_a6a55c17b886dce3a59b18bb746ba4301}\label{classAccount_a6a55c17b886dce3a59b18bb746ba4301}} 
+\index{Account@{Account}!getBalance@{getBalance}}
+\index{getBalance@{getBalance}!Account@{Account}}
+\doxysubsubsection{\texorpdfstring{getBalance()}{getBalance()}}
+{\footnotesize\ttfamily float Account\+::get\+Balance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the current balance. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classAccount}{Account}} balance. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAccount_ad99b24f13e055217c6c2b0cabb4b107a}\label{classAccount_ad99b24f13e055217c6c2b0cabb4b107a}} 
+\index{Account@{Account}!getHolding@{getHolding}}
+\index{getHolding@{getHolding}!Account@{Account}}
+\doxysubsubsection{\texorpdfstring{getHolding()}{getHolding()}}
+{\footnotesize\ttfamily QVector$<$ \mbox{\hyperlink{classStock}{Stock}} $\ast$ $>$ Account\+::get\+Holding (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves a copy of the list of \mbox{\hyperlink{classStock}{Stock}} pointers held. 
+
+\begin{DoxyReturn}{Returns}
+QVector of Stock$\ast$ representing current holdings. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAccount_a04fd5e5104223d77d6627ec8eb88be02}\label{classAccount_a04fd5e5104223d77d6627ec8eb88be02}} 
+\index{Account@{Account}!getID@{getID}}
+\index{getID@{getID}!Account@{Account}}
+\doxysubsubsection{\texorpdfstring{getID()}{getID()}}
+{\footnotesize\ttfamily int Account\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves the unique account ID. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classAccount}{Account}} ID. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAccount_a1c9a550326947d39e4f4960e6e4ffa04}\label{classAccount_a1c9a550326947d39e4f4960e6e4ffa04}} 
+\index{Account@{Account}!getPrice@{getPrice}}
+\index{getPrice@{getPrice}!Account@{Account}}
+\doxysubsubsection{\texorpdfstring{getPrice()}{getPrice()}}
+{\footnotesize\ttfamily float Account\+::get\+Price (\begin{DoxyParamCaption}\item[{int}]{stock\+ID }\end{DoxyParamCaption})}
+
+
+
+Retrieves the current price for a given stock (via API). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stock\+ID} & ID of the stock to price. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The current stock price as a float. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAccount_a89222bb43c048f8ceff9808e6de452dc}\label{classAccount_a89222bb43c048f8ceff9808e6de452dc}} 
+\index{Account@{Account}!getSize@{getSize}}
+\index{getSize@{getSize}!Account@{Account}}
+\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}}
+{\footnotesize\ttfamily int Account\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the number of different stocks held in this account. 
+
+\begin{DoxyReturn}{Returns}
+Size of the holding QVector. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAccount_a28a52be66fd30124b8bdda6b3fe9077f}\label{classAccount_a28a52be66fd30124b8bdda6b3fe9077f}} 
+\index{Account@{Account}!getStockAmount@{getStockAmount}}
+\index{getStockAmount@{getStockAmount}!Account@{Account}}
+\doxysubsubsection{\texorpdfstring{getStockAmount()}{getStockAmount()}}
+{\footnotesize\ttfamily int Account\+::get\+Stock\+Amount (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Retrieves the number of shares for a stock at a given index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Index in the holding QVector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of shares held. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAccount_a3e93753ab6c82409a5cab2ab0b57fff1}\label{classAccount_a3e93753ab6c82409a5cab2ab0b57fff1}} 
+\index{Account@{Account}!getStockID@{getStockID}}
+\index{getStockID@{getStockID}!Account@{Account}}
+\doxysubsubsection{\texorpdfstring{getStockID()}{getStockID()}}
+{\footnotesize\ttfamily int Account\+::get\+Stock\+ID (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Retrieves the stock ID at a given index in holdings. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Index in the holding QVector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The stock ID. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAccount_ab20bfd444b5f394bf45e67f342081297}\label{classAccount_ab20bfd444b5f394bf45e67f342081297}} 
+\index{Account@{Account}!removeFromBalance@{removeFromBalance}}
+\index{removeFromBalance@{removeFromBalance}!Account@{Account}}
+\doxysubsubsection{\texorpdfstring{removeFromBalance()}{removeFromBalance()}}
+{\footnotesize\ttfamily void Account\+::remove\+From\+Balance (\begin{DoxyParamCaption}\item[{float}]{totalprice }\end{DoxyParamCaption})}
+
+
+
+Decreases the balance by a given amount. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em totalprice} & Amount to subtract from the balance (e.\+g., when buying stock). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAccount_a3764b811f7edd7eb8e3d7cd39424498f}\label{classAccount_a3764b811f7edd7eb8e3d7cd39424498f}} 
+\index{Account@{Account}!sellStock@{sellStock}}
+\index{sellStock@{sellStock}!Account@{Account}}
+\doxysubsubsection{\texorpdfstring{sellStock()}{sellStock()}}
+{\footnotesize\ttfamily void Account\+::sell\+Stock (\begin{DoxyParamCaption}\item[{int}]{Stock\+ID,  }\item[{int}]{amount }\end{DoxyParamCaption})}
+
+
+
+Sells a specified number of shares of a stock. 
+
+Queries current price, adds proceeds to balance, and updates holdings.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Stock\+ID} & ID of the stock to sell. \\
+\hline
+{\em amount} & Number of shares to sell. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAccount_a3342335acfec8a4e3bddbe73713ae09c}\label{classAccount_a3342335acfec8a4e3bddbe73713ae09c}} 
+\index{Account@{Account}!setBalance@{setBalance}}
+\index{setBalance@{setBalance}!Account@{Account}}
+\doxysubsubsection{\texorpdfstring{setBalance()}{setBalance()}}
+{\footnotesize\ttfamily void Account\+::set\+Balance (\begin{DoxyParamCaption}\item[{float}]{n }\end{DoxyParamCaption})}
+
+
+
+Sets the account balance to a new value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & New balance value. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+classes/\mbox{\hyperlink{Account_8class_8h}{Account.\+class.\+h}}\item 
+build/\+Desktop\+\_\+\+Qt\+\_\+6\+\_\+7\+\_\+0-\/\+Profile/test2\+\_\+autogen/\+QESDO5\+J2\+AP/\mbox{\hyperlink{moc__Account_8class_8cpp}{moc\+\_\+\+Account.\+class.\+cpp}}\item 
+classes/\mbox{\hyperlink{Account_8class_8cpp}{Account.\+class.\+cpp}}\end{DoxyCompactItemize}

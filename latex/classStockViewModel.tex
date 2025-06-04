@@ -1,0 +1,126 @@
+\hypertarget{classStockViewModel}{}\doxysection{Stock\+View\+Model Class Reference}
+\label{classStockViewModel}\index{StockViewModel@{StockViewModel}}
+
+
+View\+Model class that wraps a \mbox{\hyperlink{classStock}{Stock}} object for interaction with the UI.  
+
+
+
+
+{\ttfamily \#include $<$stockviewmodel.\+h$>$}
+
+
+
+Inheritance diagram for Stock\+View\+Model\+:
+% FIG 0
+
+
+Collaboration diagram for Stock\+View\+Model\+:
+% FIG 1
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classStockViewModel_afbc975f7c33d00aefd46fa1522835e1e}{amount\+Changed}} (int \mbox{\hyperlink{classStockViewModel_aaf08e4f43325c19ec3d1f50ea227f0ab}{amount}})
+\begin{DoxyCompactList}\small\item\em Emitted whenever the stock amount changes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classStockViewModel_a22249d53a78ff21846970e1ad1e60d0e}{Stock\+View\+Model}} (QObject $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classStockViewModel}{Stock\+View\+Model}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classStockViewModel_acfca7528f5dfe0df8babfcfb567c954a}{set\+Stock}} (\mbox{\hyperlink{classStock}{Stock}} $\ast$stock)
+\begin{DoxyCompactList}\small\item\em Associates a \mbox{\hyperlink{classStock}{Stock}} model with this View\+Model. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classStockViewModel_a931d81a10566e3f0b224d9656b51c7f3}{id}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the stock’s unique ID. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classStockViewModel_aaf08e4f43325c19ec3d1f50ea227f0ab}{amount}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the current amount of shares for this stock. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+View\+Model class that wraps a \mbox{\hyperlink{classStock}{Stock}} object for interaction with the UI. 
+
+Provides observable access to the stock’s ID and amount, forwarding model changes to the view. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classStockViewModel_a22249d53a78ff21846970e1ad1e60d0e}\label{classStockViewModel_a22249d53a78ff21846970e1ad1e60d0e}} 
+\index{StockViewModel@{StockViewModel}!StockViewModel@{StockViewModel}}
+\index{StockViewModel@{StockViewModel}!StockViewModel@{StockViewModel}}
+\doxysubsubsection{\texorpdfstring{StockViewModel()}{StockViewModel()}}
+{\footnotesize\ttfamily Stock\+View\+Model\+::\+Stock\+View\+Model (\begin{DoxyParamCaption}\item[{QObject $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructs a \mbox{\hyperlink{classStockViewModel}{Stock\+View\+Model}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & Optional parent QObject pointer. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classStockViewModel_aaf08e4f43325c19ec3d1f50ea227f0ab}\label{classStockViewModel_aaf08e4f43325c19ec3d1f50ea227f0ab}} 
+\index{StockViewModel@{StockViewModel}!amount@{amount}}
+\index{amount@{amount}!StockViewModel@{StockViewModel}}
+\doxysubsubsection{\texorpdfstring{amount()}{amount()}}
+{\footnotesize\ttfamily int Stock\+View\+Model\+::amount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the current amount of shares for this stock. 
+
+\begin{DoxyReturn}{Returns}
+Number of shares (int). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classStockViewModel_afbc975f7c33d00aefd46fa1522835e1e}\label{classStockViewModel_afbc975f7c33d00aefd46fa1522835e1e}} 
+\index{StockViewModel@{StockViewModel}!amountChanged@{amountChanged}}
+\index{amountChanged@{amountChanged}!StockViewModel@{StockViewModel}}
+\doxysubsubsection{\texorpdfstring{amountChanged}{amountChanged}}
+{\footnotesize\ttfamily void Stock\+View\+Model\+::amount\+Changed (\begin{DoxyParamCaption}\item[{int}]{amount }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Emitted whenever the stock amount changes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & Updated number of shares. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classStockViewModel_a931d81a10566e3f0b224d9656b51c7f3}\label{classStockViewModel_a931d81a10566e3f0b224d9656b51c7f3}} 
+\index{StockViewModel@{StockViewModel}!id@{id}}
+\index{id@{id}!StockViewModel@{StockViewModel}}
+\doxysubsubsection{\texorpdfstring{id()}{id()}}
+{\footnotesize\ttfamily int Stock\+View\+Model\+::id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the stock’s unique ID. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classStock}{Stock}} ID (int). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classStockViewModel_acfca7528f5dfe0df8babfcfb567c954a}\label{classStockViewModel_acfca7528f5dfe0df8babfcfb567c954a}} 
+\index{StockViewModel@{StockViewModel}!setStock@{setStock}}
+\index{setStock@{setStock}!StockViewModel@{StockViewModel}}
+\doxysubsubsection{\texorpdfstring{setStock()}{setStock()}}
+{\footnotesize\ttfamily void Stock\+View\+Model\+::set\+Stock (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStock}{Stock}} $\ast$}]{stock }\end{DoxyParamCaption})}
+
+
+
+Associates a \mbox{\hyperlink{classStock}{Stock}} model with this View\+Model. 
+
+Connects the model’s amount\+Changed signal to this view model’s stock\+Update slot.
+
+
+\begin{DoxyParams}{Parameters}
+{\em stock} & Pointer to the \mbox{\hyperlink{classStock}{Stock}} model. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+View\+Model/\mbox{\hyperlink{stockviewmodel_8h}{stockviewmodel.\+h}}\item 
+build/\+Desktop\+\_\+\+Qt\+\_\+6\+\_\+7\+\_\+0-\/\+Profile/test2\+\_\+autogen/\+PZVFIPK5\+HQ/\mbox{\hyperlink{moc__stockviewmodel_8cpp}{moc\+\_\+stockviewmodel.\+cpp}}\item 
+View\+Model/\mbox{\hyperlink{stockviewmodel_8cpp}{stockviewmodel.\+cpp}}\end{DoxyCompactItemize}

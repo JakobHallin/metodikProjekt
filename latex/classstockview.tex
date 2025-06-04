@@ -1,0 +1,102 @@
+\hypertarget{classstockview}{}\doxysection{stockview Class Reference}
+\label{classstockview}\index{stockview@{stockview}}
+
+
+QWidget-\/based view class for displaying stock information.  
+
+
+
+
+{\ttfamily \#include $<$stockview.\+h$>$}
+
+
+
+Inheritance diagram for stockview\+:
+% FIG 0
+
+
+Collaboration diagram for stockview\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classstockview_a5af8dfa83e3cf617aaa5f5baa6f95945}{stockview}} (QWidget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructs a stockview widget. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classstockview_a967e8df74ea0facf1837e99481adf7f9}{$\sim$stockview}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for stockview. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classstockview_a71671b2899da8b2b07152ec88320ca95}{set\+Viewmodel}} (\mbox{\hyperlink{classStockViewModel}{Stock\+View\+Model}} $\ast$view\+Model)
+\begin{DoxyCompactList}\small\item\em Associates a \mbox{\hyperlink{classStockViewModel}{Stock\+View\+Model}} with this view. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classStockViewModel}{Stock\+View\+Model}} $\ast$ \mbox{\hyperlink{classstockview_a31f51747c52eacad7c01065eecbec983}{getview\+Model}} ()
+\begin{DoxyCompactList}\small\item\em Gets the associated \mbox{\hyperlink{classStockViewModel}{Stock\+View\+Model}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+QWidget-\/based view class for displaying stock information. 
+
+The stockview class displays the stock ID and current amount, and updates when the underlying \mbox{\hyperlink{classStockViewModel}{Stock\+View\+Model}} emits amount\+Changed(). 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classstockview_a5af8dfa83e3cf617aaa5f5baa6f95945}\label{classstockview_a5af8dfa83e3cf617aaa5f5baa6f95945}} 
+\index{stockview@{stockview}!stockview@{stockview}}
+\index{stockview@{stockview}!stockview@{stockview}}
+\doxysubsubsection{\texorpdfstring{stockview()}{stockview()}}
+{\footnotesize\ttfamily stockview\+::stockview (\begin{DoxyParamCaption}\item[{QWidget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructs a stockview widget. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & Optional parent QWidget pointer. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classstockview_a967e8df74ea0facf1837e99481adf7f9}\label{classstockview_a967e8df74ea0facf1837e99481adf7f9}} 
+\index{stockview@{stockview}!````~stockview@{$\sim$stockview}}
+\index{````~stockview@{$\sim$stockview}!stockview@{stockview}}
+\doxysubsubsection{\texorpdfstring{$\sim$stockview()}{~stockview()}}
+{\footnotesize\ttfamily stockview\+::$\sim$stockview (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor for stockview. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classstockview_a31f51747c52eacad7c01065eecbec983}\label{classstockview_a31f51747c52eacad7c01065eecbec983}} 
+\index{stockview@{stockview}!getviewModel@{getviewModel}}
+\index{getviewModel@{getviewModel}!stockview@{stockview}}
+\doxysubsubsection{\texorpdfstring{getviewModel()}{getviewModel()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStockViewModel}{Stock\+View\+Model}}$\ast$ stockview\+::getview\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the associated \mbox{\hyperlink{classStockViewModel}{Stock\+View\+Model}}. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the \mbox{\hyperlink{classStockViewModel}{Stock\+View\+Model}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classstockview_a71671b2899da8b2b07152ec88320ca95}\label{classstockview_a71671b2899da8b2b07152ec88320ca95}} 
+\index{stockview@{stockview}!setViewmodel@{setViewmodel}}
+\index{setViewmodel@{setViewmodel}!stockview@{stockview}}
+\doxysubsubsection{\texorpdfstring{setViewmodel()}{setViewmodel()}}
+{\footnotesize\ttfamily void stockview\+::set\+Viewmodel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStockViewModel}{Stock\+View\+Model}} $\ast$}]{view\+Model }\end{DoxyParamCaption})}
+
+
+
+Associates a \mbox{\hyperlink{classStockViewModel}{Stock\+View\+Model}} with this view. 
+
+Connects the model’s amount\+Changed signal to this view’s update slot.
+
+
+\begin{DoxyParams}{Parameters}
+{\em view\+Model} & Pointer to the \mbox{\hyperlink{classStockViewModel}{Stock\+View\+Model}}. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+View/\mbox{\hyperlink{stockview_8h}{stockview.\+h}}\item 
+View/\mbox{\hyperlink{stockview_8cpp}{stockview.\+cpp}}\end{DoxyCompactItemize}

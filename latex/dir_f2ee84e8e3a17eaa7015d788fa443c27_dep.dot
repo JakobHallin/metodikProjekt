@@ -1,0 +1,15 @@
+digraph "View" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  dir_f2ee84e8e3a17eaa7015d788fa443c27 [shape=box, label="View", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_f2ee84e8e3a17eaa7015d788fa443c27.html"];
+  dir_4fef79e7177ba769987a8da36c892c5f [shape=box label="build" fillcolor="white" style="filled" color="red" URL="dir_4fef79e7177ba769987a8da36c892c5f.html"];
+  dir_8b813a46eb1ef45602fb594223d0a80f [shape=box label="ViewModel" URL="dir_8b813a46eb1ef45602fb594223d0a80f.html"];
+  dir_b02e4219757ae4e3a0f1714873865bbf [shape=box label="classes" URL="dir_b02e4219757ae4e3a0f1714873865bbf.html"];
+  dir_f2ee84e8e3a17eaa7015d788fa443c27->dir_4fef79e7177ba769987a8da36c892c5f [headlabel="4", labeldistance=1.5 headhref="dir_000016_000000.html"];
+  dir_f2ee84e8e3a17eaa7015d788fa443c27->dir_8b813a46eb1ef45602fb594223d0a80f [headlabel="3", labeldistance=1.5 headhref="dir_000016_000017.html"];
+  dir_f2ee84e8e3a17eaa7015d788fa443c27->dir_b02e4219757ae4e3a0f1714873865bbf [headlabel="1", labeldistance=1.5 headhref="dir_000016_000015.html"];
+  dir_8b813a46eb1ef45602fb594223d0a80f->dir_b02e4219757ae4e3a0f1714873865bbf [headlabel="3", labeldistance=1.5 headhref="dir_000017_000015.html"];
+  dir_4fef79e7177ba769987a8da36c892c5f->dir_8b813a46eb1ef45602fb594223d0a80f [headlabel="3", labeldistance=1.5 headhref="dir_000000_000017.html"];
+  dir_4fef79e7177ba769987a8da36c892c5f->dir_b02e4219757ae4e3a0f1714873865bbf [headlabel="3", labeldistance=1.5 headhref="dir_000000_000015.html"];
+}

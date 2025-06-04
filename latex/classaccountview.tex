@@ -1,0 +1,109 @@
+\hypertarget{classaccountview}{}\doxysection{accountview Class Reference}
+\label{classaccountview}\index{accountview@{accountview}}
+
+
+Main window for displaying and interacting with a single \mbox{\hyperlink{classAccount}{Account}}.  
+
+
+
+
+{\ttfamily \#include $<$accountview.\+h$>$}
+
+
+
+Inheritance diagram for accountview\+:
+% FIG 0
+
+
+Collaboration diagram for accountview\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classaccountview_a1a77651d1b2604bc5223cf6567745944}{accountview}} (QWidget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructs an accountview window. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classaccountview_a564dbe7a9b6b2cfa71a60ec6bc405202}{$\sim$accountview}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for accountview. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classaccountview_a4c788481fa08e88beea9c5e9f270c103}{make\+Stockview}} ()
+\begin{DoxyCompactList}\small\item\em Creates the placeholder widget(s) for individual stock views. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classaccountview_a12ac76d2287906ba15e4a4edd4f2ec9d}{set\+Viewmodel}} (\mbox{\hyperlink{classAccountViewModel}{Account\+View\+Model}} $\ast$view\+Model)
+\begin{DoxyCompactList}\small\item\em Associates an \mbox{\hyperlink{classAccountViewModel}{Account\+View\+Model}} with this view. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classaccountview_acffa099105eb4ec5b9b011a930767f2a}{generate\+Stock\+View}} ()
+\begin{DoxyCompactList}\small\item\em Generates individual stockview widgets based on the View\+Model. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main window for displaying and interacting with a single \mbox{\hyperlink{classAccount}{Account}}. 
+
+The accountview class provides a UI that shows current stock holdings, allows buying/selling of stocks, and displays account balance updates. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classaccountview_a1a77651d1b2604bc5223cf6567745944}\label{classaccountview_a1a77651d1b2604bc5223cf6567745944}} 
+\index{accountview@{accountview}!accountview@{accountview}}
+\index{accountview@{accountview}!accountview@{accountview}}
+\doxysubsubsection{\texorpdfstring{accountview()}{accountview()}}
+{\footnotesize\ttfamily accountview\+::accountview (\begin{DoxyParamCaption}\item[{QWidget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructs an accountview window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & Optional parent QWidget pointer. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classaccountview_a564dbe7a9b6b2cfa71a60ec6bc405202}\label{classaccountview_a564dbe7a9b6b2cfa71a60ec6bc405202}} 
+\index{accountview@{accountview}!````~accountview@{$\sim$accountview}}
+\index{````~accountview@{$\sim$accountview}!accountview@{accountview}}
+\doxysubsubsection{\texorpdfstring{$\sim$accountview()}{~accountview()}}
+{\footnotesize\ttfamily accountview\+::$\sim$accountview (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor for accountview. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classaccountview_acffa099105eb4ec5b9b011a930767f2a}\label{classaccountview_acffa099105eb4ec5b9b011a930767f2a}} 
+\index{accountview@{accountview}!generateStockView@{generateStockView}}
+\index{generateStockView@{generateStockView}!accountview@{accountview}}
+\doxysubsubsection{\texorpdfstring{generateStockView()}{generateStockView()}}
+{\footnotesize\ttfamily void accountview\+::generate\+Stock\+View (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Generates individual stockview widgets based on the View\+Model. 
+
+Iterates over stock\+View\+Models and instantiates stockview objects. \mbox{\Hypertarget{classaccountview_a4c788481fa08e88beea9c5e9f270c103}\label{classaccountview_a4c788481fa08e88beea9c5e9f270c103}} 
+\index{accountview@{accountview}!makeStockview@{makeStockview}}
+\index{makeStockview@{makeStockview}!accountview@{accountview}}
+\doxysubsubsection{\texorpdfstring{makeStockview()}{makeStockview()}}
+{\footnotesize\ttfamily void accountview\+::make\+Stockview (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creates the placeholder widget(s) for individual stock views. 
+
+Sets up the layout where each stockview will be added. \mbox{\Hypertarget{classaccountview_a12ac76d2287906ba15e4a4edd4f2ec9d}\label{classaccountview_a12ac76d2287906ba15e4a4edd4f2ec9d}} 
+\index{accountview@{accountview}!setViewmodel@{setViewmodel}}
+\index{setViewmodel@{setViewmodel}!accountview@{accountview}}
+\doxysubsubsection{\texorpdfstring{setViewmodel()}{setViewmodel()}}
+{\footnotesize\ttfamily void accountview\+::set\+Viewmodel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAccountViewModel}{Account\+View\+Model}} $\ast$}]{view\+Model }\end{DoxyParamCaption})}
+
+
+
+Associates an \mbox{\hyperlink{classAccountViewModel}{Account\+View\+Model}} with this view. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em view\+Model} & Pointer to the \mbox{\hyperlink{classAccountViewModel}{Account\+View\+Model}}. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+View/\mbox{\hyperlink{accountview_8h}{accountview.\+h}}\item 
+View/\mbox{\hyperlink{accountview_8cpp}{accountview.\+cpp}}\end{DoxyCompactItemize}

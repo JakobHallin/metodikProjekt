@@ -1,0 +1,319 @@
+\hypertarget{classUser}{}\doxysection{User Class Reference}
+\label{classUser}\index{User@{User}}
+
+
+Manages a collection of accounts and stock operations for a user.  
+
+
+
+
+{\ttfamily \#include $<$User.\+class.\+h$>$}
+
+
+
+Inheritance diagram for User\+:
+% FIG 0
+
+
+Collaboration diagram for User\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classUser_a00629488eed7932eed1beeefe9598e9b}{User}} (QString user\+ID)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classUser}{User}} object with the specified user ID. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classUser_ac00b72ad64eb4149f7b21b9f5468c2b2}{$\sim$\+User}} ()
+\begin{DoxyCompactList}\small\item\em Destructor to clean up the \mbox{\hyperlink{classUser}{User}} object and associated accounts. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{classUser_a6199cdca8b942f3054d6921a2576012d}{get\+User\+ID}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the user ID. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classUser_a47901496690758bc0560d0aa55dccba4}{get\+Size}} ()
+\begin{DoxyCompactList}\small\item\em Gets the number of accounts the user owns. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classUser_a3f0f8fd9cfbf7c5c755d7f76498cadaa}{get\+Amount\+Stocks}} (int Account\+Index)
+\begin{DoxyCompactList}\small\item\em Retrieves the number of stocks in a specified account. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classUser_abcd5032d3d7279b4db977788018323db}{get\+Accounts\+Stock\+ID}} (int Account\+Index, int stock\+Index)
+\begin{DoxyCompactList}\small\item\em Gets the ID of a stock in a user\textquotesingle{}s account. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classUser_acdf95293057ac79602fa7671e24846be}{get\+Accounts\+Stock\+Amount}} (int Account\+Index, int stock\+Index)
+\begin{DoxyCompactList}\small\item\em Gets the amount of a particular stock in a user\textquotesingle{}s account. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classUser_a497d40ae25757ec56548b3bcba6fd4b1}{get\+Account\+ID}} (int index)
+\begin{DoxyCompactList}\small\item\em Gets the ID of a user\textquotesingle{}s account. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classUser_ac7e997e5ee2b6d6e65728d4fdcdc95ea}{get\+Balance}} (int index)
+\begin{DoxyCompactList}\small\item\em Retrieves the balance of a user\textquotesingle{}s account. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUser_a0abc9ff1e6ca1d3c6e616bd1e8cd34bb}{buy\+From\+Account\+Stock\+Amount}} (int Account\+Index, int Stock\+ID, int amount)
+\begin{DoxyCompactList}\small\item\em Buys a specified amount of a stock for a given account. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUser_a235ca69bad6212c8c21d1efadac15ef4}{sell\+From\+Account\+Stock\+Amount}} (int Account\+Index, int Stock\+ID, int amount)
+\begin{DoxyCompactList}\small\item\em Sells a specified amount of a stock from a given account. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUser_a95503ba23cd8de412fb4e8cacba2f28c}{add\+Account}} (\mbox{\hyperlink{classAccount}{Account}} $\ast$Add)
+\begin{DoxyCompactList}\small\item\em Adds a new account to the user. \end{DoxyCompactList}\item 
+QVector$<$ \mbox{\hyperlink{classAccount}{Account}} $\ast$ $>$ \mbox{\hyperlink{classUser_a1e520dcb2e3a8d34d25f3f5566db1a69}{get\+Accounts}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves all accounts associated with the user. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUser_a14f369967b4f6062a3b8efded6ad19a2}{change\+Balance}} (int index, float amount)
+\begin{DoxyCompactList}\small\item\em Changes the balance of a specific account. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classUser_a40a5f62291dfd275fa1becc15d44724e}{stock\+Exist}} (int id)
+\begin{DoxyCompactList}\small\item\em Checks if a stock exists across the user\textquotesingle{}s accounts. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages a collection of accounts and stock operations for a user. 
+
+The \mbox{\hyperlink{classUser}{User}} class handles multiple \mbox{\hyperlink{classAccount}{Account}} instances, identified by a unique user\+ID. It provides functionality for buying/selling stocks across accounts, checking balances, and verifying if a particular stock exists. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classUser_a00629488eed7932eed1beeefe9598e9b}\label{classUser_a00629488eed7932eed1beeefe9598e9b}} 
+\index{User@{User}!User@{User}}
+\index{User@{User}!User@{User}}
+\doxysubsubsection{\texorpdfstring{User()}{User()}}
+{\footnotesize\ttfamily User\+::\+User (\begin{DoxyParamCaption}\item[{QString}]{user\+ID }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{classUser}{User}} object with the specified user ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+ID} & Unique identifier for the user. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classUser_ac00b72ad64eb4149f7b21b9f5468c2b2}\label{classUser_ac00b72ad64eb4149f7b21b9f5468c2b2}} 
+\index{User@{User}!````~User@{$\sim$User}}
+\index{````~User@{$\sim$User}!User@{User}}
+\doxysubsubsection{\texorpdfstring{$\sim$User()}{~User()}}
+{\footnotesize\ttfamily User\+::$\sim$\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor to clean up the \mbox{\hyperlink{classUser}{User}} object and associated accounts. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classUser_a95503ba23cd8de412fb4e8cacba2f28c}\label{classUser_a95503ba23cd8de412fb4e8cacba2f28c}} 
+\index{User@{User}!addAccount@{addAccount}}
+\index{addAccount@{addAccount}!User@{User}}
+\doxysubsubsection{\texorpdfstring{addAccount()}{addAccount()}}
+{\footnotesize\ttfamily void User\+::add\+Account (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAccount}{Account}} $\ast$}]{Add }\end{DoxyParamCaption})}
+
+
+
+Adds a new account to the user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Add} & Pointer to the \mbox{\hyperlink{classAccount}{Account}} object to add. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classUser_a0abc9ff1e6ca1d3c6e616bd1e8cd34bb}\label{classUser_a0abc9ff1e6ca1d3c6e616bd1e8cd34bb}} 
+\index{User@{User}!buyFromAccountStockAmount@{buyFromAccountStockAmount}}
+\index{buyFromAccountStockAmount@{buyFromAccountStockAmount}!User@{User}}
+\doxysubsubsection{\texorpdfstring{buyFromAccountStockAmount()}{buyFromAccountStockAmount()}}
+{\footnotesize\ttfamily void User\+::buy\+From\+Account\+Stock\+Amount (\begin{DoxyParamCaption}\item[{int}]{Account\+Index,  }\item[{int}]{Stock\+ID,  }\item[{int}]{amount }\end{DoxyParamCaption})}
+
+
+
+Buys a specified amount of a stock for a given account. 
+
+Deducts the necessary funds from the account balance and updates holdings.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Account\+Index} & Index of the account. \\
+\hline
+{\em Stock\+ID} & ID of the stock. \\
+\hline
+{\em amount} & Number of stock units to buy. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classUser_a14f369967b4f6062a3b8efded6ad19a2}\label{classUser_a14f369967b4f6062a3b8efded6ad19a2}} 
+\index{User@{User}!changeBalance@{changeBalance}}
+\index{changeBalance@{changeBalance}!User@{User}}
+\doxysubsubsection{\texorpdfstring{changeBalance()}{changeBalance()}}
+{\footnotesize\ttfamily void User\+::change\+Balance (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{float}]{amount }\end{DoxyParamCaption})}
+
+
+
+Changes the balance of a specific account. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Index of the account. \\
+\hline
+{\em amount} & Amount to add (or subtract if negative). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classUser_a497d40ae25757ec56548b3bcba6fd4b1}\label{classUser_a497d40ae25757ec56548b3bcba6fd4b1}} 
+\index{User@{User}!getAccountID@{getAccountID}}
+\index{getAccountID@{getAccountID}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getAccountID()}{getAccountID()}}
+{\footnotesize\ttfamily int User\+::get\+Account\+ID (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Gets the ID of a user\textquotesingle{}s account. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Index of the account in the list. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The account ID. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUser_a1e520dcb2e3a8d34d25f3f5566db1a69}\label{classUser_a1e520dcb2e3a8d34d25f3f5566db1a69}} 
+\index{User@{User}!getAccounts@{getAccounts}}
+\index{getAccounts@{getAccounts}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getAccounts()}{getAccounts()}}
+{\footnotesize\ttfamily QVector$<$ \mbox{\hyperlink{classAccount}{Account}} $\ast$ $>$ User\+::get\+Accounts (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves all accounts associated with the user. 
+
+\begin{DoxyReturn}{Returns}
+A QVector containing pointers to \mbox{\hyperlink{classAccount}{Account}} objects. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUser_acdf95293057ac79602fa7671e24846be}\label{classUser_acdf95293057ac79602fa7671e24846be}} 
+\index{User@{User}!getAccountsStockAmount@{getAccountsStockAmount}}
+\index{getAccountsStockAmount@{getAccountsStockAmount}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getAccountsStockAmount()}{getAccountsStockAmount()}}
+{\footnotesize\ttfamily int User\+::get\+Accounts\+Stock\+Amount (\begin{DoxyParamCaption}\item[{int}]{Account\+Index,  }\item[{int}]{stock\+Index }\end{DoxyParamCaption})}
+
+
+
+Gets the amount of a particular stock in a user\textquotesingle{}s account. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Account\+Index} & Index of the account. \\
+\hline
+{\em stock\+Index} & Index of the stock within the account. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The amount of the stock. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUser_abcd5032d3d7279b4db977788018323db}\label{classUser_abcd5032d3d7279b4db977788018323db}} 
+\index{User@{User}!getAccountsStockID@{getAccountsStockID}}
+\index{getAccountsStockID@{getAccountsStockID}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getAccountsStockID()}{getAccountsStockID()}}
+{\footnotesize\ttfamily int User\+::get\+Accounts\+Stock\+ID (\begin{DoxyParamCaption}\item[{int}]{Account\+Index,  }\item[{int}]{stock\+Index }\end{DoxyParamCaption})}
+
+
+
+Gets the ID of a stock in a user\textquotesingle{}s account. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Account\+Index} & Index of the account. \\
+\hline
+{\em stock\+Index} & Index of the stock within the account. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The stock ID. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUser_a3f0f8fd9cfbf7c5c755d7f76498cadaa}\label{classUser_a3f0f8fd9cfbf7c5c755d7f76498cadaa}} 
+\index{User@{User}!getAmountStocks@{getAmountStocks}}
+\index{getAmountStocks@{getAmountStocks}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getAmountStocks()}{getAmountStocks()}}
+{\footnotesize\ttfamily int User\+::get\+Amount\+Stocks (\begin{DoxyParamCaption}\item[{int}]{Account\+Index }\end{DoxyParamCaption})}
+
+
+
+Retrieves the number of stocks in a specified account. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Account\+Index} & Index of the account in the list. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of stocks in the account. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUser_ac7e997e5ee2b6d6e65728d4fdcdc95ea}\label{classUser_ac7e997e5ee2b6d6e65728d4fdcdc95ea}} 
+\index{User@{User}!getBalance@{getBalance}}
+\index{getBalance@{getBalance}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getBalance()}{getBalance()}}
+{\footnotesize\ttfamily float User\+::get\+Balance (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Retrieves the balance of a user\textquotesingle{}s account. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Index of the account in the list. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The account balance. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUser_a47901496690758bc0560d0aa55dccba4}\label{classUser_a47901496690758bc0560d0aa55dccba4}} 
+\index{User@{User}!getSize@{getSize}}
+\index{getSize@{getSize}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}}
+{\footnotesize\ttfamily int User\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the number of accounts the user owns. 
+
+\begin{DoxyReturn}{Returns}
+The number of accounts. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUser_a6199cdca8b942f3054d6921a2576012d}\label{classUser_a6199cdca8b942f3054d6921a2576012d}} 
+\index{User@{User}!getUserID@{getUserID}}
+\index{getUserID@{getUserID}!User@{User}}
+\doxysubsubsection{\texorpdfstring{getUserID()}{getUserID()}}
+{\footnotesize\ttfamily QString User\+::get\+User\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves the user ID. 
+
+\begin{DoxyReturn}{Returns}
+The user ID as a QString. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUser_a235ca69bad6212c8c21d1efadac15ef4}\label{classUser_a235ca69bad6212c8c21d1efadac15ef4}} 
+\index{User@{User}!sellFromAccountStockAmount@{sellFromAccountStockAmount}}
+\index{sellFromAccountStockAmount@{sellFromAccountStockAmount}!User@{User}}
+\doxysubsubsection{\texorpdfstring{sellFromAccountStockAmount()}{sellFromAccountStockAmount()}}
+{\footnotesize\ttfamily void User\+::sell\+From\+Account\+Stock\+Amount (\begin{DoxyParamCaption}\item[{int}]{Account\+Index,  }\item[{int}]{Stock\+ID,  }\item[{int}]{amount }\end{DoxyParamCaption})}
+
+
+
+Sells a specified amount of a stock from a given account. 
+
+Adds the sale proceeds to the account balance and updates holdings.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Account\+Index} & Index of the account. \\
+\hline
+{\em Stock\+ID} & ID of the stock. \\
+\hline
+{\em amount} & Number of stock units to sell. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classUser_a40a5f62291dfd275fa1becc15d44724e}\label{classUser_a40a5f62291dfd275fa1becc15d44724e}} 
+\index{User@{User}!stockExist@{stockExist}}
+\index{stockExist@{stockExist}!User@{User}}
+\doxysubsubsection{\texorpdfstring{stockExist()}{stockExist()}}
+{\footnotesize\ttfamily bool User\+::stock\+Exist (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Checks if a stock exists across the user\textquotesingle{}s accounts. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The stock ID to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the stock exists, false otherwise. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+classes/\mbox{\hyperlink{User_8class_8h}{User.\+class.\+h}}\item 
+classes/\mbox{\hyperlink{User_8class_8cpp}{User.\+class.\+cpp}}\end{DoxyCompactItemize}

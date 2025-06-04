@@ -1,0 +1,138 @@
+\hypertarget{classUserViewModel}{}\doxysection{User\+View\+Model Class Reference}
+\label{classUserViewModel}\index{UserViewModel@{UserViewModel}}
+
+
+View\+Model class that connects the \mbox{\hyperlink{classUser}{User}} model to the View interface.  
+
+
+
+
+{\ttfamily \#include $<$userviewmodel.\+h$>$}
+
+
+
+Inheritance diagram for User\+View\+Model\+:
+% FIG 0
+
+
+Collaboration diagram for User\+View\+Model\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classUserViewModel_a1619de8d52b36712f0d6cbca34fe7921}{User\+View\+Model}} (QObject $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classUserViewModel}{User\+View\+Model}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classUserViewModel_ac45050033a717014a78d7df7c507ddd9}{$\sim$\+User\+View\+Model}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{classUserViewModel}{User\+View\+Model}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUserViewModel_a2135d4a5c3b3a2c907f2a8bb4841b61c}{set\+User}} (\mbox{\hyperlink{classUser}{User}} $\ast$user)
+\begin{DoxyCompactList}\small\item\em Associates a \mbox{\hyperlink{classUser}{User}} model with this View\+Model. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{classUserViewModel_a8c5542c9cd176d3ed86816e98112af9e}{get\+User\+ID}} ()
+\begin{DoxyCompactList}\small\item\em Gets the ID of the associated \mbox{\hyperlink{classUser}{User}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classUserViewModel_a89e7eab9955d60b98fa17978ba1feaea}{add\+Account\+View\+Model}} (\mbox{\hyperlink{classUser}{User}} $\ast$user)
+\begin{DoxyCompactList}\small\item\em Generates \mbox{\hyperlink{classAccountViewModel}{Account\+View\+Model}} instances from a given \mbox{\hyperlink{classUser}{User}}\textquotesingle{}s accounts. \end{DoxyCompactList}\item 
+QVector$<$ \mbox{\hyperlink{classAccountViewModel}{Account\+View\+Model}} $\ast$ $>$ \mbox{\hyperlink{classUserViewModel_aa916173cefba70d41fd10630674056fb}{get\+Account\+View\+Model}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the list of \mbox{\hyperlink{classAccountViewModel}{Account\+View\+Model}} instances. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+View\+Model class that connects the \mbox{\hyperlink{classUser}{User}} model to the View interface. 
+
+Provides access to user data and user-\/related account View\+Models. It serves as an intermediary between the \mbox{\hyperlink{classUser}{User}} model and the view layer in an MVVM architecture. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classUserViewModel_a1619de8d52b36712f0d6cbca34fe7921}\label{classUserViewModel_a1619de8d52b36712f0d6cbca34fe7921}} 
+\index{UserViewModel@{UserViewModel}!UserViewModel@{UserViewModel}}
+\index{UserViewModel@{UserViewModel}!UserViewModel@{UserViewModel}}
+\doxysubsubsection{\texorpdfstring{UserViewModel()}{UserViewModel()}}
+{\footnotesize\ttfamily User\+View\+Model\+::\+User\+View\+Model (\begin{DoxyParamCaption}\item[{QObject $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{classUserViewModel}{User\+View\+Model}} object. 
+
+Initializes with no associated \mbox{\hyperlink{classUser}{User}}. Call \mbox{\hyperlink{classUserViewModel_a2135d4a5c3b3a2c907f2a8bb4841b61c}{set\+User()}} to associate a \mbox{\hyperlink{classUser}{User}} model.
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & Optional parent QObject pointer. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classUserViewModel_ac45050033a717014a78d7df7c507ddd9}\label{classUserViewModel_ac45050033a717014a78d7df7c507ddd9}} 
+\index{UserViewModel@{UserViewModel}!````~UserViewModel@{$\sim$UserViewModel}}
+\index{````~UserViewModel@{$\sim$UserViewModel}!UserViewModel@{UserViewModel}}
+\doxysubsubsection{\texorpdfstring{$\sim$UserViewModel()}{~UserViewModel()}}
+{\footnotesize\ttfamily User\+View\+Model\+::$\sim$\+User\+View\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor for \mbox{\hyperlink{classUserViewModel}{User\+View\+Model}}. 
+
+Cleans up any allocated \mbox{\hyperlink{classAccountViewModel}{Account\+View\+Model}} objects. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classUserViewModel_a89e7eab9955d60b98fa17978ba1feaea}\label{classUserViewModel_a89e7eab9955d60b98fa17978ba1feaea}} 
+\index{UserViewModel@{UserViewModel}!addAccountViewModel@{addAccountViewModel}}
+\index{addAccountViewModel@{addAccountViewModel}!UserViewModel@{UserViewModel}}
+\doxysubsubsection{\texorpdfstring{addAccountViewModel()}{addAccountViewModel()}}
+{\footnotesize\ttfamily void User\+View\+Model\+::add\+Account\+View\+Model (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{user }\end{DoxyParamCaption})}
+
+
+
+Generates \mbox{\hyperlink{classAccountViewModel}{Account\+View\+Model}} instances from a given \mbox{\hyperlink{classUser}{User}}\textquotesingle{}s accounts. 
+
+Clears any existing Account\+View\+Models and creates new ones based on the \mbox{\hyperlink{classUser}{User}} model.
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & Pointer to a \mbox{\hyperlink{classUser}{User}} object whose accounts will be used. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classUserViewModel_aa916173cefba70d41fd10630674056fb}\label{classUserViewModel_aa916173cefba70d41fd10630674056fb}} 
+\index{UserViewModel@{UserViewModel}!getAccountViewModel@{getAccountViewModel}}
+\index{getAccountViewModel@{getAccountViewModel}!UserViewModel@{UserViewModel}}
+\doxysubsubsection{\texorpdfstring{getAccountViewModel()}{getAccountViewModel()}}
+{\footnotesize\ttfamily QVector$<$\mbox{\hyperlink{classAccountViewModel}{Account\+View\+Model}}$\ast$$>$ User\+View\+Model\+::get\+Account\+View\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves the list of \mbox{\hyperlink{classAccountViewModel}{Account\+View\+Model}} instances. 
+
+\begin{DoxyReturn}{Returns}
+A QVector of pointers to \mbox{\hyperlink{classAccountViewModel}{Account\+View\+Model}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUserViewModel_a8c5542c9cd176d3ed86816e98112af9e}\label{classUserViewModel_a8c5542c9cd176d3ed86816e98112af9e}} 
+\index{UserViewModel@{UserViewModel}!getUserID@{getUserID}}
+\index{getUserID@{getUserID}!UserViewModel@{UserViewModel}}
+\doxysubsubsection{\texorpdfstring{getUserID()}{getUserID()}}
+{\footnotesize\ttfamily QString User\+View\+Model\+::get\+User\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the ID of the associated \mbox{\hyperlink{classUser}{User}}. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classUser}{User}} ID as a QString. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classUserViewModel_a2135d4a5c3b3a2c907f2a8bb4841b61c}\label{classUserViewModel_a2135d4a5c3b3a2c907f2a8bb4841b61c}} 
+\index{UserViewModel@{UserViewModel}!setUser@{setUser}}
+\index{setUser@{setUser}!UserViewModel@{UserViewModel}}
+\doxysubsubsection{\texorpdfstring{setUser()}{setUser()}}
+{\footnotesize\ttfamily void User\+View\+Model\+::set\+User (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUser}{User}} $\ast$}]{user }\end{DoxyParamCaption})}
+
+
+
+Associates a \mbox{\hyperlink{classUser}{User}} model with this View\+Model. 
+
+Populates account\+View\+Models by creating an \mbox{\hyperlink{classAccountViewModel}{Account\+View\+Model}} for each of the User’s accounts.
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & Pointer to a \mbox{\hyperlink{classUser}{User}} object whose data will be exposed. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+View\+Model/\mbox{\hyperlink{userviewmodel_8h}{userviewmodel.\+h}}\item 
+View\+Model/\mbox{\hyperlink{userviewmodel_8cpp}{userviewmodel.\+cpp}}\end{DoxyCompactItemize}

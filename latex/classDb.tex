@@ -1,0 +1,50 @@
+\hypertarget{classDb}{}\doxysection{Db Class Reference}
+\label{classDb}\index{Db@{Db}}
+
+
+Manages the application\textquotesingle{}s connection to the database.  
+
+
+
+
+{\ttfamily \#include $<$Db.\+class.\+h$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static QSql\+Database \mbox{\hyperlink{classDb_a08b0cae4e7a732c0701def8d13487b35}{get\+Connection}} ()
+\begin{DoxyCompactList}\small\item\em Returns a reference to the application\textquotesingle{}s database connection. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages the application\textquotesingle{}s connection to the database. 
+
+The \mbox{\hyperlink{classDb}{Db}} class provides a static method to access a singleton-\/like database connection, initializing it once when first requested.
+
+\begin{DoxyNote}{Note}
+Uses Qt\textquotesingle{}s QSql\+Database for database interactions. 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDb_a08b0cae4e7a732c0701def8d13487b35}\label{classDb_a08b0cae4e7a732c0701def8d13487b35}} 
+\index{Db@{Db}!getConnection@{getConnection}}
+\index{getConnection@{getConnection}!Db@{Db}}
+\doxysubsubsection{\texorpdfstring{getConnection()}{getConnection()}}
+{\footnotesize\ttfamily QSql\+Database Db\+::get\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Returns a reference to the application\textquotesingle{}s database connection. 
+
+If the connection has not been initialized, it will initialize it first.
+
+\begin{DoxyReturn}{Returns}
+QSql\+Database The configured database connection. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+classes/\mbox{\hyperlink{Db_8class_8h}{Db.\+class.\+h}}\item 
+classes/\mbox{\hyperlink{Db_8class_8cpp}{Db.\+class.\+cpp}}\end{DoxyCompactItemize}

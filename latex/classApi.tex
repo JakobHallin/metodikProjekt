@@ -1,0 +1,48 @@
+\hypertarget{classApi}{}\doxysection{Api Class Reference}
+\label{classApi}\index{Api@{Api}}
+
+
+Provides access to external data such as stock prices.  
+
+
+
+
+{\ttfamily \#include $<$Api.\+class.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classApi_a1acb9b79317a50973d4f50ec3e8e66fc}{get\+Price}} (QString short\+Name)
+\begin{DoxyCompactList}\small\item\em Retrieves the price for a given stock symbol. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides access to external data such as stock prices. 
+
+The \mbox{\hyperlink{classApi}{Api}} class simulates or wraps access to an external API. Currently, it provides a method to retrieve a stock price based on a short name. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classApi_a1acb9b79317a50973d4f50ec3e8e66fc}\label{classApi_a1acb9b79317a50973d4f50ec3e8e66fc}} 
+\index{Api@{Api}!getPrice@{getPrice}}
+\index{getPrice@{getPrice}!Api@{Api}}
+\doxysubsubsection{\texorpdfstring{getPrice()}{getPrice()}}
+{\footnotesize\ttfamily int Api\+::get\+Price (\begin{DoxyParamCaption}\item[{QString}]{short\+Name }\end{DoxyParamCaption})}
+
+
+
+Retrieves the price for a given stock symbol. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em short\+Name} & The stock symbol (e.\+g., \char`\"{}\+AAPL\char`\"{}, \char`\"{}\+GOOGL\char`\"{}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The price as an integer (e.\+g., cents or unitless simulation). 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+classes/\mbox{\hyperlink{Api_8class_8h}{Api.\+class.\+h}}\item 
+classes/\mbox{\hyperlink{Api_8class_8cpp}{Api.\+class.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,34 @@
+\hypertarget{main_8cpp}{}\doxysection{main.\+cpp File Reference}
+\label{main_8cpp}\index{main.cpp@{main.cpp}}
+{\ttfamily \#include \char`\"{}View/mainwindow.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}classes/\+User.\+class.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}View/userview.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}classes/\+Stock.\+class.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}classes/\+Account.\+class.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}View\+Model/accountviewmodel.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}View\+Model/userviewmodel.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}View/accountview.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}View/stockview.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$QSql\+Database$>$}\newline
+{\ttfamily \#include $<$QSql\+Query$>$}\newline
+{\ttfamily \#include $<$QSql\+Error$>$}\newline
+{\ttfamily \#include $<$QDebug$>$}\newline
+{\ttfamily \#include $<$QApplication$>$}\newline
+{\ttfamily \#include $<$QText\+Stream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+Include dependency graph for main.\+cpp\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+

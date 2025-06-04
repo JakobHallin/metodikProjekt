@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 13.0.0, 2024-04-19T11:51:58. -->
+<!-- Written by QtCreator 13.0.0, 2025-06-04T15:41:36. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -80,27 +80,27 @@
     <value type="bool" key="ClangTools.PreferConfigFile">true</value>
     <valuelist type="QVariantList" key="ClangTools.SelectedDirs"/>
     <valuelist type="QVariantList" key="ClangTools.SelectedFiles">
+     <value type="QString">/home/jakob/test2/classes/Stock.class.h</value>
+     <value type="QString">/home/jakob/test2/ViewModel/stockviewmodel.h</value>
+     <value type="QString">/home/jakob/test2/View/accountview.cpp</value>
+     <value type="QString">/home/jakob/test2/View/mainwindow.h</value>
+     <value type="QString">/home/jakob/test2/classes/Sql.class.cpp</value>
+     <value type="QString">/home/jakob/test2/main.cpp</value>
+     <value type="QString">/home/jakob/test2/View/accountview.h</value>
+     <value type="QString">/home/jakob/test2/classes/Account.class.h</value>
+     <value type="QString">/home/jakob/test2/View/mainwindow.cpp</value>
+     <value type="QString">/home/jakob/test2/classes/Stock.class.cpp</value>
+     <value type="QString">/home/jakob/test2/View/stockview.h</value>
+     <value type="QString">/home/jakob/test2/classes/Api.class.cpp</value>
      <value type="QString">/home/jakob/test2/View/stockview.cpp</value>
      <value type="QString">/home/jakob/test2/ViewModel/accountviewmodel.cpp</value>
      <value type="QString">/home/jakob/test2/ViewModel/stockviewmodel.cpp</value>
-     <value type="QString">/home/jakob/test2/classes/Api.class.cpp</value>
-     <value type="QString">/home/jakob/test2/classes/Db.class.h</value>
-     <value type="QString">/home/jakob/test2/classes/Db.class.cpp</value>
-     <value type="QString">/home/jakob/test2/classes/Account.class.cpp</value>
+     <value type="QString">/home/jakob/test2/ViewModel/accountviewmodel.h</value>
      <value type="QString">/home/jakob/test2/classes/Sql.class.h</value>
      <value type="QString">/home/jakob/test2/classes/Api.class.h</value>
-     <value type="QString">/home/jakob/test2/ViewModel/accountviewmodel.h</value>
-     <value type="QString">/home/jakob/test2/main.cpp</value>
-     <value type="QString">/home/jakob/test2/classes/Sql.class.cpp</value>
-     <value type="QString">/home/jakob/test2/View/accountview.h</value>
-     <value type="QString">/home/jakob/test2/ViewModel/stockviewmodel.h</value>
-     <value type="QString">/home/jakob/test2/classes/Stock.class.h</value>
-     <value type="QString">/home/jakob/test2/View/accountview.cpp</value>
-     <value type="QString">/home/jakob/test2/View/mainwindow.h</value>
-     <value type="QString">/home/jakob/test2/View/mainwindow.cpp</value>
-     <value type="QString">/home/jakob/test2/View/stockview.h</value>
-     <value type="QString">/home/jakob/test2/classes/Stock.class.cpp</value>
-     <value type="QString">/home/jakob/test2/classes/Account.class.h</value>
+     <value type="QString">/home/jakob/test2/classes/Db.class.cpp</value>
+     <value type="QString">/home/jakob/test2/classes/Db.class.h</value>
+     <value type="QString">/home/jakob/test2/classes/Account.class.cpp</value>
     </valuelist>
     <valuelist type="QVariantList" key="ClangTools.SuppressedDiagnostics"/>
     <value type="bool" key="ClangTools.UseGlobalSettings">true</value>

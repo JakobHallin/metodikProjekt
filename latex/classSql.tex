@@ -1,0 +1,126 @@
+\hypertarget{classSql}{}\doxysection{Sql Class Reference}
+\label{classSql}\index{Sql@{Sql}}
+
+
+Provides simplified access to executing and preparing SQL queries using Qt\textquotesingle{}s SQL module.  
+
+
+
+
+{\ttfamily \#include $<$Sql.\+class.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+QSql\+Query \mbox{\hyperlink{classSql_a3c9379a1e1b3c9b30fe7fc0a72d807d0}{execute}} (const QString \&sql)
+\begin{DoxyCompactList}\small\item\em Executes a raw SQL query. \end{DoxyCompactList}\item 
+QSql\+Query \mbox{\hyperlink{classSql_a3e718077f072bfbf9eb4bb7ce5ee190c}{prepare\+Statement}} (const QString \&sql)
+\begin{DoxyCompactList}\small\item\em Prepares a SQL statement for parameter binding. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{classSql_a75d189eb965933883e155fabd28a72a2}{bind}} (QSql\+Query \&stmt, const QString \&index, const T \&value)
+\begin{DoxyCompactList}\small\item\em Binds a value to a named placeholder in a prepared statement. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{classSql_adcd43bd6a517b3d322d88660d0c491ac}{insert}} (const QString \&sql, T t1, T t2, T t3)
+\begin{DoxyCompactList}\small\item\em Inserts three values into a table using a parameterized query. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides simplified access to executing and preparing SQL queries using Qt\textquotesingle{}s SQL module. 
+
+The \mbox{\hyperlink{classSql}{Sql}} class offers methods for executing raw SQL, preparing parameterized statements, binding values generically, and performing templated inserts. It uses the connection from \mbox{\hyperlink{classDb}{Db}}. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSql_a75d189eb965933883e155fabd28a72a2}\label{classSql_a75d189eb965933883e155fabd28a72a2}} 
+\index{Sql@{Sql}!bind@{bind}}
+\index{bind@{bind}!Sql@{Sql}}
+\doxysubsubsection{\texorpdfstring{bind()}{bind()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void Sql\+::bind (\begin{DoxyParamCaption}\item[{QSql\+Query \&}]{stmt,  }\item[{const QString \&}]{index,  }\item[{const T \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Binds a value to a named placeholder in a prepared statement. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the value to bind. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em stmt} & The prepared QSql\+Query. \\
+\hline
+{\em index} & The placeholder name (e.\+g., \char`\"{}\+:param1\char`\"{}). \\
+\hline
+{\em value} & The value to bind. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSql_a3c9379a1e1b3c9b30fe7fc0a72d807d0}\label{classSql_a3c9379a1e1b3c9b30fe7fc0a72d807d0}} 
+\index{Sql@{Sql}!execute@{execute}}
+\index{execute@{execute}!Sql@{Sql}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily QSql\+Query Sql\+::execute (\begin{DoxyParamCaption}\item[{const QString \&}]{sql }\end{DoxyParamCaption})}
+
+
+
+Executes a raw SQL query. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sql} & The SQL string to execute. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+QSql\+Query The result of the executed query. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSql_adcd43bd6a517b3d322d88660d0c491ac}\label{classSql_adcd43bd6a517b3d322d88660d0c491ac}} 
+\index{Sql@{Sql}!insert@{insert}}
+\index{insert@{insert}!Sql@{Sql}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void Sql\+::insert (\begin{DoxyParamCaption}\item[{const QString \&}]{sql,  }\item[{T}]{t1,  }\item[{T}]{t2,  }\item[{T}]{t3 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inserts three values into a table using a parameterized query. 
+
+The SQL query should include placeholders {\ttfamily \+:param1}, {\ttfamily \+:param2}, and {\ttfamily \+:param3}.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of all three values (must be the same). \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em sql} & The SQL insert statement. \\
+\hline
+{\em t1} & First value to insert. \\
+\hline
+{\em t2} & Second value to insert. \\
+\hline
+{\em t3} & Third value to insert. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSql_a3e718077f072bfbf9eb4bb7ce5ee190c}\label{classSql_a3e718077f072bfbf9eb4bb7ce5ee190c}} 
+\index{Sql@{Sql}!prepareStatement@{prepareStatement}}
+\index{prepareStatement@{prepareStatement}!Sql@{Sql}}
+\doxysubsubsection{\texorpdfstring{prepareStatement()}{prepareStatement()}}
+{\footnotesize\ttfamily QSql\+Query Sql\+::prepare\+Statement (\begin{DoxyParamCaption}\item[{const QString \&}]{sql }\end{DoxyParamCaption})}
+
+
+
+Prepares a SQL statement for parameter binding. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sql} & The SQL statement with placeholders (e.\+g., \char`\"{}\+:param1\char`\"{}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+QSql\+Query The prepared query object. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+classes/\mbox{\hyperlink{Sql_8class_8h}{Sql.\+class.\+h}}\item 
+classes/\mbox{\hyperlink{Sql_8class_8cpp}{Sql.\+class.\+cpp}}\end{DoxyCompactItemize}
