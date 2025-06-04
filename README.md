@@ -28,11 +28,9 @@ AllStocks
 Login interface for entering a username and accessing user-specific data 
 Password is not required but is a feature that could be implemented
 
-![Screenshot from 2025-06-04 19-20-58](https://github.com/user-attachments/assets/e3d3ed95-8d8a-4456-a277-ce50021d932d)
+<p align="center"> <img src="https://github.com/user-attachments/assets/8cda8714-234c-4862-8b64-7ac6235c7c0d" alt="Login Window" width="400" height="300"/> </p>
 <h3> After login</h3>
-
-![Screenshot from 2025-06-04 18-26-15](https://github.com/user-attachments/assets/8cda8714-234c-4862-8b64-7ac6235c7c0d)
-
+<p align="center"><img src="https://github.com/user-attachments/assets/e3d3ed95-8d8a-4456-a277-ce50021d932d" alt="After Login UI" width="500" height="300"/> </p>
 Displays selected user’s account info, stock portfolio, and allows buy/sell operations.
 Scrollable area for multiple stock entries.
 Each stock shows its ID and current amount.
