@@ -1,0 +1,39 @@
+# Build output
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.ninja
+.ninja_*
+
+# Qt Creator
+*.pro.user
+*.pro.user.*
+.qtc/
+.qt/
+
+# Compiled files
+*.o
+*.obj
+*.exe
+*.out
+*.app
+*.so
+*.dll
+*.dylib
+
+# Generated Doxygen documentation
+html/
+latex/
+
+# Profiling / debug output
+callgrind.out.*
+*.log
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
