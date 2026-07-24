@@ -14,6 +14,7 @@ Makefile
 .qtc/
 .qt/
 CMakeLists.txt.user
+main.cpp.autosave
 
 # Compiled files
 *.o
@@ -24,6 +25,8 @@ CMakeLists.txt.user
 *.so
 *.dll
 *.dylib
+
+
 
 # Generated Doxygen documentation
 html/
